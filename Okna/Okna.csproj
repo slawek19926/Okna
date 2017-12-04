@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CFDF3DF4-C40A-4B20-965F-9A9D54C25178}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Okna</RootNamespace>
+    <AssemblyName>Okna</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Background</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>//gateway/inetpub/aplikacja/</InstallUrl>
+    <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Okna.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>OknaInfo.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>75B297479AFDB335304B443ACCC89F66A992A926</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Okna_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AlanJuden.MvcReportViewer">
+      <HintPath>..\..\..\..\..\Desktop\Program_WEKTOR\packages\AlanJuden.MvcReportViewer.1.0.9\lib\net452\AlanJuden.MvcReportViewer.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu_UI_v1.52">
+      <HintPath>..\..\..\..\..\Desktop\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="FirebirdSql.Data.FirebirdClient, Version=6.0.0.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
+      <HintPath>..\packages\FirebirdSql.Data.FirebirdClient.6.0.0-alpha2\lib\net452\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="LiczbyNaSlowaNET, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiczbyNaSlowaNET.dll.1.0.1\lib\net40\LiczbyNaSlowaNET.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80-rc\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.WinForms.12.0.2402.15\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\Program_WEKTOR\bin\Release\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=3.2.4.1, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.3.2.4.1\lib\net451\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="createUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="createUser.Designer.cs">
+      <DependentUpon>createUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="finanse\faktury.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="finanse\faktury.Designer.cs">
+      <DependentUpon>faktury.cs</DependentUpon>
+    </Compile>
+    <Compile Include="finanse\fakt_det.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="finanse\fakt_det.Designer.cs">
+      <DependentUpon>fakt_det.cs</DependentUpon>
+    </Compile>
+    <Compile Include="finanse\fb_faktury.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="finanse\fb_faktury.Designer.cs">
+      <DependentUpon>fb_faktury.cs</DependentUpon>
+    </Compile>
+    <Compile Include="finanse\klienci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="finanse\klienci.Designer.cs">
+      <DependentUpon>klienci.cs</DependentUpon>
+    </Compile>
+    <Compile Include="finanse\towarAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="finanse\towarAdd.Designer.cs">
+      <DependentUpon>towarAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formatowanie.cs" />
+    <Compile Include="formsy\add_product.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formsy\add_product.Designer.cs">
+      <DependentUpon>add_product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formsy\druk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formsy\druk.Designer.cs">
+      <DependentUpon>druk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formsy\edit_towar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formsy\edit_towar.Designer.cs">
+      <DependentUpon>edit_towar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formsy\klients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formsy\klients.Designer.cs">
+      <DependentUpon>klients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formsy\settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formsy\settings.Designer.cs">
+      <DependentUpon>settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formsy\INIFile.cs" />
+    <Compile Include="formsy\statusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formsy\statusForm.Designer.cs">
+      <DependentUpon>statusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formsy\wyceny_detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formsy\wyceny_detail.Designer.cs">
+      <DependentUpon>wyceny_detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formsy\zam_detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formsy\zam_detail.Designer.cs">
+      <DependentUpon>zam_detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="logedError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="logedError.Designer.cs">
+      <DependentUpon>logedError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MossieButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="okucia\detailPROD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="okucia\detailPROD.Designer.cs">
+      <DependentUpon>detailPROD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="okucia\katalog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="okucia\katalog.Designer.cs">
+      <DependentUpon>katalog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produkcja\prod_zlec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="produkcja\prod_zlec.Designer.cs">
+      <DependentUpon>prod_zlec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="produkcja\zlec_det.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="produkcja\zlec_det.Designer.cs">
+      <DependentUpon>zlec_det.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="formsy\wycena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formsy\wycena.Designer.cs">
+      <DependentUpon>wycena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formsy\wyceny.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formsy\wyceny.Designer.cs">
+      <DependentUpon>wyceny.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formsy\zamowienia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formsy\zamowienia.Designer.cs">
+      <DependentUpon>zamowienia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="test\newWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="test\newWindow.Designer.cs">
+      <DependentUpon>newWindow.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="createUser.resx">
+      <DependentUpon>createUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="finanse\faktury.resx">
+      <DependentUpon>faktury.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="finanse\fakt_det.resx">
+      <DependentUpon>fakt_det.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="finanse\fb_faktury.resx">
+      <DependentUpon>fb_faktury.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="finanse\klienci.resx">
+      <DependentUpon>klienci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="finanse\towarAdd.resx">
+      <DependentUpon>towarAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formsy\add_product.resx">
+      <DependentUpon>add_product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formsy\druk.resx">
+      <DependentUpon>druk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formsy\edit_towar.resx">
+      <DependentUpon>edit_towar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formsy\klients.resx">
+      <DependentUpon>klients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formsy\settings.resx">
+      <DependentUpon>settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formsy\statusForm.resx">
+      <DependentUpon>statusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formsy\wyceny.resx">
+      <DependentUpon>wyceny.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formsy\wyceny_detail.resx">
+      <DependentUpon>wyceny_detail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formsy\zamowienia.resx">
+      <DependentUpon>zamowienia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formsy\zam_detail.resx">
+      <DependentUpon>zam_detail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="logedError.resx">
+      <DependentUpon>logedError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="okucia\detailPROD.resx">
+      <DependentUpon>detailPROD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="okucia\katalog.resx">
+      <DependentUpon>katalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produkcja\prod_zlec.resx">
+      <DependentUpon>prod_zlec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="produkcja\zlec_det.resx">
+      <DependentUpon>zlec_det.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="formsy\wycena.resx">
+      <DependentUpon>wycena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report.rdlc" />
+    <EmbeddedResource Include="test\newWindow.resx">
+      <DependentUpon>newWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="OknaInfo.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Okna_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <Content Include="MetroFramework.txt" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="users_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>users.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="style\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 i x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
