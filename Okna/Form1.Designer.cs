@@ -339,12 +339,12 @@
         private System.Windows.Forms.ToolStripMenuItem kontrahenciToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nowaFakturaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fbFakturyToolStripMenuItem;
-        private System.Windows.Forms.Label logged;
         private System.Windows.Forms.ToolStripMenuItem narzędziaAdministratorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stwórzUżytkownikaToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem rabatyToolStripMenuItem;
+        public System.Windows.Forms.Label logged;
     }
 }
 

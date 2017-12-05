@@ -133,9 +133,9 @@ namespace Okna.okucia
                     decimal vat = Decimal.Parse("1,23");
                     decimal narzut = Decimal.Parse("1,2");
                     decimal netto = Decimal.Parse(rdr[3].ToString());
-                    decimal brutto = Math.Round(netto * vat, 2);
-                    decimal detaln = Math.Round(netto * narzut, 2);
-                    decimal brutton = Math.Round(detaln * vat, 2);
+                    //decimal brutto = Math.Round(netto * vat, 2);
+                    //decimal detaln = Math.Round(netto * narzut, 2);
+                    //decimal brutton = Math.Round(detaln * vat, 2);
                     decimal r = Decimal.Parse(rdr[8].ToString());
                     decimal zakupN = Math.Round(netto - (netto * (r / 100)), 2);
                     decimal zakupB = Math.Round(zakupN * vat, 2);
@@ -172,7 +172,23 @@ namespace Okna.okucia
                     dataGridView1.Columns[6].Visible = false;
                     dataGridView1.Columns[7].Visible = false;
                 }
-                
+
+                if (Form1.logged.Text == "wektor")
+                {
+                    button1.Enabled = true;
+                }
+                else
+                {
+                    button1.Text = "Ceny dla klienta";
+                    Text = "Katalog okuć - tryb klienta";
+                    t.Start();
+                    on = false;
+                    dataGridView1.Columns[3].Visible = false;
+                    dataGridView1.Columns[5].Visible = false;
+                    dataGridView1.Columns[6].Visible = true;
+                    dataGridView1.Columns[7].Visible = true;
+                    button1.Enabled = false;
+                }
                 //for (int i = 0; i < dataGridView1.Columns.Count - 1; i++)
                 //{
                 //    dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
