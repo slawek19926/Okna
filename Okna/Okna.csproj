@@ -314,6 +314,12 @@
     <Compile Include="okucia\katalog.Designer.cs">
       <DependentUpon>katalog.cs</DependentUpon>
     </Compile>
+    <Compile Include="print\printDial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="print\printDial.Designer.cs">
+      <DependentUpon>printDial.cs</DependentUpon>
+    </Compile>
     <Compile Include="produkcja\prod_zlec.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -431,6 +437,10 @@
     <EmbeddedResource Include="okucia\katalog.resx">
       <DependentUpon>katalog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="print\printDial.resx">
+      <DependentUpon>printDial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="print\printWycena.rdlc" />
     <EmbeddedResource Include="produkcja\prod_zlec.resx">
       <DependentUpon>prod_zlec.cs</DependentUpon>
     </EmbeddedResource>
