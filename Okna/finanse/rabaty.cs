@@ -19,7 +19,7 @@ namespace Okna.finanse
         public rabaty()
         {
             InitializeComponent();
-            Text = "Edycja rabatów";
+            Text = "Edycja grup rabatowych";
 
             dt.Columns.Add("Lp");
             dt.Columns.Add("Symbol");
