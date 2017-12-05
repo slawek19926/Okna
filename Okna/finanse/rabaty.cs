@@ -104,5 +104,33 @@ namespace Okna.finanse
             editRabat frm = new editRabat(this);
             frm.Show();
         }
+
+        private void addBTN_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void delBTN_Click(object sender, EventArgs e)
+        {
+            var MyIni = new INIFile("WektorSettings.ini");
+            server = MyIni.Read("server", "Okna");
+            database = MyIni.Read("database", "Okna");
+            uid = MyIni.Read("login", "Okna");
+            password = Decrypt(MyIni.Read("pass", "Okna"));
+
+            string connectionString;
+            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";" + "Convert Zero Datetime = True;";
+            MySqlConnection conn = new MySqlConnection();
+            conn.ConnectionString = connectionString;
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand("DELETE FROM rabaty WHERE id='" + dataGridView1.CurrentRow.Cells[0].Value + "'");
+
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Rekord został usunięty");
+
+            conn.Close();
+        }
     }
 }

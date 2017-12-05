@@ -189,11 +189,9 @@ namespace Okna
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            using (TextReader reader = File.OpenText(path))
-            {
-                string z = reader.ReadLine();
-                logged.Text = z.ToString(); 
-            }
+            var MyIni = new INIFile("WektorSettings.ini");
+            logged.Text = MyIni.Read("user", "logged");
+            
             try
             {
                 db_connection();

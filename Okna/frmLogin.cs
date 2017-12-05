@@ -127,14 +127,10 @@ namespace Okna
                     if (l == "1")
                     {
                         MessageBox.Show("Zalogowano pomyślnie","Sukces",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                        if (File.Exists(path))
-                        {
-                            using (var tw = new StreamWriter(path, true))
-                            {
-                                tw.WriteLine(user);
-                                tw.Close();
-                            }
-                        }
+
+                        var MyIni = new INIFile("WektorSettings.ini");
+                        MyIni.Write("user", user, "logged");
+                        
                         Close();
                     }
                     else

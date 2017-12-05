@@ -30,6 +30,8 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.editRabat = new System.Windows.Forms.Button();
+            this.addBTN = new System.Windows.Forms.Button();
+            this.delBTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,11 +65,33 @@
             this.editRabat.UseVisualStyleBackColor = true;
             this.editRabat.Click += new System.EventHandler(this.editRabat_Click);
             // 
+            // addBTN
+            // 
+            this.addBTN.Location = new System.Drawing.Point(224, 429);
+            this.addBTN.Name = "addBTN";
+            this.addBTN.Size = new System.Drawing.Size(135, 46);
+            this.addBTN.TabIndex = 2;
+            this.addBTN.Text = "Dodaj";
+            this.addBTN.UseVisualStyleBackColor = true;
+            this.addBTN.Click += new System.EventHandler(this.addBTN_Click);
+            // 
+            // delBTN
+            // 
+            this.delBTN.Location = new System.Drawing.Point(365, 429);
+            this.delBTN.Name = "delBTN";
+            this.delBTN.Size = new System.Drawing.Size(135, 46);
+            this.delBTN.TabIndex = 3;
+            this.delBTN.Text = "Usuń";
+            this.delBTN.UseVisualStyleBackColor = true;
+            this.delBTN.Click += new System.EventHandler(this.delBTN_Click);
+            // 
             // rabaty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 487);
+            this.Controls.Add(this.delBTN);
+            this.Controls.Add(this.addBTN);
             this.Controls.Add(this.editRabat);
             this.Controls.Add(this.dataGridView1);
             this.Name = "rabaty";
@@ -82,5 +106,7 @@
         #endregion
         private System.Windows.Forms.Button editRabat;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button addBTN;
+        private System.Windows.Forms.Button delBTN;
     }
 }
