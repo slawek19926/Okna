@@ -104,6 +104,7 @@
             this.idN.Size = new System.Drawing.Size(35, 13);
             this.idN.TabIndex = 7;
             this.idN.Text = "label4";
+            this.idN.Visible = false;
             // 
             // editRabat
             // 
