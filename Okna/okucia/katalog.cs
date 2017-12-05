@@ -104,7 +104,7 @@ namespace Okna.okucia
                 conn.ConnectionString = connectionString;
 
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT a.id,a.reference,a.nazwa,a.cena,a.grupa,a.system,a.opis,b.ref FROM cenniki a " +
+                MySqlCommand cmd = new MySqlCommand("SELECT a.id,a.reference,a.nazwa,a.cena,a.grupa,a.system,a.opis,b.ref,a.rabat FROM cenniki a " +
                     "LEFT JOIN rabaty b ON (b.id = a.gr) ORDER BY id ASC", conn);
 
                 MySqlDataReader rdr = cmd.ExecuteReader();
@@ -136,15 +136,20 @@ namespace Okna.okucia
                     decimal brutto = Math.Round(netto * vat, 2);
                     decimal detaln = Math.Round(netto * narzut, 2);
                     decimal brutton = Math.Round(detaln * vat, 2);
+                    decimal r = Decimal.Parse(rdr[8].ToString());
+                    decimal zakupN = Math.Round(netto - (netto * (r / 100)), 2);
+                    decimal zakupB = Math.Round(zakupN * vat, 2);
+                    decimal klientN = Math.Round(zakupN * narzut, 2);
+                    decimal klientB = Math.Round(klientN * vat, 2);
 
                     row[0] = rdr[0];
                     row[1] = rdr[1];
                     row[2] = rdr[2];
-                    row[3] = string.Format("{0:c}",rdr[3]);
+                    row[3] = string.Format("{0:c}",zakupN);
                     row[4] = rdr[4];
-                    row[5] = string.Format("{0:c}", brutto);
-                    row[6] = string.Format("{0:c}", detaln);
-                    row[7] = string.Format("{0:c}", brutton);
+                    row[5] = string.Format("{0:c}", zakupB);
+                    row[6] = string.Format("{0:c}", klientN);
+                    row[7] = string.Format("{0:c}", klientB);
                     row[8] = rdr[5];
                     row[9] = rdr[6];
                     row[10] = rdr[7];
