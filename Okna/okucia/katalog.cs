@@ -104,7 +104,8 @@ namespace Okna.okucia
                 conn.ConnectionString = connectionString;
 
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT id,reference,nazwa,cena,grupa,system,opis FROM cenniki ORDER BY id ASC", conn);
+                MySqlCommand cmd = new MySqlCommand("SELECT a.id,a.reference,a.nazwa,a.cena,a.grupa,a.system,a.opis,b.ref FROM cenniki a " +
+                    "LEFT JOIN rabaty b ON (b.id = a.gr) ORDER BY id ASC", conn);
 
                 MySqlDataReader rdr = cmd.ExecuteReader();
                
@@ -118,6 +119,7 @@ namespace Okna.okucia
                 dt.Columns.Add("Detal brutto");
                 dt.Columns.Add("System");
                 dt.Columns.Add("Opis");
+                dt.Columns.Add("G rab");
 
                 Bitmap b = new Bitmap(50, 15);
                 using(Graphics g = Graphics.FromImage(b))
@@ -145,6 +147,7 @@ namespace Okna.okucia
                     row[7] = string.Format("{0:c}", brutton);
                     row[8] = rdr[5];
                     row[9] = rdr[6];
+                    row[10] = rdr[7];
 
                     dt.Rows.Add(row);
                 }

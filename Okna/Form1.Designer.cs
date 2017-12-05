@@ -56,6 +56,7 @@
             this.logged = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.label1 = new System.Windows.Forms.Label();
+            this.rabatyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -217,6 +218,8 @@
             // 
             // konfiguracjaPodstawowaToolStripMenuItem
             // 
+            this.konfiguracjaPodstawowaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rabatyToolStripMenuItem});
             this.konfiguracjaPodstawowaToolStripMenuItem.Name = "konfiguracjaPodstawowaToolStripMenuItem";
             this.konfiguracjaPodstawowaToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.konfiguracjaPodstawowaToolStripMenuItem.Text = "Konfiguracja podstawowa";
@@ -280,6 +283,13 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Zalogowany użytkownik:";
             // 
+            // rabatyToolStripMenuItem
+            // 
+            this.rabatyToolStripMenuItem.Name = "rabatyToolStripMenuItem";
+            this.rabatyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rabatyToolStripMenuItem.Text = "Rabaty";
+            this.rabatyToolStripMenuItem.Click += new System.EventHandler(this.rabatyToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -334,6 +344,7 @@
         private System.Windows.Forms.ToolStripMenuItem stwórzUżytkownikaToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem rabatyToolStripMenuItem;
     }
 }
 

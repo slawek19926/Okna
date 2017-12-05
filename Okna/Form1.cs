@@ -228,5 +228,11 @@ namespace Okna
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void rabatyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            finanse.rabaty frm = new finanse.rabaty();
+            frm.Show();
+        }
     }
 }

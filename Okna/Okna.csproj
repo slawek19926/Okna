@@ -136,8 +136,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="MySql.Data, Version=8.0.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.8.0.9-dmr\lib\net452\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
@@ -182,6 +183,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="finanse\editPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="finanse\editPrice.Designer.cs">
+      <DependentUpon>editPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="finanse\editRabat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="finanse\editRabat.Designer.cs">
+      <DependentUpon>editRabat.cs</DependentUpon>
+    </Compile>
     <Compile Include="finanse\faktury.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +218,12 @@
     </Compile>
     <Compile Include="finanse\klienci.Designer.cs">
       <DependentUpon>klienci.cs</DependentUpon>
+    </Compile>
+    <Compile Include="finanse\rabaty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="finanse\rabaty.Designer.cs">
+      <DependentUpon>rabaty.cs</DependentUpon>
     </Compile>
     <Compile Include="finanse\towarAdd.cs">
       <SubType>Form</SubType>
@@ -343,6 +362,12 @@
     <EmbeddedResource Include="createUser.resx">
       <DependentUpon>createUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="finanse\editPrice.resx">
+      <DependentUpon>editPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="finanse\editRabat.resx">
+      <DependentUpon>editRabat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="finanse\faktury.resx">
       <DependentUpon>faktury.cs</DependentUpon>
     </EmbeddedResource>
@@ -354,6 +379,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="finanse\klienci.resx">
       <DependentUpon>klienci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="finanse\rabaty.resx">
+      <DependentUpon>rabaty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="finanse\towarAdd.resx">
       <DependentUpon>towarAdd.cs</DependentUpon>
