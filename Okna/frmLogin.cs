@@ -73,7 +73,7 @@ namespace Okna
                 connect = new MySqlConnection(connectionString);
                 connect.Open();
             }
-            catch (MySqlException e)
+            catch (MySqlException ex)
             {
                 throw;
             }
