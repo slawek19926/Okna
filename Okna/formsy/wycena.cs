@@ -519,5 +519,11 @@ namespace Okna
         {
             editBTN_Click(e, e);
         }
+
+        private void print_btn_Click(object sender, EventArgs e)
+        {
+            print.printDial frm = new print.printDial(this);
+            frm.Show();
+        }
     }
 }

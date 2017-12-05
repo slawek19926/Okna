@@ -12,9 +12,11 @@ namespace Okna.print
 {
     public partial class printDial : Form
     {
-        public printDial()
+        wycena wycena;
+        public printDial(wycena wycena)
         {
             InitializeComponent();
+            this.wycena = wycena;
         }
 
         private void printDial_Load(object sender, EventArgs e)

@@ -325,6 +325,7 @@
             this.print_btn.TabIndex = 0;
             this.print_btn.Text = "Drukuj";
             this.print_btn.UseVisualStyleBackColor = true;
+            this.print_btn.Click += new System.EventHandler(this.print_btn_Click);
             // 
             // progressBar
             // 
