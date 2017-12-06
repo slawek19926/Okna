@@ -205,6 +205,7 @@ namespace Okna
                 decimal vat = Decimal.Parse("1,23");
                 dataGridView1.Rows[i].Cells[6].Value = n * ile;
                 dataGridView1.Rows[i].Cells[7].Value = Math.Round((n*ile)*vat,2);
+                dataGridView1.Rows[i].Cells[8].Value = "0 %";
             }
             if (dataGridView1.RowCount >= 1)
             {
@@ -228,6 +229,7 @@ namespace Okna
                 //5 - ilość
                 //6 - wartość netto
                 //7 - wartość brutto
+                //8 - narzut
                 ChangedRow = false;
                 decimal n = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString()); //netto
                 decimal r = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString().Replace("%","")); //rabat
@@ -238,6 +240,13 @@ namespace Okna
                 dataGridView1.Rows[e.RowIndex].Cells[6].Value = Math.Round(netto * szt, 2); //wartość netto
                 decimal wartn = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString());
                 dataGridView1.Rows[e.RowIndex].Cells[7].Value = Math.Round(wartn*vat, 2); //wartość brutto
+                decimal narzut = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString()); //narzut
+
+                dataGridView1.Rows[e.RowIndex].Cells[4].Value = Math.Round(netto + (netto * (narzut / 100)), 2); //netto po narzucie
+                decimal nettoN = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
+                dataGridView1.Rows[e.RowIndex].Cells[6].Value = Math.Round(nettoN * szt, 2); //wartosc netto po narzucie
+                decimal wnnetoN = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString()); //wartosc netto po narzucie
+                dataGridView1.Rows[e.RowIndex].Cells[7].Value = Math.Round(wnnetoN * vat, 2); //wartosc netto po narzucie
 
                 wyliczenie_kwoty();
             }

@@ -35,6 +35,7 @@ namespace Okna.formsy
             ilosc_BOX.Text = wycena.dataGridView1.CurrentRow.Cells[5].Value.ToString();
             wart_netto.Text = wycena.dataGridView1.CurrentRow.Cells[6].Value.ToString();
             wart_brutto.Text = wycena.dataGridView1.CurrentRow.Cells[7].Value.ToString();
+            narzut.Text = wycena.dataGridView1.CurrentRow.Cells[8].Value.ToString().Replace("%", "");
         }
 
         private void ilosc_BOX_TextChanged(object sender, EventArgs e)
@@ -109,6 +110,28 @@ namespace Okna.formsy
             }
         }
 
+        private void narzut_TextChanged(object sender, EventArgs e)
+        {
+            if(narzut.Text == "")
+            {
+                decimal n = Decimal.Parse("0");
+                decimal np = Decimal.Parse(netto_przed.Text.Replace("zł", ""));
+                decimal vat = Decimal.Parse("1,23");
+                decimal po = Math.Round(np + (np * (n / 100)), 2);
+                decimal br = Math.Round(po * vat);
+                netto_po.Text = po.ToString("c");
+            }
+            else
+            {
+                decimal n = Decimal.Parse(narzut.Text.Replace("%", ""));
+                decimal np = Decimal.Parse(netto_przed.Text.Replace("zł", ""));
+                decimal vat = Decimal.Parse("1,23");
+                decimal po = Math.Round(np + (np * (n / 100)), 2);
+                decimal br = Math.Round(po * vat);
+                netto_po.Text = po.ToString("c");
+            }
+        }
+
         private void save_BTN_Click(object sender, EventArgs e)
         {
             wycena.dataGridView1.CurrentRow.Cells[3].Value = rabat_BOX.Text + "%";
@@ -116,6 +139,7 @@ namespace Okna.formsy
             wycena.dataGridView1.CurrentRow.Cells[5].Value = ilosc_BOX.Text;
             wycena.dataGridView1.CurrentRow.Cells[6].Value = wart_netto.Text;
             wycena.dataGridView1.CurrentRow.Cells[7].Value = wart_brutto.Text;
+            wycena.dataGridView1.CurrentRow.Cells[8].Value = narzut.Text + "%";
             Close();
         }
     }

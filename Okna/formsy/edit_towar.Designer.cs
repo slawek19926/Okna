@@ -45,6 +45,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.wart_netto = new System.Windows.Forms.TextBox();
             this.wart_brutto = new System.Windows.Forms.TextBox();
+            this.narzut = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // save_BTN
@@ -216,11 +218,32 @@
             this.wart_brutto.Size = new System.Drawing.Size(82, 21);
             this.wart_brutto.TabIndex = 15;
             // 
+            // narzut
+            // 
+            this.narzut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.narzut.Location = new System.Drawing.Point(429, 178);
+            this.narzut.Name = "narzut";
+            this.narzut.Size = new System.Drawing.Size(82, 21);
+            this.narzut.TabIndex = 16;
+            this.narzut.TextChanged += new System.EventHandler(this.narzut_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label9.Location = new System.Drawing.Point(377, 181);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(46, 15);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Narzut:";
+            // 
             // edit_towar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(523, 247);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.narzut);
             this.Controls.Add(this.wart_brutto);
             this.Controls.Add(this.wart_netto);
             this.Controls.Add(this.label8);
@@ -266,5 +289,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox wart_netto;
         private System.Windows.Forms.TextBox wart_brutto;
+        private System.Windows.Forms.TextBox narzut;
+        private System.Windows.Forms.Label label9;
     }
 }
