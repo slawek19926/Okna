@@ -119,7 +119,8 @@ namespace Okna
             {
                 userBTN.Text = "Zmień klienta";
             }
-            
+
+            //this.reportViewer1.RefreshReport();
         }
         private void wycena_FormClosing(Object sender, FormClosingEventArgs e)
         {
@@ -531,8 +532,32 @@ namespace Okna
 
         private void print_btn_Click(object sender, EventArgs e)
         {
+
             print.printDial frm = new print.printDial(this);
             frm.Show();
+
+            //PrintPreviewDialog prnt = new PrintPreviewDialog();
+            //prnt.WindowState = FormWindowState.Maximized;
+            //prnt.PrintPreviewControl.Zoom = 1.0;
+            //prnt.Document = printDocument1;
+            //prnt.ShowDialog();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            //dataGridView1.BackgroundColor = Color.White;
+            //dataGridView1.Columns[2].Visible = false;
+            //dataGridView1.Columns[3].Visible = false;
+            //dataGridView1.Columns[8].Visible = false;
+
+            //Bitmap objBmp = new Bitmap(dataGridView1.Width, dataGridView1.Height);
+            //dataGridView1.DrawToBitmap(objBmp, new Rectangle(0, 0, dataGridView1.Width, dataGridView1.Height));
+
+            //e.Graphics.DrawImage(objBmp, 0, 90);
+
+            //e.Graphics.DrawString(wycena_nr.Text, new Font("Verdana", 12, FontStyle.Bold), Brushes.Black, new Point(250, 40));
+
+            //e.Graphics.DrawString("Wycenę sporządził: ", new Font("Verdana", 10, FontStyle.Bold), Brushes.Black, new Point(450, 600));
         }
     }
 }

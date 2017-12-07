@@ -28,10 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wycena));
             this.addBTN = new System.Windows.Forms.Button();
             this.editBTN = new System.Windows.Forms.Button();
             this.deleteBTN = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.indeks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rabat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.po_r = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ilosc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wart_n = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wart_b = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Narzut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,15 +58,8 @@
             this.print_btn = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.numerek = new System.Windows.Forms.Label();
-            this.indeks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cena = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rabat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.po_r = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ilosc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wart_n = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wart_b = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Narzut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -114,7 +117,7 @@
             this.wart_n,
             this.wart_b,
             this.Narzut});
-            this.dataGridView1.Location = new System.Drawing.Point(13, 54);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 118);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -122,12 +125,66 @@
             this.dataGridView1.ShowCellToolTips = false;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.ShowRowErrors = false;
-            this.dataGridView1.Size = new System.Drawing.Size(918, 271);
+            this.dataGridView1.Size = new System.Drawing.Size(918, 207);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DynList_CellValueChanged);
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
             this.dataGridView1.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.DynList_RowValidated);
             this.dataGridView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
+            // 
+            // indeks
+            // 
+            this.indeks.Frozen = true;
+            this.indeks.HeaderText = "Indeks";
+            this.indeks.Name = "indeks";
+            this.indeks.ReadOnly = true;
+            // 
+            // nazwa
+            // 
+            this.nazwa.HeaderText = "Nazwa";
+            this.nazwa.Name = "nazwa";
+            this.nazwa.ReadOnly = true;
+            // 
+            // cena
+            // 
+            this.cena.HeaderText = "Netto";
+            this.cena.Name = "cena";
+            this.cena.ReadOnly = true;
+            // 
+            // rabat
+            // 
+            this.rabat.HeaderText = "Rabat";
+            this.rabat.Name = "rabat";
+            // 
+            // po_r
+            // 
+            this.po_r.HeaderText = "Po rabacie";
+            this.po_r.Name = "po_r";
+            this.po_r.ReadOnly = true;
+            // 
+            // ilosc
+            // 
+            this.ilosc.HeaderText = "Ilość";
+            this.ilosc.Name = "ilosc";
+            this.ilosc.ReadOnly = true;
+            // 
+            // wart_n
+            // 
+            this.wart_n.HeaderText = "Wartość netto";
+            this.wart_n.Name = "wart_n";
+            this.wart_n.ReadOnly = true;
+            // 
+            // wart_b
+            // 
+            this.wart_b.HeaderText = "Wartość brutto";
+            this.wart_b.Name = "wart_b";
+            this.wart_b.ReadOnly = true;
+            // 
+            // Narzut
+            // 
+            this.Narzut.HeaderText = "Narzut";
+            this.Narzut.Name = "Narzut";
+            this.Narzut.ReadOnly = true;
             // 
             // label1
             // 
@@ -256,7 +313,7 @@
             this.panel1.Controls.Add(this.wycena_nr);
             this.panel1.Location = new System.Drawing.Point(13, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(918, 36);
+            this.panel1.Size = new System.Drawing.Size(918, 103);
             this.panel1.TabIndex = 8;
             // 
             // wycena_nr
@@ -265,7 +322,7 @@
             this.wycena_nr.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.wycena_nr.Location = new System.Drawing.Point(0, 0);
             this.wycena_nr.Name = "wycena_nr";
-            this.wycena_nr.Size = new System.Drawing.Size(918, 36);
+            this.wycena_nr.Size = new System.Drawing.Size(918, 103);
             this.wycena_nr.TabIndex = 10;
             this.wycena_nr.Text = "Wycena nr: wycena_nr";
             this.wycena_nr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -300,59 +357,19 @@
             this.numerek.Text = "label5";
             this.numerek.Visible = false;
             // 
-            // indeks
+            // printPreviewDialog1
             // 
-            this.indeks.Frozen = true;
-            this.indeks.HeaderText = "Indeks";
-            this.indeks.Name = "indeks";
-            this.indeks.ReadOnly = true;
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
-            // nazwa
+            // printDocument1
             // 
-            this.nazwa.HeaderText = "Nazwa";
-            this.nazwa.Name = "nazwa";
-            this.nazwa.ReadOnly = true;
-            // 
-            // cena
-            // 
-            this.cena.HeaderText = "Netto";
-            this.cena.Name = "cena";
-            this.cena.ReadOnly = true;
-            // 
-            // rabat
-            // 
-            this.rabat.HeaderText = "Rabat";
-            this.rabat.Name = "rabat";
-            // 
-            // po_r
-            // 
-            this.po_r.HeaderText = "Po rabacie";
-            this.po_r.Name = "po_r";
-            this.po_r.ReadOnly = true;
-            // 
-            // ilosc
-            // 
-            this.ilosc.HeaderText = "Ilość";
-            this.ilosc.Name = "ilosc";
-            this.ilosc.ReadOnly = true;
-            // 
-            // wart_n
-            // 
-            this.wart_n.HeaderText = "Wartość netto";
-            this.wart_n.Name = "wart_n";
-            this.wart_n.ReadOnly = true;
-            // 
-            // wart_b
-            // 
-            this.wart_b.HeaderText = "Wartość brutto";
-            this.wart_b.Name = "wart_b";
-            this.wart_b.ReadOnly = true;
-            // 
-            // Narzut
-            // 
-            this.Narzut.HeaderText = "Narzut";
-            this.Narzut.Name = "Narzut";
-            this.Narzut.ReadOnly = true;
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // wycena
             // 
@@ -421,5 +438,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn wart_n;
         private System.Windows.Forms.DataGridViewTextBoxColumn wart_b;
         private System.Windows.Forms.DataGridViewTextBoxColumn Narzut;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
