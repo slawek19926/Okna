@@ -533,31 +533,43 @@ namespace Okna
         private void print_btn_Click(object sender, EventArgs e)
         {
 
+            //zapis do bazy danych
+            var MyIni = new INIFile("WektorSettings.ini");
+            server = MyIni.Read("server", "Okna");
+            database = MyIni.Read("database", "Okna");
+            uid = MyIni.Read("login", "Okna");
+            password = Decrypt(MyIni.Read("pass", "Okna"));
+
+            string MyConnectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+            MySqlConnection connection = new MySqlConnection(MyConnectionString);
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd = connection.CreateCommand();
+                    if (row.IsNewRow) continue;
+                    cmd.Parameters.AddWithValue("@indeks", row.Cells[0].Value);
+                    cmd.Parameters.AddWithValue("@nazwa", row.Cells[1].Value);
+                    cmd.Parameters.AddWithValue("@rabat", row.Cells[3].Value.ToString().Replace("%", "").Replace(",", "."));
+                    cmd.Parameters.AddWithValue("@ilosc", row.Cells[5].Value);
+                    cmd.Parameters.AddWithValue("@cena", row.Cells[4].Value.ToString().Replace("zł", "").Replace(",", "."));
+                    cmd.Parameters.AddWithValue("@narzut", row.Cells[8].Value.ToString().Replace("%", "").Replace(",","."));
+                    cmd.CommandText = "INSERT INTO temp (indeks,nazwa,rabat,narzut,cena,ilosc) VALUES (@indeks,@nazwa,@rabat,@narzut,@cena,@ilosc); ";
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+
             print.printDial frm = new print.printDial(this);
             frm.Show();
-
-            //PrintPreviewDialog prnt = new PrintPreviewDialog();
-            //prnt.WindowState = FormWindowState.Maximized;
-            //prnt.PrintPreviewControl.Zoom = 1.0;
-            //prnt.Document = printDocument1;
-            //prnt.ShowDialog();
-        }
-
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            //dataGridView1.BackgroundColor = Color.White;
-            //dataGridView1.Columns[2].Visible = false;
-            //dataGridView1.Columns[3].Visible = false;
-            //dataGridView1.Columns[8].Visible = false;
-
-            //Bitmap objBmp = new Bitmap(dataGridView1.Width, dataGridView1.Height);
-            //dataGridView1.DrawToBitmap(objBmp, new Rectangle(0, 0, dataGridView1.Width, dataGridView1.Height));
-
-            //e.Graphics.DrawImage(objBmp, 0, 90);
-
-            //e.Graphics.DrawString(wycena_nr.Text, new Font("Verdana", 12, FontStyle.Bold), Brushes.Black, new Point(250, 40));
-
-            //e.Graphics.DrawString("Wycenę sporządził: ", new Font("Verdana", 10, FontStyle.Bold), Brushes.Black, new Point(450, 600));
         }
     }
 }

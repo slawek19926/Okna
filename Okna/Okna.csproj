@@ -440,7 +440,7 @@
     <EmbeddedResource Include="print\printDial.resx">
       <DependentUpon>printDial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="print\Report1.rdlc" />
+    <EmbeddedResource Include="print\wycenaPrint.rdlc" />
     <EmbeddedResource Include="produkcja\prod_zlec.resx">
       <DependentUpon>prod_zlec.cs</DependentUpon>
     </EmbeddedResource>
