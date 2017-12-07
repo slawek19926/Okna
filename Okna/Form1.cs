@@ -110,7 +110,6 @@ namespace Okna
             var res = MessageBox.Show("Czy napewno chcesz zamknąć program?", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if(res == DialogResult.Yes)
             {
-                File.WriteAllText(path, string.Empty);
                 e.Cancel = false;
             }
             else

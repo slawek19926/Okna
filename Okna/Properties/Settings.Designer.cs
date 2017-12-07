@@ -44,5 +44,16 @@ namespace Okna.Properties {
                 return ((string)(this["produktTemp"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-0RQ22LA\\SQLEXPRESS;Initial Catalog=testDB;Integrated Security" +
+            "=True;Pooling=False")]
+        public string testDBConnectionString {
+            get {
+                return ((string)(this["testDBConnectionString"]));
+            }
+        }
     }
 }

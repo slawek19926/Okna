@@ -533,39 +533,8 @@ namespace Okna
 
         private void print_btn_Click(object sender, EventArgs e)
         {
-
-            //zapis do bazy danych
-
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                try
-                {
-
-                    SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-0RQ22LA\SQLEXPRESS;Initial Catalog=testDB;Integrated Security=True;Pooling=False");
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO testTable (indeks,nazwa,rabat,narzut,cena,ilosc) VALUES (@indeks,@nazwa,@rabat,@narzut,@cena,@ilosc);", conn);
-
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Connection = conn;
-
-                    cmd.Parameters.AddWithValue("@indeks", row.Cells[0].Value);
-                    cmd.Parameters.AddWithValue("@nazwa", row.Cells[1].Value);
-                    cmd.Parameters.AddWithValue("@rabat", row.Cells[3].Value.ToString().Replace("%", "").Replace(",", "."));
-                    cmd.Parameters.AddWithValue("@ilosc", row.Cells[5].Value);
-                    cmd.Parameters.AddWithValue("@cena", row.Cells[4].Value.ToString().Replace("zł", "").Replace(",", "."));
-                    cmd.Parameters.AddWithValue("@narzut", row.Cells[8].Value.ToString().Replace("%", "").Replace(",", "."));
-
-                    cmd.ExecuteNonQuery();
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-
-            print.printDial frm = new print.printDial(this);
-            frm.Show();
+            ClsPrint _ClsPrint = new ClsPrint(dataGridView1, wycena_nr.Text,"Dokument sporządził:");
+            _ClsPrint.PrintForm();
         }
     }
 }

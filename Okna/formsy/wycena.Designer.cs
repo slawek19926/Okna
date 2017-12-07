@@ -367,9 +367,6 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // printDocument1
-            // 
-            // 
             // wycena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

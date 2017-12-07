@@ -169,19 +169,12 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClsPrint.cs" />
     <Compile Include="createUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="createUser.Designer.cs">
       <DependentUpon>createUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet1.cs">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="finanse\editPrice.cs">
       <SubType>Form</SubType>
@@ -356,11 +349,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="tempDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>tempDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="test\newWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -445,7 +433,6 @@
     <EmbeddedResource Include="print\printDial.resx">
       <DependentUpon>printDial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="print\wycenaDruk.rdlc" />
     <EmbeddedResource Include="produkcja\prod_zlec.resx">
       <DependentUpon>prod_zlec.cs</DependentUpon>
     </EmbeddedResource>
@@ -468,17 +455,6 @@
     <EmbeddedResource Include="test\newWindow.resx">
       <DependentUpon>newWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
     <None Include="OknaInfo.manifest">
       <SubType>Designer</SubType>
     </None>
@@ -493,17 +469,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="tempDataSet.xsc">
-      <DependentUpon>tempDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="tempDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>tempDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="tempDataSet.xss">
-      <DependentUpon>tempDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -521,7 +486,6 @@
     <Content Include="docs\MySqlParameterCollection.xml" />
     <Content Include="docs\MySqlTransaction.xml" />
     <Content Include="icon.ico" />
-    <Content Include="MetroFramework.txt" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -534,13 +498,6 @@
     </Content>
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="users.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="users_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>users.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>
