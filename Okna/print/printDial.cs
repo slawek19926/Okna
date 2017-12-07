@@ -22,27 +22,9 @@ namespace Okna.print
 
         private void printDial_Load(object sender, EventArgs e)
         {
-            //DataTable dt = new DataTable();
-            //var source = wycena.dataGridView1.DataSource;
-
-            //while(source is BindingSource)
-            //{
-            //    source = ((BindingSource)source).DataSource;
-            //}
-            //var table = source as DataTable;
-            //if (table != null)
-            //{
-            //    dt = table;
-            //    var reportSource = new ReportDataSource("wycenaDruk", dt);
-            //    reportViewer1.Reset();
-            //    reportViewer1.ProcessingMode = ProcessingMode.Local;
-            //    reportViewer1.LocalReport.ReportPath = "printWycena.rdlc";
-            //    reportViewer1.LocalReport.DataSources.Clear();
-            //    reportViewer1.LocalReport.DataSources.Add(reportSource);
-            //    reportViewer1.RefreshReport();
-            //}
-
-            //reportViewer1.RefreshReport();
+            ReportParameter param_Name = new ReportParameter("wycenaNR", wycena.wycena_nr.Text, false);
+            reportViewer1.LocalReport.SetParameters(param_Name);
+            reportViewer1.RefreshReport();
         }
     }
 }

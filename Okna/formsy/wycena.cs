@@ -36,7 +36,7 @@ namespace Okna
             editBTN.Enabled = false;
             deleteBTN.Enabled = false;
             saveBTN.Enabled = false;
-            print_btn.Enabled = false;
+            print_btn.Enabled = true;
             InitTimer();
         }
         private Timer tajmer;
