@@ -356,6 +356,11 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="tempDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>tempDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="test\newWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -440,7 +445,7 @@
     <EmbeddedResource Include="print\printDial.resx">
       <DependentUpon>printDial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="print\wycenaPrint.rdlc" />
+    <EmbeddedResource Include="print\wycenaDruk.rdlc" />
     <EmbeddedResource Include="produkcja\prod_zlec.resx">
       <DependentUpon>prod_zlec.cs</DependentUpon>
     </EmbeddedResource>
@@ -488,6 +493,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="tempDataSet.xsc">
+      <DependentUpon>tempDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="tempDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>tempDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="tempDataSet.xss">
+      <DependentUpon>tempDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -528,6 +544,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DataBases\" />
     <Folder Include="style\" />
   </ItemGroup>
   <ItemGroup>

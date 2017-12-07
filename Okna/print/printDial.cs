@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Okna.print
 {
@@ -22,9 +23,10 @@ namespace Okna.print
 
         private void printDial_Load(object sender, EventArgs e)
         {
-            reportViewer1.LocalReport.ReportPath = "C:/Users/alleg/Documents/Visual Studio 2017/Projects/Okna/Okna/print/wycenaPrint.rdlc";
-            ReportParameter param_Name = new ReportParameter("testParam", "customValue");
-            reportViewer1.LocalReport.SetParameters(param_Name);
+
+            //reportViewer1.LocalReport.ReportPath = "C:/Users/alleg/Documents/Visual Studio 2017/Projects/Okna/Okna/print/wycenaPrint.rdlc";
+            //ReportParameter param_Name = new ReportParameter("testParam", "customValue");
+            //reportViewer1.LocalReport.SetParameters(param_Name);
             reportViewer1.RefreshReport();
         }
     }

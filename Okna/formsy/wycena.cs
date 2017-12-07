@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.IO;
 using System.Security.Cryptography;
+using System.Data.SqlClient;
 
 
 namespace Okna
@@ -534,39 +535,34 @@ namespace Okna
         {
 
             //zapis do bazy danych
-            var MyIni = new INIFile("WektorSettings.ini");
-            server = MyIni.Read("server", "Okna");
-            database = MyIni.Read("database", "Okna");
-            uid = MyIni.Read("login", "Okna");
-            password = Decrypt(MyIni.Read("pass", "Okna"));
-
-            string MyConnectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
-            MySqlConnection connection = new MySqlConnection(MyConnectionString);
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 try
                 {
-                    MySqlCommand cmd = new MySqlCommand();
-                    cmd = connection.CreateCommand();
-                    if (row.IsNewRow) continue;
+
+                    SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-0RQ22LA\SQLEXPRESS;Initial Catalog=testDB;Integrated Security=True;Pooling=False");
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("INSERT INTO testTable (indeks,nazwa,rabat,narzut,cena,ilosc) VALUES (@indeks,@nazwa,@rabat,@narzut,@cena,@ilosc);", conn);
+
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Connection = conn;
+
                     cmd.Parameters.AddWithValue("@indeks", row.Cells[0].Value);
                     cmd.Parameters.AddWithValue("@nazwa", row.Cells[1].Value);
                     cmd.Parameters.AddWithValue("@rabat", row.Cells[3].Value.ToString().Replace("%", "").Replace(",", "."));
                     cmd.Parameters.AddWithValue("@ilosc", row.Cells[5].Value);
                     cmd.Parameters.AddWithValue("@cena", row.Cells[4].Value.ToString().Replace("zł", "").Replace(",", "."));
-                    cmd.Parameters.AddWithValue("@narzut", row.Cells[8].Value.ToString().Replace("%", "").Replace(",","."));
-                    cmd.CommandText = "INSERT INTO temp (indeks,nazwa,rabat,narzut,cena,ilosc) VALUES (@indeks,@nazwa,@rabat,@narzut,@cena,@ilosc); ";
-                    connection.Open();
+                    cmd.Parameters.AddWithValue("@narzut", row.Cells[8].Value.ToString().Replace("%", "").Replace(",", "."));
+
                     cmd.ExecuteNonQuery();
-                    connection.Close();
+
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
             }
-
 
             print.printDial frm = new print.printDial(this);
             frm.Show();
