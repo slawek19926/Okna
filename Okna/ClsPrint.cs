@@ -61,7 +61,7 @@ namespace Okna
             objPPdialog.ShowDialog();
         }
 
-        private void _printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private void _printDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             //try
             //{
@@ -78,9 +78,9 @@ namespace Okna
             {
                 foreach (DataGridViewColumn GridCol in gw.Columns)
                 {
-                    iTmpWidth = (int)(Math.Floor((double)((double)GridCol.Width /
-                        (double)iTotalWidth * (double)iTotalWidth *
-                        ((double)e.MarginBounds.Width / (double)iTotalWidth))));
+                    iTmpWidth = (int)(Math.Floor(GridCol.Width /
+                        (double)iTotalWidth * iTotalWidth *
+                        (e.MarginBounds.Width / (double)iTotalWidth)));
 
                     iHeaderHeight = (int)(e.Graphics.MeasureString(GridCol.HeaderText,
                         GridCol.InheritedStyle.Font, iTmpWidth).Height) + 11;
@@ -185,8 +185,8 @@ namespace Okna
                                 _GridCell[i].InheritedStyle.Font,
                                 new SolidBrush(_GridCell[i].InheritedStyle.ForeColor),
                                 new RectangleF((int)arrColumnLefts[iCount],
-                                (float)iTopMargin,
-                                (int)arrColumnWidths[iCount], (float)iCellHeight),
+                                iTopMargin,
+                                (int)arrColumnWidths[iCount], iCellHeight),
                                 strFormat);
                         }
                         //Drawing Cells Borders 

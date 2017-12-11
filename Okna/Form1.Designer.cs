@@ -49,6 +49,7 @@
             this.klienciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ustawieniaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.konfiguracjaPodstawowaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rabatyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.narzędziaAdministratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stwórzUżytkownikaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +57,6 @@
             this.logged = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.label1 = new System.Windows.Forms.Label();
-            this.rabatyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -224,6 +224,13 @@
             this.konfiguracjaPodstawowaToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.konfiguracjaPodstawowaToolStripMenuItem.Text = "Konfiguracja podstawowa";
             // 
+            // rabatyToolStripMenuItem
+            // 
+            this.rabatyToolStripMenuItem.Name = "rabatyToolStripMenuItem";
+            this.rabatyToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.rabatyToolStripMenuItem.Text = "Rabaty";
+            this.rabatyToolStripMenuItem.Click += new System.EventHandler(this.rabatyToolStripMenuItem_Click);
+            // 
             // narzędziaAdministratorToolStripMenuItem
             // 
             this.narzędziaAdministratorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -282,13 +289,6 @@
             this.label1.Size = new System.Drawing.Size(124, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Zalogowany użytkownik:";
-            // 
-            // rabatyToolStripMenuItem
-            // 
-            this.rabatyToolStripMenuItem.Name = "rabatyToolStripMenuItem";
-            this.rabatyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.rabatyToolStripMenuItem.Text = "Rabaty";
-            this.rabatyToolStripMenuItem.Click += new System.EventHandler(this.rabatyToolStripMenuItem_Click);
             // 
             // Form1
             // 
