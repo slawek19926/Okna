@@ -27,11 +27,12 @@ namespace Okna
         private DataGridView gw = new DataGridView();
         private string _ReportHeader;
         private string _ReportFooter;
+        
 
         #endregion
 
         public ClsPrint(DataGridView gridview, string ReportHeader, string ReportFooter)
-        {
+        { 
             _printDocument.PrintPage += new PrintPageEventHandler(_printDocument_PrintPage);
             _printDocument.BeginPrint += new PrintEventHandler(_printDocument_BeginPrint);
             gw = gridview;
@@ -52,8 +53,9 @@ namespace Okna
             //    _printDocument.DocumentName = "Test Page Print";
             //    _printDocument.Print();
             //}
-
+            
             //Open the print preview dialog
+
             PrintPreviewDialog objPPdialog = new PrintPreviewDialog();
             objPPdialog.WindowState = FormWindowState.Maximized;
             objPPdialog.PrintPreviewControl.Zoom = 1.0;
@@ -111,6 +113,7 @@ namespace Okna
 
                     if (bNewPage)
                     {
+                        
                         //Draw Header
                         e.Graphics.DrawString(_ReportHeader,
                             new Font("Verdana",12, FontStyle.Bold),
@@ -139,16 +142,19 @@ namespace Okna
                             new Font(new Font(gw.Font, FontStyle.Bold),
                             FontStyle.Bold), e.MarginBounds.Width).Height - 13);
 
-                        //Draw Columns                 
+                        //Draw Columns   
+                        
                         iTopMargin = e.MarginBounds.Top;
                         DataGridViewColumn[] _GridCol = new DataGridViewColumn[gw.Columns.Count];
                         int colcount = 0;
+                        
                         //Convert ltr to rtl
+
                         foreach (DataGridViewColumn GridCol in gw.Columns)
                         {
                             _GridCol[colcount++] = GridCol;
                         }
-                        for (int i = (_GridCol.Count() - 1); i >= 0; i--)
+                        for (int i = 0; i <= (_GridCol.Count() - 1); i++)
                         {
                             e.Graphics.FillRectangle(new SolidBrush(Color.LightGray),
                                 new Rectangle((int)arrColumnLefts[iCount], iTopMargin,
@@ -158,6 +164,7 @@ namespace Okna
                                 new Rectangle((int)arrColumnLefts[iCount], iTopMargin,
                                 (int)arrColumnWidths[iCount], iHeaderHeight));
 
+                            _GridCol[2].Visible = false;
                             e.Graphics.DrawString(_GridCol[i].HeaderText,
                                 _GridCol[i].InheritedStyle.Font,
                                 new SolidBrush(_GridCol[i].InheritedStyle.ForeColor),
@@ -171,13 +178,14 @@ namespace Okna
                     iCount = 0;
                     DataGridViewCell[] _GridCell = new DataGridViewCell[GridRow.Cells.Count];
                     int cellcount = 0;
+                    
                     //Convert ltr to rtl
                     foreach (DataGridViewCell Cel in GridRow.Cells)
                     {
                         _GridCell[cellcount++] = Cel;
                     }
                     //Draw Columns Contents                
-                    for (int i = (_GridCell.Count() - 1); i >= 0; i--)
+                    for (int i = 0; i <= (_GridCell.Count() - 1); i++)
                     {
                         if (_GridCell[i].Value != null)
                         {
