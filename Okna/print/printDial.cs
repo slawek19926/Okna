@@ -17,10 +17,12 @@ namespace Okna.print
     public partial class printDial : Form
     {
         wycena wycena;
-        public printDial(wycena wycena)
+        Form1 Form1;
+        public printDial(wycena wycena,Form1 Form1)
         {
             InitializeComponent();
             this.wycena = wycena;
+            this.Form1 = Form1;
         }
 
         private string server;
@@ -79,16 +81,59 @@ namespace Okna.print
                 {
 
                 }
+                connection.Close();
+            }
+            DataTable dt2 = new DataTable();
+
+            var connectionString2 = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+
+            using (var connection2 = new MySqlConnection(connectionString2))
+            {
+                connection2.Open();
+                var query2 = "SELECT * FROM firma";
+                try
+                {
+                    MySqlDataAdapter adr2 = new MySqlDataAdapter(query2, connection2);
+                    adr2.SelectCommand.CommandType = CommandType.Text;
+                    adr2.Fill(dt2);
+                }
+                catch
+                {
+
+                }
+                connection2.Close();
+            }
+            DataTable dt3 = new DataTable();
+
+            var connectionString3 = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+
+            using (var connection3 = new MySqlConnection(connectionString3))
+            {
+                connection3.Open();
+                var query3 = "SELECT * FROM uzytkownice WHERE username = '" + Form1.logged.Text + "'";
+                try
+                {
+                    MySqlDataAdapter adr3 = new MySqlDataAdapter(query3, connection3);
+                    adr3.SelectCommand.CommandType = CommandType.Text;
+                    adr3.Fill(dt3);
+                }
+                catch
+                {
+
+                }
+                connection3.Close();
             }
             var data = DateTime.Now.ToString("dd/MM/yyyy");
             ReportParameter[] param = new ReportParameter[]
             {
                 new ReportParameter("wycenaNR", wycena.wycena_nr.Text),
                 new ReportParameter("wystawiona", data),
-                new ReportParameter("przygotowal", "użytkownik")
+                //new ReportParameter("przygotowal", Form1.logged.Text)
             }; 
             reportViewer1.LocalReport.SetParameters(param);
             reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", dt1));
+            reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet2", dt2));
+            reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet3", dt3));
             reportViewer1.RefreshReport();
         }
     }

@@ -122,8 +122,6 @@ namespace Okna {
         
         private global::System.Data.DataRelation relationpz_detail_ibfk_2;
         
-        private global::System.Data.DataRelation relationtemp_ibfk_1;
-        
         private global::System.Data.DataRelation relationwyceny_detail_ibfk_4;
         
         private global::System.Data.DataRelation relationwz_ibfk_1;
@@ -1131,7 +1129,6 @@ namespace Okna {
             this.relationpz_ibfk_1 = this.Relations["pz_ibfk_1"];
             this.relationpz_detail_ibfk_1 = this.Relations["pz_detail_ibfk_1"];
             this.relationpz_detail_ibfk_2 = this.Relations["pz_detail_ibfk_2"];
-            this.relationtemp_ibfk_1 = this.Relations["temp_ibfk_1"];
             this.relationwyceny_detail_ibfk_4 = this.Relations["wyceny_detail_ibfk_4"];
             this.relationwz_ibfk_1 = this.Relations["wz_ibfk_1"];
             this.relationwz_ibfk_2 = this.Relations["wz_ibfk_2"];
@@ -1269,10 +1266,6 @@ namespace Okna {
                         this.tablecenniki.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablepz_detail.product_idColumn}, false);
             this.Relations.Add(this.relationpz_detail_ibfk_2);
-            this.relationtemp_ibfk_1 = new global::System.Data.DataRelation("temp_ibfk_1", new global::System.Data.DataColumn[] {
-                        this.tableusers.id_userColumn}, new global::System.Data.DataColumn[] {
-                        this.tabletemp.userColumn}, false);
-            this.Relations.Add(this.relationtemp_ibfk_1);
             this.relationwyceny_detail_ibfk_4 = new global::System.Data.DataRelation("wyceny_detail_ibfk_4", new global::System.Data.DataColumn[] {
                         this.tablecenniki.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablewyceny_detail.id_productColumn}, false);
@@ -9341,9 +9334,15 @@ namespace Okna {
             
             private global::System.Data.DataColumn columncena;
             
+            private global::System.Data.DataColumn columnwartn;
+            
+            private global::System.Data.DataColumn columnwart_v;
+            
+            private global::System.Data.DataColumn columnwartb;
+            
             private global::System.Data.DataColumn columnilosc;
             
-            private global::System.Data.DataColumn columnuser;
+            private global::System.Data.DataColumn columnwycena_nr;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -9428,6 +9427,30 @@ namespace Okna {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn wartnColumn {
+                get {
+                    return this.columnwartn;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn wart_vColumn {
+                get {
+                    return this.columnwart_v;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn wartbColumn {
+                get {
+                    return this.columnwartb;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn iloscColumn {
                 get {
                     return this.columnilosc;
@@ -9436,9 +9459,9 @@ namespace Okna {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn userColumn {
+            public global::System.Data.DataColumn wycena_nrColumn {
                 get {
-                    return this.columnuser;
+                    return this.columnwycena_nr;
                 }
             }
             
@@ -9479,7 +9502,7 @@ namespace Okna {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public tempRow AddtempRow(string indeks, string nazwa, decimal rabat, decimal narzut, decimal cena, int ilosc, usersRow parentusersRowBytemp_ibfk_1) {
+            public tempRow AddtempRow(string indeks, string nazwa, decimal rabat, decimal narzut, decimal cena, decimal wartn, decimal wart_v, decimal wartb, int ilosc, int wycena_nr) {
                 tempRow rowtempRow = ((tempRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -9488,11 +9511,11 @@ namespace Okna {
                         rabat,
                         narzut,
                         cena,
+                        wartn,
+                        wart_v,
+                        wartb,
                         ilosc,
-                        null};
-                if ((parentusersRowBytemp_ibfk_1 != null)) {
-                    columnValuesArray[7] = parentusersRowBytemp_ibfk_1[0];
-                }
+                        wycena_nr};
                 rowtempRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtempRow);
                 return rowtempRow;
@@ -9528,8 +9551,11 @@ namespace Okna {
                 this.columnrabat = base.Columns["rabat"];
                 this.columnnarzut = base.Columns["narzut"];
                 this.columncena = base.Columns["cena"];
+                this.columnwartn = base.Columns["wartn"];
+                this.columnwart_v = base.Columns["wart_v"];
+                this.columnwartb = base.Columns["wartb"];
                 this.columnilosc = base.Columns["ilosc"];
-                this.columnuser = base.Columns["user"];
+                this.columnwycena_nr = base.Columns["wycena_nr"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9547,10 +9573,16 @@ namespace Okna {
                 base.Columns.Add(this.columnnarzut);
                 this.columncena = new global::System.Data.DataColumn("cena", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncena);
+                this.columnwartn = new global::System.Data.DataColumn("wartn", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnwartn);
+                this.columnwart_v = new global::System.Data.DataColumn("wart_v", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnwart_v);
+                this.columnwartb = new global::System.Data.DataColumn("wartb", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnwartb);
                 this.columnilosc = new global::System.Data.DataColumn("ilosc", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnilosc);
-                this.columnuser = new global::System.Data.DataColumn("user", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnuser);
+                this.columnwycena_nr = new global::System.Data.DataColumn("wycena_nr", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnwycena_nr);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -9565,8 +9597,11 @@ namespace Okna {
                 this.columnrabat.AllowDBNull = false;
                 this.columnnarzut.AllowDBNull = false;
                 this.columncena.AllowDBNull = false;
+                this.columnwartn.AllowDBNull = false;
+                this.columnwart_v.AllowDBNull = false;
+                this.columnwartb.AllowDBNull = false;
                 this.columnilosc.AllowDBNull = false;
-                this.columnuser.AllowDBNull = false;
+                this.columnwycena_nr.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17216,6 +17251,39 @@ namespace Okna {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal wartn {
+                get {
+                    return ((decimal)(this[this.tabletemp.wartnColumn]));
+                }
+                set {
+                    this[this.tabletemp.wartnColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal wart_v {
+                get {
+                    return ((decimal)(this[this.tabletemp.wart_vColumn]));
+                }
+                set {
+                    this[this.tabletemp.wart_vColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal wartb {
+                get {
+                    return ((decimal)(this[this.tabletemp.wartbColumn]));
+                }
+                set {
+                    this[this.tabletemp.wartbColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int ilosc {
                 get {
                     return ((int)(this[this.tabletemp.iloscColumn]));
@@ -17227,23 +17295,12 @@ namespace Okna {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int user {
+            public int wycena_nr {
                 get {
-                    return ((int)(this[this.tabletemp.userColumn]));
+                    return ((int)(this[this.tabletemp.wycena_nrColumn]));
                 }
                 set {
-                    this[this.tabletemp.userColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public usersRow usersRow {
-                get {
-                    return ((usersRow)(this.GetParentRow(this.Table.ParentRelations["temp_ibfk_1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["temp_ibfk_1"]);
+                    this[this.tabletemp.wycena_nrColumn] = value;
                 }
             }
         }
@@ -17708,17 +17765,6 @@ namespace Okna {
                 }
                 else {
                     return ((pzRow[])(base.GetChildRows(this.Table.ChildRelations["pz_ibfk_1"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public tempRow[] GettempRows() {
-                if ((this.Table.ChildRelations["temp_ibfk_1"] == null)) {
-                    return new tempRow[0];
-                }
-                else {
-                    return ((tempRow[])(base.GetChildRows(this.Table.ChildRelations["temp_ibfk_1"])));
                 }
             }
             
@@ -20255,7 +20301,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20637,7 +20683,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21528,7 +21574,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -22440,7 +22486,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23086,7 +23132,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23559,7 +23605,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -24029,7 +24075,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -24654,7 +24700,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -25216,7 +25262,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -25954,7 +26000,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -26700,7 +26746,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -27297,7 +27343,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -27769,7 +27815,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -28202,7 +28248,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -28566,7 +28612,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -29104,7 +29150,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -29610,7 +29656,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -30030,7 +30076,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -30426,7 +30472,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -31110,7 +31156,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -31671,7 +31717,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -32018,7 +32064,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -32309,14 +32355,18 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("rabat", "rabat");
             tableMapping.ColumnMappings.Add("narzut", "narzut");
             tableMapping.ColumnMappings.Add("cena", "cena");
+            tableMapping.ColumnMappings.Add("wartn", "wartn");
+            tableMapping.ColumnMappings.Add("wart_v", "wart_v");
+            tableMapping.ColumnMappings.Add("wartb", "wartb");
             tableMapping.ColumnMappings.Add("ilosc", "ilosc");
-            tableMapping.ColumnMappings.Add("user", "user");
+            tableMapping.ColumnMappings.Add("wycena_nr", "wycena_nr");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM `temp` WHERE ((`id` = @p1) AND (`indeks` = @p2) AND (`nazwa` = @p3) A" +
-                "ND (`rabat` = @p4) AND (`narzut` = @p5) AND (`cena` = @p6) AND (`ilosc` = @p7) A" +
-                "ND (`user` = @p8))";
+                "ND (`rabat` = @p4) AND (`narzut` = @p5) AND (`cena` = @p6) AND (`wartn` = @p7) A" +
+                "ND (`wart_v` = @p8) AND (`wartb` = @p9) AND (`ilosc` = @p10) AND (`wycena_nr` = " +
+                "@p11))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -32368,6 +32418,30 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p7";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "wartn";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p8";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "wart_v";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p9";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "wartb";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p10";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -32375,17 +32449,18 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p8";
+            param.ParameterName = "@p11";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "user";
+            param.SourceColumn = "wycena_nr";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `temp` (`indeks`, `nazwa`, `rabat`, `narzut`, `cena`, `ilosc`, `user`" +
-                ") VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `temp` (`indeks`, `nazwa`, `rabat`, `narzut`, `cena`, `wartn`, `wart_" +
+                "v`, `wartb`, `ilosc`, `wycena_nr`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p" +
+                "8, @p9, @p10)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -32424,21 +32499,42 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p6";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "wartn";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p7";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "wart_v";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p8";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "wartb";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p9";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "ilosc";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p7";
+            param.ParameterName = "@p10";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "user";
+            param.SourceColumn = "wycena_nr";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `temp` SET `indeks` = @p1, `nazwa` = @p2, `rabat` = @p3, `narzut` = @p4, `cena` = @p5, `ilosc` = @p6, `user` = @p7 WHERE ((`id` = @p8) AND (`indeks` = @p9) AND (`nazwa` = @p10) AND (`rabat` = @p11) AND (`narzut` = @p12) AND (`cena` = @p13) AND (`ilosc` = @p14) AND (`user` = @p15))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `temp` SET `indeks` = @p1, `nazwa` = @p2, `rabat` = @p3, `narzut` = @p4, `cena` = @p5, `wartn` = @p6, `wart_v` = @p7, `wartb` = @p8, `ilosc` = @p9, `wycena_nr` = @p10 WHERE ((`id` = @p11) AND (`indeks` = @p12) AND (`nazwa` = @p13) AND (`rabat` = @p14) AND (`narzut` = @p15) AND (`cena` = @p16) AND (`wartn` = @p17) AND (`wart_v` = @p18) AND (`wartb` = @p19) AND (`ilosc` = @p20) AND (`wycena_nr` = @p21))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -32477,20 +32573,41 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p6";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "wartn";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p7";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "wart_v";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p8";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "wartb";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p9";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "ilosc";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p7";
+            param.ParameterName = "@p10";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "user";
+            param.SourceColumn = "wycena_nr";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p8";
+            param.ParameterName = "@p11";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -32498,7 +32615,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p9";
+            param.ParameterName = "@p12";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -32506,7 +32623,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p10";
+            param.ParameterName = "@p13";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -32514,7 +32631,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p11";
+            param.ParameterName = "@p14";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
@@ -32522,7 +32639,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p12";
+            param.ParameterName = "@p15";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
@@ -32530,7 +32647,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p13";
+            param.ParameterName = "@p16";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
@@ -32538,7 +32655,31 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p14";
+            param.ParameterName = "@p17";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "wartn";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p18";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "wart_v";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p19";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "wartb";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p20";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -32546,11 +32687,11 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p15";
+            param.ParameterName = "@p21";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "user";
+            param.SourceColumn = "wycena_nr";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -32559,7 +32700,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -32568,8 +32709,8 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `id`, `indeks`, `nazwa`, `rabat`, `narzut`, `cena`, `ilosc`, `user` FROM `" +
-                "temp`";
+            this._commandCollection[0].CommandText = "SELECT `id`, `indeks`, `nazwa`, `rabat`, `narzut`, `cena`, `wartn`, `wart_v`, `wa" +
+                "rtb`, `ilosc`, `wycena_nr` FROM `temp`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -32630,7 +32771,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int p1, string p2, string p3, decimal p4, decimal p5, decimal p6, int p7, int p8) {
+        public virtual int Delete(int p1, string p2, string p3, decimal p4, decimal p5, decimal p6, decimal p7, decimal p8, decimal p9, int p10, int p11) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(p1));
             if ((p2 == null)) {
                 throw new global::System.ArgumentNullException("p2");
@@ -32647,8 +32788,11 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
             this.Adapter.DeleteCommand.Parameters[3].Value = ((decimal)(p4));
             this.Adapter.DeleteCommand.Parameters[4].Value = ((decimal)(p5));
             this.Adapter.DeleteCommand.Parameters[5].Value = ((decimal)(p6));
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(p7));
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(p8));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(p7));
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((decimal)(p8));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((decimal)(p9));
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(p10));
+            this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(p11));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -32669,7 +32813,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string p1, string p2, decimal p3, decimal p4, decimal p5, int p6, int p7) {
+        public virtual int Insert(string p1, string p2, decimal p3, decimal p4, decimal p5, decimal p6, decimal p7, decimal p8, int p9, int p10) {
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
@@ -32685,8 +32829,11 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
             this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(p3));
             this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(p4));
             this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(p5));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(p6));
-            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(p7));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(p6));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(p7));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(p8));
+            this.Adapter.InsertCommand.Parameters[8].Value = ((int)(p9));
+            this.Adapter.InsertCommand.Parameters[9].Value = ((int)(p10));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -32707,7 +32854,28 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p1, string p2, decimal p3, decimal p4, decimal p5, int p6, int p7, int p8, string p9, string p10, decimal p11, decimal p12, decimal p13, int p14, int p15) {
+        public virtual int Update(
+                    string p1, 
+                    string p2, 
+                    decimal p3, 
+                    decimal p4, 
+                    decimal p5, 
+                    decimal p6, 
+                    decimal p7, 
+                    decimal p8, 
+                    int p9, 
+                    int p10, 
+                    int p11, 
+                    string p12, 
+                    string p13, 
+                    decimal p14, 
+                    decimal p15, 
+                    decimal p16, 
+                    decimal p17, 
+                    decimal p18, 
+                    decimal p19, 
+                    int p20, 
+                    int p21) {
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
@@ -32723,26 +32891,32 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
             this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(p3));
             this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(p4));
             this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(p5));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(p6));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(p7));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(p8));
-            if ((p9 == null)) {
-                throw new global::System.ArgumentNullException("p9");
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(p6));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(p7));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(p8));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(p9));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(p10));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(p11));
+            if ((p12 == null)) {
+                throw new global::System.ArgumentNullException("p12");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(p9));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(p12));
             }
-            if ((p10 == null)) {
-                throw new global::System.ArgumentNullException("p10");
+            if ((p13 == null)) {
+                throw new global::System.ArgumentNullException("p13");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(p10));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(p13));
             }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(p11));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((decimal)(p12));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(p13));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(p14));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(p15));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(p14));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(p15));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(p16));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(p17));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(p18));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(p19));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(p20));
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(p21));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -32980,7 +33154,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -33361,7 +33535,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -33856,7 +34030,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -34375,7 +34549,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -34813,7 +34987,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -35370,7 +35544,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -36048,7 +36222,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -36458,7 +36632,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -37047,7 +37221,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -37639,7 +37813,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -38147,7 +38321,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -38620,7 +38794,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -39013,7 +39187,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -39530,7 +39704,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -40133,7 +40307,7 @@ namespace Okna.stylwektor_itpecetDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString;
+            this._connection.ConnectionString = global::Okna.Properties.Settings.Default.stylwektor_itpecetConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

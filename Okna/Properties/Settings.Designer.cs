@@ -66,5 +66,16 @@ namespace Okna.Properties {
                 return ((string)(this["stylwektor_itpecetConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=stylwektor.nazwa.pl;user id=stylwektor_itpecet;password=0ptO!and;persistse" +
+            "curityinfo=False;database=stylwektor_itpecet")]
+        public string stylwektor_itpecetConnectionString1 {
+            get {
+                return ((string)(this["stylwektor_itpecetConnectionString1"]));
+            }
+        }
     }
 }

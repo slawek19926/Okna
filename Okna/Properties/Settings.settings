@@ -34,5 +34,13 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">server=stylwektor.nazwa.pl;user id=stylwektor_itpecet;password=0ptO!and;database=stylwektor_itpecet</Value>
     </Setting>
+    <Setting Name="stylwektor_itpecetConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;server=stylwektor.nazwa.pl;user id=stylwektor_itpecet;password=0ptO!and;persistsecurityinfo=False;database=stylwektor_itpecet&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">server=stylwektor.nazwa.pl;user id=stylwektor_itpecet;password=0ptO!and;persistsecurityinfo=False;database=stylwektor_itpecet</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

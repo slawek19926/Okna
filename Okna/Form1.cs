@@ -40,7 +40,7 @@ namespace Okna
 
         private void fORM1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            wycena form = new wycena();
+            wycena form = new wycena(this);
             form.MdiParent = this;
             form.Show();
         }

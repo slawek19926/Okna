@@ -21,9 +21,11 @@ namespace Okna
     {
         string strCurrency;
         Boolean acceptableKey = false;
-        public wycena()
+        Form1 Form1;
+        public wycena(Form1 Form1)
         {
             InitializeComponent();
+            this.Form1 = Form1;
             WindowState = FormWindowState.Maximized;
             Text = "Wycena " + klientTXT.Text;
             FormClosing += wycena_FormClosing;
@@ -589,7 +591,7 @@ namespace Okna
             //ClsPrint _ClsPrint = new ClsPrint(dgv2, wycena_nr.Text,"Dokument sporządził:");
             //_ClsPrint.PrintForm();
 
-            print.printDial frm = new print.printDial(this);
+            print.printDial frm = new print.printDial(this,Form1);
             frm.Show();
         }
     }
