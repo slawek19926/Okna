@@ -80,6 +80,14 @@ namespace Okna.print
 
                 }
             }
+            var data = DateTime.Now.ToString("dd/MM/yyyy");
+            ReportParameter[] param = new ReportParameter[]
+            {
+                new ReportParameter("wycenaNR", wycena.wycena_nr.Text),
+                new ReportParameter("wystawiona", data),
+                new ReportParameter("przygotowal", "użytkownik")
+            }; 
+            reportViewer1.LocalReport.SetParameters(param);
             reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", dt1));
             reportViewer1.RefreshReport();
         }
