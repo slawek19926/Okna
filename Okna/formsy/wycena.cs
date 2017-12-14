@@ -533,61 +533,64 @@ namespace Okna
 
         private void print_btn_Click(object sender, EventArgs e)
         {
-            DataGridView dgv2 = new DataGridView();
+            //DataGridView dgv2 = new DataGridView();
 
-            dgv2.Columns.Add("Lp", "Lp"); //0
-            dgv2.Columns.Add("Indeks", "Indeks"); //1
-            dgv2.Columns.Add("Nazwa", "Nazwa"); //2
-            dgv2.Columns.Add("Cena netto", "Cena netto"); //3
-            dgv2.Columns.Add("Ilość", "Ilość"); //4 
-            dgv2.Columns.Add("j.m.", "j.m."); //5
-            dgv2.Columns.Add("Wartość netto", "Wartość netto"); //6
-            dgv2.Columns.Add("Wartość brutto", "Wartośc brutto"); //7
+            //dgv2.Columns.Add("Lp", "Lp"); //0
+            //dgv2.Columns.Add("Indeks", "Indeks"); //1
+            //dgv2.Columns.Add("Nazwa", "Nazwa"); //2
+            //dgv2.Columns.Add("Cena netto", "Cena netto"); //3
+            //dgv2.Columns.Add("Ilość", "Ilość"); //4 
+            //dgv2.Columns.Add("j.m.", "j.m."); //5
+            //dgv2.Columns.Add("Wartość netto", "Wartość netto"); //6
+            //dgv2.Columns.Add("Wartość brutto", "Wartośc brutto"); //7
 
-            dgv2.Columns[0].Width = 30;
-            dgv2.Columns[1].Width = 70;
-            dgv2.Columns[2].Width = 250;
-            dgv2.Columns[3].Width = 80;
-            dgv2.Columns[4].Width = 60;
-            dgv2.Columns[5].Width = 50;
+            //dgv2.Columns[0].Width = 30;
+            //dgv2.Columns[1].Width = 70;
+            //dgv2.Columns[2].Width = 250;
+            //dgv2.Columns[3].Width = 80;
+            //dgv2.Columns[4].Width = 60;
+            //dgv2.Columns[5].Width = 50;
 
-            String[] tablica = new String[8];
+            //String[] tablica = new String[8];
 
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                try
-                {
-                    tablica[0] = dataGridView1.Rows.Count.ToString();
-                    tablica[1] = row.Cells[0].Value.ToString();
-                    tablica[2] = row.Cells[1].Value.ToString();
-                    tablica[3] = row.Cells[4].Value.ToString();
-                    tablica[4] = row.Cells[5].Value.ToString();
-                    tablica[5] = "szt.";
-                    tablica[6] = row.Cells[6].Value.ToString();
-                    tablica[7] = row.Cells[7].Value.ToString();
+            //foreach (DataGridViewRow row in dataGridView1.Rows)
+            //{
+            //    try
+            //    {
+            //        tablica[0] = dataGridView1.Rows.Count.ToString();
+            //        tablica[1] = row.Cells[0].Value.ToString();
+            //        tablica[2] = row.Cells[1].Value.ToString();
+            //        tablica[3] = row.Cells[4].Value.ToString();
+            //        tablica[4] = row.Cells[5].Value.ToString();
+            //        tablica[5] = "szt.";
+            //        tablica[6] = row.Cells[6].Value.ToString();
+            //        tablica[7] = row.Cells[7].Value.ToString();
 
-                    dgv2.Rows.Add(tablica);
+            //        dgv2.Rows.Add(tablica);
 
-                }
-                catch (Exception exc)
-                {
+            //    }
+            //    catch (Exception exc)
+            //    {
 
-                }
-            }
-            decimal wartBrutto = 0;
-            decimal wartNetto = 0;
+            //    }
+            //}
+            //decimal wartBrutto = 0;
+            //decimal wartNetto = 0;
 
-            for (int i = 0; i < dgv2.Rows.Count; i++)
-            {
-                wartBrutto += Convert.ToDecimal(dgv2.Rows[i].Cells[7].Value);
-                wartNetto += Convert.ToDecimal(dgv2.Rows[i].Cells[6].Value);
-            }
-            dgv2.Rows.Add(new object[] { "", "Łacznie:", "", "", "", "", wartNetto.ToString(), wartBrutto.ToString() });
+            //for (int i = 0; i < dgv2.Rows.Count; i++)
+            //{
+            //    wartBrutto += Convert.ToDecimal(dgv2.Rows[i].Cells[7].Value);
+            //    wartNetto += Convert.ToDecimal(dgv2.Rows[i].Cells[6].Value);
+            //}
+            //dgv2.Rows.Add(new object[] { "", "Łacznie:", "", "", "", "", wartNetto.ToString(), wartBrutto.ToString() });
 
-            dgv2.AllowUserToAddRows = false;
+            //dgv2.AllowUserToAddRows = false;
 
-            ClsPrint _ClsPrint = new ClsPrint(dgv2, wycena_nr.Text,"Dokument sporządził:");
-            _ClsPrint.PrintForm();
+            //ClsPrint _ClsPrint = new ClsPrint(dgv2, wycena_nr.Text,"Dokument sporządził:");
+            //_ClsPrint.PrintForm();
+
+            print.printDial frm = new print.printDial(this);
+            frm.Show();
         }
     }
 }

@@ -68,7 +68,7 @@ namespace Okna.print
             using (var connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                var query = "SELECT lpad(max(id+1)," + MyIni.Read("zera", "wyceny") + ",0) as numer FROM wyceny_detail";
+                var query = "SELECT * FROM temp";
                 try
                 {
                     MySqlDataAdapter adr = new MySqlDataAdapter(query, connection);
