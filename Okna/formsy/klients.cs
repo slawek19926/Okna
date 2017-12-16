@@ -70,7 +70,7 @@ namespace Okna.formsy
                     }
                 }
             }
-            //klientBOX.SelectedIndex = 0;
+            klientBOX.SelectedIndex = 0;
         }
         private void useBTN_Click(object sender, EventArgs e)
         {

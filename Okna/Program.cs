@@ -18,10 +18,6 @@ namespace Okna
             Application.SetCompatibleTextRenderingDefault(false);
             frmLogin frm = new frmLogin();
             Application.Run(frm);
-
-            frm.Dispose();
-
-            Application.Run(new Form1());
         }
     }
 }

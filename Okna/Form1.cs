@@ -59,7 +59,7 @@ namespace Okna
 
         private void zamówieniaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            zamowienia form = new zamowienia();
+            zamowienia form = new zamowienia(this);
             form.MdiParent = this;
             form.Show();
         }
@@ -110,7 +110,7 @@ namespace Okna
             var res = MessageBox.Show("Czy napewno chcesz zamknąć program?", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if(res == DialogResult.Yes)
             {
-                e.Cancel = false;
+                Application.Exit();
             }
             else
             {

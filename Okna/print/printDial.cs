@@ -70,7 +70,7 @@ namespace Okna.print
             using (var connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                var query = "SELECT * FROM temp";
+                var query = "SELECT * FROM temp WHERE wycena_nr = " + wycena.numerek.Text + "";
                 try
                 {
                     MySqlDataAdapter adr = new MySqlDataAdapter(query, connection);

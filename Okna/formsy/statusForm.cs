@@ -16,10 +16,12 @@ namespace Okna.formsy
     public partial class statusForm : Form
     {
         private zamowienia zamowienia;
-        public statusForm(zamowienia zamowienia)
+        private Form1 Form1;
+        public statusForm(zamowienia zamowienia,Form1 Form1)
         {
             InitializeComponent();
             this.zamowienia = zamowienia;
+            this.Form1 = Form1;
             Text = "Status zamówienia";
         }
         private string server;
@@ -86,7 +88,9 @@ namespace Okna.formsy
                 {
                     var data = DateTime.Now;
                     var dat = data.ToString("yyyy-MM-dd HH:mm:ss");
-                    var query = "UPDATE zamowienia SET status = '" + statusBOX.SelectedIndex + "', data_r = '" + dat + "',przyjol='" + Environment.UserName + "' WHERE zamowienie_id = '" + zamowienia.dataGridView1.SelectedCells[9].Value.ToString() + "'";
+                    var query = "UPDATE zamowienia SET status = '" + statusBOX.SelectedIndex + "', " +
+                        "data_r = '" + dat + "',przyjol=(SELECT name FROM uzytkownicy WHERE username ='" + Form1.logged.Text + "') " +
+                        "WHERE zamowienie_id = '" + zamowienia.dataGridView1.SelectedCells[9].Value.ToString() + "'";
                     using (var command = new MySqlCommand(query, connection))
                     {
                         command.Connection.Open();
@@ -110,7 +114,7 @@ namespace Okna.formsy
                 {
                     var data = DateTime.Now;
                     var dat = data.ToString("yyyy-MM-dd");
-                    var query = "UPDATE zamowienia SET status = '" + statusBOX.SelectedIndex + "',przyjol='" + Environment.UserName + "' WHERE zamowienie_id = '" + zamowienia.dataGridView1.SelectedCells[9].Value.ToString() + "'";
+                    var query = "UPDATE zamowienia SET status = '" + statusBOX.SelectedIndex + "',przyjol=(SELECT name FROM uzytkownicy WHERE username ='" + Form1.logged.Text + "') WHERE zamowienie_id = '" + zamowienia.dataGridView1.SelectedCells[9].Value.ToString() + "'";
                     using (var command = new MySqlCommand(query, connection))
                     {
                         command.Connection.Open();

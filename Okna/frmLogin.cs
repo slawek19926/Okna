@@ -130,8 +130,9 @@ namespace Okna
 
                         var MyIni = new INIFile("WektorSettings.ini");
                         MyIni.Write("user", user, "logged");
-                        
-                        Close();
+                        Form1 frm = new Form1();
+                        frm.Show();
+                        Hide();
                     }
                     else
                     {
@@ -148,28 +149,14 @@ namespace Okna
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            string user = txtLogin.Text;
-            string pass = txtPassword.Text;
-            db_connection();
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.CommandText = "Select * from uzytkownicy where username=@user and password=MD5(@pass)";
-            cmd.Parameters.AddWithValue("@user", txtLogin.Text);
-            cmd.Parameters.AddWithValue("@pass", txtPassword.Text);
-            cmd.Connection = connect;
-            MySqlDataReader login = cmd.ExecuteReader();
-
-            while (login.Read())
+            var res = MessageBox.Show("Napewno chcesz zakończyć działanie programu?", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
             {
-                string l = login.GetString("allowed");
-
-                if (l == "0")
-                {
-                    Application.Exit();
-                }
+                e.Cancel = false;
             }
-            if (user == "" || pass == "")
+            else
             {
-                Application.Exit();
+                e.Cancel = true;
             }
         }
     }

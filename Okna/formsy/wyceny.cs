@@ -107,7 +107,8 @@ namespace Okna
             }
             dataGridView1.DataSource = dt;
             dataGridView1.Columns[1].Width = 200;
-            dataGridView1.Columns[2].Width = 200;
+            dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView1.Columns[7].Visible = false;
         }
 
         private void detailBTN_Click(object sender, EventArgs e)
