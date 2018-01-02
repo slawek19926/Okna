@@ -72,7 +72,7 @@ namespace Okna.formsy
 
             DataTable dt = new DataTable();
             dt.Columns.Add("Lp");
-            dt.Columns.Add("Product");
+            dt.Columns.Add("Produkt");
             dt.Columns.Add("Ilość");
             dt.Columns.Add("Rabat");
             dt.Columns.Add("Netto");
@@ -84,7 +84,7 @@ namespace Okna.formsy
             {
                 DataRow row = dt.NewRow();
                 row["Lp"] = dt.Rows.Count +1;
-                row["Product"] = obj_Reader["nazwa"];
+                row["Produkt"] = obj_Reader["nazwa"];
                 row["Ilość"] = obj_Reader["ilosc"];
                 row["Rabat"] = obj_Reader["rabat"];
                 row["Netto"] = obj_Reader["cena"] + " zł";
@@ -100,7 +100,7 @@ namespace Okna.formsy
             obj_Conn.Close();
             dataGridView1.DataSource = dt;
             dataGridView1.Columns[0].Width = 35;
-            dataGridView1.Columns[1].Width = 200;
+            dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void changeKLI_Click(object sender, EventArgs e)

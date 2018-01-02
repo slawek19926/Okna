@@ -15,9 +15,11 @@ namespace Okna
 {
     public partial class zamowienia : Form
     {
-        public zamowienia()
+        private Form1 Form1;
+        public zamowienia(Form1 Form1)
         {
             InitializeComponent();
+            this.Form1 = Form1;
             WindowState = FormWindowState.Maximized;
         }
         private string server;
@@ -25,6 +27,10 @@ namespace Okna
         private string uid;
         private string password;
         private string connectionString;
+        private string cs2;
+        private MySqlConnection connect;
+        private string faktura;
+        private string istnieje;
         static readonly string PasswordHash = "P@@Sw0rd";
         static readonly string SaltKey = "S@LT&KEY";
         static readonly string VIKey = "@1B2c3D4e5F6g7H8";
@@ -57,14 +63,13 @@ namespace Okna
             obj_Conn.ConnectionString = connectionString;
 
             obj_Conn.Open();
-            MySqlCommand obj_Cmd = new MySqlCommand("SELECT zamowienie_id as nrw,c.id as id_k,c.nazwa as klient,wartosc,data,b.name as stat,pay,uwagi,data_r, " +
-                "case " +
-                "when przyjol = 'alleg' then 'Allegro' " +
-                "when przyjol = 'Wojtekdu' then 'Wojciech Dukaczewski'" +
-                "end as przyjol " +
+            MySqlCommand obj_Cmd = new MySqlCommand("SELECT zamowienie_id as nrw,c.id as id_k,c.nazwa as klient,wartosc," +
+                "a.data as data,b.name as stat,a.pay as pay,a.uwagi as uwagi,a.data_r as data_r,d.numer as fvnr,a.przyjol as przyjol " +
                 "FROM zamowienia a " +
                 "LEFT JOIN status b ON(a.status = b.id)" +
-                "LEFT JOIN klienci c ON(a.klient_id = c.id)", obj_Conn);
+                "LEFT JOIN klienci c ON(a.klient_id = c.id) " +
+                "LEFT JOIN fakt d ON(a.zamowienie_id = d.zam)" +
+                "ORDER BY nrw ASC", obj_Conn);
 
             MySqlDataReader obj_Reader = obj_Cmd.ExecuteReader();
             DataTable dt = new DataTable();
@@ -80,6 +85,7 @@ namespace Okna
             dt.Columns.Add("id");
             dt.Columns.Add("idk");
             dt.Columns.Add("idz");
+            dt.Columns.Add("Faktura");
 
             while (obj_Reader.Read())
             {
@@ -99,6 +105,7 @@ namespace Okna
                 row["id"] = obj_Reader["nrw"];
                 row["idk"] = obj_Reader["id_k"];
                 row["idz"] = obj_Reader["nrw"];
+                row["Faktura"] = obj_Reader["fvnr"];
                 dt.Rows.Add(row);
             }
             obj_Conn.Close();
@@ -112,6 +119,8 @@ namespace Okna
             dataGridView1.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dataGridView1.Columns[9].Visible = false;
+            dataGridView1.Columns[10].Visible = false;
+            dataGridView1.Columns[11].Visible = false;
         }
 
         private void changeStat_Click(object sender, EventArgs e)
@@ -122,7 +131,7 @@ namespace Okna
             }
             else
             {
-                formsy.statusForm form = new formsy.statusForm(this);
+                formsy.statusForm form = new formsy.statusForm(this,Form1);
                 form.Show();
             }
         }
@@ -148,81 +157,140 @@ namespace Okna
             form.Show();
         }
 
-        private void wystawFV_Click(object sender, EventArgs e)
+        private void db_connection()
         {
-            if (dataGridView1.CurrentRow.Cells[6].Value.ToString() != "Zrealizowane")
-            {
-                MessageBox.Show("Nie można wystawić faktury jeśli zamówienie nie jest zrealizowane", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
+            try
             {
                 var MyIni = new INIFile("WektorSettings.ini");
                 server = MyIni.Read("server", "Okna");
                 database = MyIni.Read("database", "Okna");
                 uid = MyIni.Read("login", "Okna");
                 password = Decrypt(MyIni.Read("pass", "Okna"));
-                var przed = MyIni.Read("przed", "faktury");
-                var zera = MyIni.Read("zera", "faktury");
-                var data = DateTime.Now;
-                var miesiac = data.ToString("MM");
-                var rok = data.ToString("yyyy");
-                var wyst = data.ToString("yyyy-MM-dd HH:mm:ss");
-                var numer_z = dataGridView1.SelectedCells[1].Value.ToString();
-                connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";Allow User Variables=True";
-                try
+
+                connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";" + "Convert Zero Datetime = True;";
+                connect = new MySqlConnection(connectionString);
+                connect.Open();
+            }
+            catch (MySqlException ex)
+            {
+                throw;
+            }
+        }
+
+        private bool SprawdzamFakture()
+        {
+            var zamNR = dataGridView1.SelectedCells[11].Value.ToString();
+            db_connection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "SELECT * FROM fakt WHERE zam = @zam";
+            cmd.Parameters.AddWithValue("@zam", zamNR);
+            cmd.Connection = connect;
+            MySqlDataReader fv = cmd.ExecuteReader();
+            if (fv.Read())
+            {
+                connect.Close();
+                return false;
+            }
+            else
+            {
+                connect.Close();
+                return true;
+            }
+        }
+
+        private void wystawFV_Click(object sender, EventArgs e)
+        { 
+            if (dataGridView1.CurrentRow.Cells[6].Value.ToString() != "Zrealizowane")
+            {
+                MessageBox.Show("Nie można wystawić faktury jeśli zamówienie nie jest zrealizowane", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+
+                bool t = SprawdzamFakture();
+                if (t)
                 {
-                    var klient = dataGridView1.SelectedCells[10].Value.ToString();
-                    var id = dataGridView1.SelectedCells[11].Value.ToString();
-                    var query1 = "INSERT INTO fakt SET nr = ''";
-                    var query2 = "SET @ids = (SELECT MAX(id) FROM fakt);" +
-                        "SET @name = (SELECT MAX(LPAD(id," + zera + ",0)) FROM fakt);" +
-                        "SET @miesiac = " + miesiac + ";" +
-                        "SET @rok = " + rok + ";" +
-                        "SET @data = '" + wyst + "';" +
-                        "SET @zam = '" + numer_z + "';" +
-                        " UPDATE fakt SET nr = (@ids),klient='" + klient + "',numer=CONCAT('" + przed + "/',@name,'/',@miesiac,'/',@rok),pay='1',data=(@data),zam_nr=(@zam) WHERE id = @ids;";
-                    var query3 = "SELECT id,quantity,cena FROM zam WHERE order_id = '" + id + "';";
-                    using(var connection = new MySqlConnection(connectionString))
+                    var zamNR = dataGridView1.SelectedCells[11].Value.ToString();
+                    var MyIni = new INIFile("WektorSettings.ini");
+                    server = MyIni.Read("server", "Okna");
+                    database = MyIni.Read("database", "Okna");
+                    uid = MyIni.Read("login", "Okna");
+                    password = Decrypt(MyIni.Read("pass", "Okna"));
+                    var przed = MyIni.Read("przed", "faktury");
+                    var zera = MyIni.Read("zera", "faktury");
+                    var data = DateTime.Now;
+                    var dM = string.Format("{0:MM}", data);
+                    var dY = string.Format("{0:yyyy}", data);
+                    var miesiac = data.ToString("MM");
+                    var rok = data.ToString("yyyy");
+                    var wyst = data.ToString("yyyy-MM-dd HH:mm:ss");
+                    var numer_z = dataGridView1.SelectedCells[1].Value.ToString();
+                    connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";Allow User Variables=True";
+                    try
                     {
-                        connection.Open();
-                        using(var cmd = new MySqlCommand(query1, connection))
+                        var klient = dataGridView1.SelectedCells[10].Value.ToString();
+                        var id = dataGridView1.SelectedCells[11].Value.ToString();
+                        var query1 = "SET @idzam = " + zamNR + ";" +
+                            "INSERT INTO fakt SET nr = '', zam = (@idzam)";
+                        var query2 = "SET @ids = (SELECT MAX(id) FROM fakt);" +
+                            "SET @name = (SELECT MAX(LPAD(id," + zera + ",0)) FROM fakt);" +
+                            "SET @miesiac = " + miesiac + ";" +
+                            "SET @rok = " + rok + ";" +
+                            "SET @data = '" + wyst + "';" +
+                            "SET @zam = '" + numer_z + "';" +
+                            " UPDATE fakt SET nr = (@ids),klient='" + klient + "',numer=CONCAT('" + przed + "/',@name,'/','" + dM + "/','" + dY + "'),pay='1',data=(@data),zam_nr=(@zam) WHERE id = @ids;";
+                        var query3 = "SELECT id,quantity,cena FROM zam WHERE order_id = '" + id + "';";
+                        using (var connection = new MySqlConnection(connectionString))
                         {
-                            cmd.ExecuteNonQuery();
-                        }
-                        using(var cmd2 = new MySqlCommand(query2, connection))
-                        {
-                            cmd2.ExecuteNonQuery();
-                        }
-                        using(var cmd3 = new MySqlCommand(query3, connection))
-                        {
-                            DataTable tb = new DataTable();
-                            tb.Columns.Add("1");
-                            tb.Columns.Add("2");
-                            tb.Columns.Add("3");
-                            using(MySqlDataReader rdr = cmd3.ExecuteReader())
+                            connection.Open();
+
+                            using (var cmd = new MySqlCommand(query1, connection))
                             {
-                                while (rdr.Read())
+                                cmd.ExecuteNonQuery();
+                            }
+                            using (var cmd2 = new MySqlCommand(query2, connection))
+                            {
+                                cmd2.ExecuteNonQuery();
+                            }
+                            using (var cmd3 = new MySqlCommand(query3, connection))
+                            {
+                                DataTable tb = new DataTable();
+                                tb.Columns.Add("1");
+                                tb.Columns.Add("2");
+                                tb.Columns.Add("3");
+                                using (MySqlDataReader rdr = cmd3.ExecuteReader())
                                 {
-                                    DataRow row = tb.NewRow();
-                                    row[0] = rdr[0];
-                                    row[1] = rdr[1];
-                                    row[2] = rdr[2];
-                                    tb.Rows.Add(row);
+                                    while (rdr.Read())
+                                    {
+                                        DataRow row = tb.NewRow();
+                                        row[0] = rdr[0];
+                                        row[1] = rdr[1];
+                                        row[2] = rdr[2];
+                                        tb.Rows.Add(row);
+                                    }
+                                }
+                                foreach (DataRow r in tb.Rows)
+                                {
+                                    cmd3.CommandText = "INSERT INTO fakt_det SET id_fakt=(SELECT MAX(nr) FROM fakt),id_product=" + r[0] + ",jm='1',ilosc='" + r[1] + "',netto='" + r[2].ToString().Replace(",", ".") + "',vat='1'";
+                                    cmd3.ExecuteNonQuery();
+                                }
+                                var result = MessageBox.Show("Faktura została utworzona pomyślnie", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                if (result == DialogResult.OK)
+                                {
+                                    PerformRefresh(e, e);
                                 }
                             }
-                            foreach(DataRow r in tb.Rows)
-                            {
-                                cmd3.CommandText = "INSERT INTO fakt_det SET id_fakt=(SELECT MAX(nr) FROM fakt),id_product=" + r[0] + ",jm='1',ilosc='" + r[1] + "',netto='" + r[2].ToString().Replace(",",".") + "',vat='1'";
-                                cmd3.ExecuteNonQuery();
-                            }
-                            MessageBox.Show("Faktura została utworzona pomyślnie", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            connection.Close();
                         }
-                        connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
                     }
                 }
-                catch(Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Faktura do tego zamówienia została już wystawiona!","Informacja",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
             }
         }

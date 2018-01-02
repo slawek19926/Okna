@@ -43,7 +43,8 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 50);
@@ -58,6 +59,7 @@
             // 
             // klient
             // 
+            this.klient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.klient.AutoSize = true;
             this.klient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.klient.Location = new System.Drawing.Point(70, 345);
@@ -80,6 +82,7 @@
             // 
             // realizuj
             // 
+            this.realizuj.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.realizuj.Location = new System.Drawing.Point(727, 357);
             this.realizuj.Name = "realizuj";
             this.realizuj.Size = new System.Drawing.Size(124, 48);
@@ -89,6 +92,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.Location = new System.Drawing.Point(16, 345);
@@ -99,6 +103,7 @@
             // 
             // changeKLI
             // 
+            this.changeKLI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.changeKLI.Location = new System.Drawing.Point(12, 373);
             this.changeKLI.Name = "changeKLI";
             this.changeKLI.Size = new System.Drawing.Size(105, 32);
@@ -119,6 +124,7 @@
             this.Controls.Add(this.klient);
             this.Controls.Add(this.dataGridView1);
             this.Name = "wyceny_detail";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "wyceny_detail";
             this.Load += new System.EventHandler(this.wyceny_detail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

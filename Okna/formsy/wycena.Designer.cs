@@ -423,7 +423,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button print_btn;
         private System.Windows.Forms.ProgressBar progressBar;
-        private System.Windows.Forms.Label numerek;
         private System.Windows.Forms.DataGridViewTextBoxColumn indeks;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazwa;
         private System.Windows.Forms.DataGridViewTextBoxColumn cena;
@@ -436,5 +435,6 @@
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         public System.Windows.Forms.Label wycena_nr;
+        public System.Windows.Forms.Label numerek;
     }
 }

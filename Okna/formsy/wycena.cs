@@ -485,7 +485,12 @@ namespace Okna
             //sprawdzamy czy klient został wybrany
             if (klientTXT.Text == "")
             {
-                MessageBox.Show("Przed zapisem musisz wybrać klient!");
+                var result = MessageBox.Show("Przed zapisem musisz wybrać klient!");
+                if(result == DialogResult.OK)
+                {
+                    formsy.klients form = new formsy.klients(this);
+                    form.Show();
+                }
             }
             else
             {
@@ -513,8 +518,8 @@ namespace Okna
                         cmd.Parameters.AddWithValue("@cena", row.Cells[4].Value.ToString().Replace("zł", "").Replace(",", "."));
                         cmd.Parameters.AddWithValue("@data", DateTime.Now);
                         cmd.Parameters.AddWithValue("@kwota", sumaTXT.Text.Replace("zł", "").Replace(",", "."));
-                        cmd.CommandText = "INSERT IGNORE INTO wyceny (nrw,klient,kwota,data) VALUES (@id,3,@kwota,@data); " +
-                                          "INSERT INTO wyceny_detail (id,id_product,id_klient,rabat,ilosc,cena) VALUES (@id,(SELECT id FROM cenniki WHERE reference = @indeks),3,@rabat,@ilosc,@cena);";
+                        cmd.CommandText = $"INSERT IGNORE INTO wyceny (nrw,klient,kwota,data) VALUES (@id,(SELECT id FROM klienci WHERE nazwa = '{klientTXT.Text}'),@kwota,@data); " +
+                            $"INSERT INTO wyceny_detail (id,id_product,id_klient,rabat,ilosc,cena) VALUES (@id,(SELECT id FROM cenniki WHERE reference = @indeks),(SELECT id FROM klienci WHERE nazwa ='{klientTXT.Text}'),@rabat,@ilosc,@cena);";
                         connection.Open();
                         cmd.ExecuteNonQuery();
                         connection.Close();
@@ -524,7 +529,11 @@ namespace Okna
                         MessageBox.Show(ex.Message);
                     }
                 }
-                MessageBox.Show("Wycena została zapisana pod numerem " + wycena_nr.Text);
+                var result = MessageBox.Show("Wycena została zapisana pod numerem " + wycena_nr.Text);
+                if (result == DialogResult.OK)
+                {
+                    Close();
+                }
             }
         }
 
@@ -533,64 +542,53 @@ namespace Okna
             editBTN_Click(e, e);
         }
 
+        private void zapisDoBazy()
+        {
+            var MyIni = new INIFile("WektorSettings.ini");
+            server = MyIni.Read("server", "Okna");
+            database = MyIni.Read("database", "Okna");
+            uid = MyIni.Read("login", "Okna");
+            password = Decrypt(MyIni.Read("pass", "Okna"));
+
+            string MyConnectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+            MySqlConnection connection = new MySqlConnection(MyConnectionString);
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd = connection.CreateCommand();
+                    cmd.Parameters.AddWithValue("@nr", numerek.Text);
+                    cmd.Parameters.AddWithValue("@indeks", row.Cells[0].Value.ToString());
+                    cmd.Parameters.AddWithValue("@nazwa", row.Cells[1].Value.ToString());
+                    cmd.Parameters.AddWithValue("@rabat", row.Cells[3].Value.ToString());
+                    cmd.Parameters.AddWithValue("@narzut", row.Cells[8].Value.ToString());
+                    cmd.Parameters.AddWithValue("@cena", row.Cells[4].Value.ToString());
+                    cmd.Parameters.AddWithValue("@ilosc", row.Cells[5].Value.ToString());
+                    decimal netto = Decimal.Parse(row.Cells[4].Value.ToString().Replace("zł", ""));
+                    decimal ilosc = Decimal.Parse(row.Cells[5].Value.ToString());
+                    decimal vat = Decimal.Parse("1,23");
+                    decimal wartN = Math.Round(netto * ilosc);
+                    decimal wartB = Math.Round(wartN * vat);
+                    decimal wartV = Math.Round(wartB - wartN);
+                    cmd.Parameters.AddWithValue("@wartN", wartN);
+                    cmd.Parameters.AddWithValue("@wartB", wartB);
+                    cmd.Parameters.AddWithValue("@wartV", wartV);
+                    cmd.CommandText = "INSERT IGNORE INTO temp (indeks,nazwa,rabat,narzut,cena,wartn,wart_v,wartb,ilosc,wycena_nr) VALUES (@indeks,@nazwa,@rabat,@narzut,@cena,@wartN,@wartV,@wartB,@ilosc,@nr)";
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
         private void print_btn_Click(object sender, EventArgs e)
         {
-            //DataGridView dgv2 = new DataGridView();
-
-            //dgv2.Columns.Add("Lp", "Lp"); //0
-            //dgv2.Columns.Add("Indeks", "Indeks"); //1
-            //dgv2.Columns.Add("Nazwa", "Nazwa"); //2
-            //dgv2.Columns.Add("Cena netto", "Cena netto"); //3
-            //dgv2.Columns.Add("Ilość", "Ilość"); //4 
-            //dgv2.Columns.Add("j.m.", "j.m."); //5
-            //dgv2.Columns.Add("Wartość netto", "Wartość netto"); //6
-            //dgv2.Columns.Add("Wartość brutto", "Wartośc brutto"); //7
-
-            //dgv2.Columns[0].Width = 30;
-            //dgv2.Columns[1].Width = 70;
-            //dgv2.Columns[2].Width = 250;
-            //dgv2.Columns[3].Width = 80;
-            //dgv2.Columns[4].Width = 60;
-            //dgv2.Columns[5].Width = 50;
-
-            //String[] tablica = new String[8];
-
-            //foreach (DataGridViewRow row in dataGridView1.Rows)
-            //{
-            //    try
-            //    {
-            //        tablica[0] = dataGridView1.Rows.Count.ToString();
-            //        tablica[1] = row.Cells[0].Value.ToString();
-            //        tablica[2] = row.Cells[1].Value.ToString();
-            //        tablica[3] = row.Cells[4].Value.ToString();
-            //        tablica[4] = row.Cells[5].Value.ToString();
-            //        tablica[5] = "szt.";
-            //        tablica[6] = row.Cells[6].Value.ToString();
-            //        tablica[7] = row.Cells[7].Value.ToString();
-
-            //        dgv2.Rows.Add(tablica);
-
-            //    }
-            //    catch (Exception exc)
-            //    {
-
-            //    }
-            //}
-            //decimal wartBrutto = 0;
-            //decimal wartNetto = 0;
-
-            //for (int i = 0; i < dgv2.Rows.Count; i++)
-            //{
-            //    wartBrutto += Convert.ToDecimal(dgv2.Rows[i].Cells[7].Value);
-            //    wartNetto += Convert.ToDecimal(dgv2.Rows[i].Cells[6].Value);
-            //}
-            //dgv2.Rows.Add(new object[] { "", "Łacznie:", "", "", "", "", wartNetto.ToString(), wartBrutto.ToString() });
-
-            //dgv2.AllowUserToAddRows = false;
-
-            //ClsPrint _ClsPrint = new ClsPrint(dgv2, wycena_nr.Text,"Dokument sporządził:");
-            //_ClsPrint.PrintForm();
-
+            zapisDoBazy();
             print.printDial frm = new print.printDial(this,Form1);
             frm.Show();
         }
