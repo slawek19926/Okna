@@ -75,10 +75,12 @@ namespace Okna.finanse
                 conn.ConnectionString = connectionString;
 
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT b.id,a.numer,b.nazwa,a.pay,a.nr,a.zam_nr,a.data,c.dni FROM fakt a " +
+                MySqlCommand cmd = new MySqlCommand("SELECT b.id,a.numer,b.nazwa,a.pay,a.nr,a.zam_nr,a.data,c.dni,SUM((d.netto*ilosc)*1.23) AS suma FROM fakt a " +
                     " LEFT JOIN klienci b ON(a.klient = b.id)" +
                     " LEFT JOIN terminy c ON(a.pay = c.id)" +
-                    " ORDER BY a.id ASC", conn);
+                    " LEFT JOIN fakt_det d ON(a.id = d.id_fakt)" +
+                    " GROUP BY a.id" +
+                    " ORDER BY a.id DESC", conn);
 
                 MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -114,6 +116,7 @@ namespace Okna.finanse
                     row[2] = rdr[5];
                     row[3] = rdr[2];
                     row[4] = ile.Days.ToString();
+                    row[5] = string.Format("{0:c}", rdr[8]);
                     row[7] = rdr[0];
                     row[8] = rdr[3];
                     row[9] = rdr[4];
@@ -125,6 +128,14 @@ namespace Okna.finanse
                     {
                         row[10] = "Zapłacona";
                     }
+                    if (row[10].ToString() == "Niezapłacona")
+                    {
+                        row[6] = string.Format("{0:c}", rdr[8]);
+                    }
+                    else
+                    {
+                        row[6] = "0,00 zł";
+                    }
 
                     dt.Rows.Add(row);
                 }
@@ -135,47 +146,12 @@ namespace Okna.finanse
                 dataGridView1.Columns[8].Visible = false;
                 dataGridView1.Columns[9].Visible = false;
                 dataGridView1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                
+                conn.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            var dataGridView = sender as DataGridView;
-            var termin = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[4].Value);
-
-            if (termin == 0)
-            {
-                dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow;
-                if (dataGridView.Rows[e.RowIndex].Selected)
-                {
-                    e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
-                    e.CellStyle.SelectionBackColor = Color.YellowGreen;
-                }
-            }
-            else if (termin < 0)
-            {
-                dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
-                e.CellStyle.SelectionBackColor = Color.Red;
-                if (dataGridView.Rows[e.RowIndex].Selected)
-                {
-                    e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
-                    e.CellStyle.SelectionBackColor = Color.YellowGreen;
-                }
-            }
-            else
-            {
-                if (dataGridView.Rows[e.RowIndex].Selected)
-                {
-                    e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
-                    e.CellStyle.SelectionBackColor = Color.LightBlue;
-                }
-            }
-
         }
 
         private void detail_BTN_Click(object sender, EventArgs e)
@@ -187,53 +163,6 @@ namespace Okna.finanse
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             fv_id = dataGridView1.SelectedCells[9].Value.ToString();
-        }
-
-        private void zapFV_CheckedChanged(object sender, EventArgs e)
-        {
-            string RowFilter = string.Empty;
-            CreateOrAppendToFilter(zapFV, ref RowFilter);
-            if (RowFilter.Length > 0)
-            {
-                try
-                {
-                    //Check an see what's in the dgv
-                    DataView dv = new DataView(dt);
-                    dv.RowFilter = RowFilter;
-                    dataGridView1.DataSource = dv;
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Can’t find the column", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-        }
-        private void CreateOrAppendToFilter(CheckBox cb, ref string RowFilter)
-        {
-            if (RowFilter.Length > 0)
-            {
-                RowFilter += " OR ";
-            }
-            RowFilter += (cb.Checked) ? string.Format("[Zapłacona] = {0}", cb.Text.Trim()) : string.Empty;
-        }
-
-        private void niezapFV_CheckedChanged(object sender, EventArgs e)
-        {
-            string filtr = string.Empty;
-            if (niezapFV.Checked)
-            {
-                filtr += " [Zapłacona] = " + niezapFV.Text.Trim();
-            }
-            try
-            {
-                DataView dv = new DataView(dt);
-                dv.RowFilter = filtr;
-                dataGridView1.DataSource = dv;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Brak nieopłaconych faktur", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
     }
 }

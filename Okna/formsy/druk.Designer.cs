@@ -37,6 +37,7 @@
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Okna.Report.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(928, 499);
             this.reportViewer1.TabIndex = 0;
             // 
@@ -47,7 +48,9 @@
             this.ClientSize = new System.Drawing.Size(928, 499);
             this.Controls.Add(this.reportViewer1);
             this.Name = "druk";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "druk";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.druk_Load);
             this.ResumeLayout(false);
 

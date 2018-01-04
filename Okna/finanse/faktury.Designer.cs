@@ -92,7 +92,6 @@
             this.niezapFV.TabIndex = 1;
             this.niezapFV.Text = "Niezapłacona";
             this.niezapFV.UseVisualStyleBackColor = true;
-            this.niezapFV.CheckedChanged += new System.EventHandler(this.niezapFV_CheckedChanged);
             // 
             // zapFV
             // 
@@ -103,7 +102,6 @@
             this.zapFV.TabIndex = 0;
             this.zapFV.Text = "Zapłacona";
             this.zapFV.UseVisualStyleBackColor = true;
-            this.zapFV.CheckedChanged += new System.EventHandler(this.zapFV_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -180,7 +178,6 @@
             this.dataGridView1.ShowRowErrors = false;
             this.dataGridView1.Size = new System.Drawing.Size(717, 546);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // faktury
             // 
