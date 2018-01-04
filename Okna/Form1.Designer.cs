@@ -167,13 +167,13 @@
             this.okuciaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.katalogToolStripMenuItem});
             this.okuciaToolStripMenuItem.Name = "okuciaToolStripMenuItem";
-            this.okuciaToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.okuciaToolStripMenuItem.Text = "Okucia";
+            this.okuciaToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.okuciaToolStripMenuItem.Text = "Towary";
             // 
             // katalogToolStripMenuItem
             // 
             this.katalogToolStripMenuItem.Name = "katalogToolStripMenuItem";
-            this.katalogToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.katalogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.katalogToolStripMenuItem.Text = "Katalog";
             this.katalogToolStripMenuItem.Click += new System.EventHandler(this.katalogToolStripMenuItem_Click);
             // 

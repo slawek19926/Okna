@@ -177,5 +177,12 @@ namespace Okna
         {
             button1_Click(e,e);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            formsy.spoza_katalogu frm = new formsy.spoza_katalogu(this);
+            frm.Show();
+            Close();
+        }
     }
 }

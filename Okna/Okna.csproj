@@ -267,6 +267,12 @@
       <DependentUpon>settings.cs</DependentUpon>
     </Compile>
     <Compile Include="formsy\INIFile.cs" />
+    <Compile Include="formsy\spoza_katalogu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formsy\spoza_katalogu.Designer.cs">
+      <DependentUpon>spoza_katalogu.cs</DependentUpon>
+    </Compile>
     <Compile Include="formsy\statusForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -411,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formsy\settings.resx">
       <DependentUpon>settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formsy\spoza_katalogu.resx">
+      <DependentUpon>spoza_katalogu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formsy\statusForm.resx">
       <DependentUpon>statusForm.cs</DependentUpon>
