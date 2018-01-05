@@ -47,8 +47,18 @@ namespace Okna.formsy
             return Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount).TrimEnd("\0".ToCharArray());
         }
 
+        public class Stawki
+        {
+            public string Name { get; set; }
+            public string Value { get; set; }
+            public override string ToString() { return this.Name; }
+        }
+
         private void spoza_katalogu_Load(object sender, EventArgs e)
         {
+            stawkiVAT.DisplayMember = "Text";
+            stawkiVAT.ValueMember = "Value";
+
             var MyIni = new INIFile("WektorSettings.ini");
             server = MyIni.Read("server", "Okna");
             database = MyIni.Read("database", "Okna");
@@ -67,7 +77,7 @@ namespace Okna.formsy
                         //dodaje stawki VAT
                         while (reader.Read())
                         {
-                            stawkiVAT.Items.Add(reader.GetString("name"));
+                            stawkiVAT.Items.Add(new Stawki { Name = reader.GetString("name"), Value = reader.GetString("ile") });
                         }
                     }
                 }
@@ -94,7 +104,8 @@ namespace Okna.formsy
             nettoTXT.Text = netto.ToString("c");
             bruttoTXT.Text = brutto.ToString("c");
 
-            
+            int stawka = Convert.ToInt32(((Stawki)stawkiVAT.SelectedItem).Value);
+            MessageBox.Show(stawka.ToString());
         }
 
         private void nettoTXT_TextChanged(object sender, EventArgs e)
@@ -117,9 +128,7 @@ namespace Okna.formsy
 
         public void stawkiVAT_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int[] vat = new int[5];
-            vat[0] = stawkiVAT.SelectedIndex;
+            
         }
-        
     }
 }
