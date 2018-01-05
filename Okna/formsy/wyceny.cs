@@ -184,5 +184,10 @@ namespace Okna
             formsy.wyceny_detail form = new formsy.wyceny_detail(this);
             form.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

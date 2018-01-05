@@ -51,6 +51,16 @@ namespace Okna
         }
         private void add_product_Load(object sender, EventArgs e)
         {
+            szukajka.DisplayMember = "Text";
+            szukajka.ValueMember = "Value";
+            var items = new[]
+            {
+                new { Text = "Indeks", Value = "reference" },
+                new { Text = "Nazwa", Value = "nazwa" }
+            };
+            szukajka.DataSource = items;
+            szukajka.SelectedIndex = 0;
+
             var MyIni = new INIFile("WektorSettings.ini");
             server = MyIni.Read("server", "Okna");
             database = MyIni.Read("database", "Okna");
@@ -170,7 +180,29 @@ namespace Okna
 
         private void searchBox_TextChanged(object sender, EventArgs e)
         {
-            (bindingSource1.DataSource as DataTable).DefaultView.RowFilter = string.Format("Indeks LIKE '%{0}%' OR Nazwa LIKE '%{0}%'", searchBox.Text);
+            try
+            {
+                //szukanie po indeksie
+                if (szukajka.SelectedIndex == 0)
+                {
+                    var bd = (BindingSource)dataGridView1.DataSource;
+                    var dt = (DataTable)bd.DataSource;
+                    dt.DefaultView.RowFilter = string.Format("Indeks like '%{0}%'", searchBox.Text.Trim().Replace("'", "''"));
+                    dataGridView1.Refresh();
+                }
+                //szukanie po nazwie
+                else if (szukajka.SelectedIndex == 1)
+                {
+                    var bd = (BindingSource)dataGridView1.DataSource;
+                    var dt = (DataTable)bd.DataSource;
+                    dt.DefaultView.RowFilter = string.Format("Nazwa like '%{0}%'", searchBox.Text.Trim().Replace("'", "''"));
+                    dataGridView1.Refresh();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -180,7 +212,7 @@ namespace Okna
 
         private void button2_Click(object sender, EventArgs e)
         {
-            formsy.spoza_katalogu frm = new formsy.spoza_katalogu(this);
+            formsy.spoza_katalogu frm = new formsy.spoza_katalogu(this,wycena);
             frm.Show();
             Close();
         }

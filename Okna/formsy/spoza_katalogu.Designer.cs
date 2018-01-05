@@ -44,6 +44,10 @@
             this.iloscTXT = new System.Windows.Forms.TextBox();
             this.stawkiVAT = new System.Windows.Forms.ComboBox();
             this.jednostki = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.nettoW = new System.Windows.Forms.Label();
+            this.bruttoW = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // dodajBTN
@@ -55,6 +59,7 @@
             this.dodajBTN.TabIndex = 7;
             this.dodajBTN.Text = "Dodaj";
             this.dodajBTN.UseVisualStyleBackColor = true;
+            this.dodajBTN.Click += new System.EventHandler(this.dodajBTN_Click);
             // 
             // anulujBTN
             // 
@@ -66,6 +71,7 @@
             this.anulujBTN.TabIndex = 8;
             this.anulujBTN.Text = "Anuluj";
             this.anulujBTN.UseVisualStyleBackColor = true;
+            this.anulujBTN.Click += new System.EventHandler(this.anulujBTN_Click);
             // 
             // label1
             // 
@@ -136,6 +142,8 @@
             this.indeksTXT.Name = "indeksTXT";
             this.indeksTXT.Size = new System.Drawing.Size(258, 20);
             this.indeksTXT.TabIndex = 0;
+            this.indeksTXT.Click += new System.EventHandler(this.indeksTXT_MouseEnter);
+            this.indeksTXT.TextChanged += new System.EventHandler(this.indeksTXT_TextChanged);
             // 
             // nazwaTXT
             // 
@@ -144,6 +152,8 @@
             this.nazwaTXT.Size = new System.Drawing.Size(258, 40);
             this.nazwaTXT.TabIndex = 1;
             this.nazwaTXT.Text = "";
+            this.nazwaTXT.Click += new System.EventHandler(this.Select_nazwa);
+            this.nazwaTXT.TextChanged += new System.EventHandler(this.nazwaTXT_TextChanged);
             // 
             // nettoTXT
             // 
@@ -151,10 +161,14 @@
             this.nettoTXT.Name = "nettoTXT";
             this.nettoTXT.Size = new System.Drawing.Size(126, 20);
             this.nettoTXT.TabIndex = 2;
+            this.nettoTXT.Click += new System.EventHandler(this.Select_netto);
             this.nettoTXT.TextChanged += new System.EventHandler(this.nettoTXT_TextChanged);
+            this.nettoTXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nettoTXT_KeyPress);
+            this.nettoTXT.Leave += new System.EventHandler(this.nettoTXT_Leave);
             // 
             // bruttoTXT
             // 
+            this.bruttoTXT.Enabled = false;
             this.bruttoTXT.Location = new System.Drawing.Point(93, 152);
             this.bruttoTXT.Name = "bruttoTXT";
             this.bruttoTXT.Size = new System.Drawing.Size(126, 20);
@@ -166,6 +180,8 @@
             this.iloscTXT.Name = "iloscTXT";
             this.iloscTXT.Size = new System.Drawing.Size(126, 20);
             this.iloscTXT.TabIndex = 5;
+            this.iloscTXT.TextChanged += new System.EventHandler(this.iloscTXT_TextChanged);
+            this.iloscTXT.Validated += new System.EventHandler(this.iloscTXT_Validated);
             // 
             // stawkiVAT
             // 
@@ -184,6 +200,42 @@
             this.jednostki.Size = new System.Drawing.Size(126, 21);
             this.jednostki.TabIndex = 6;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(244, 102);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 13);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Wartość netto:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(241, 155);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(80, 13);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Wartość brutto:";
+            // 
+            // nettoW
+            // 
+            this.nettoW.AutoSize = true;
+            this.nettoW.Location = new System.Drawing.Point(327, 102);
+            this.nettoW.Name = "nettoW";
+            this.nettoW.Size = new System.Drawing.Size(41, 13);
+            this.nettoW.TabIndex = 11;
+            this.nettoW.Text = "label10";
+            // 
+            // bruttoW
+            // 
+            this.bruttoW.AutoSize = true;
+            this.bruttoW.Location = new System.Drawing.Point(327, 155);
+            this.bruttoW.Name = "bruttoW";
+            this.bruttoW.Size = new System.Drawing.Size(41, 13);
+            this.bruttoW.TabIndex = 12;
+            this.bruttoW.Text = "label11";
+            // 
             // spoza_katalogu
             // 
             this.AcceptButton = this.dodajBTN;
@@ -191,6 +243,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.anulujBTN;
             this.ClientSize = new System.Drawing.Size(448, 329);
+            this.Controls.Add(this.bruttoW);
+            this.Controls.Add(this.nettoW);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.jednostki);
             this.Controls.Add(this.stawkiVAT);
             this.Controls.Add(this.iloscTXT);
@@ -234,5 +290,9 @@
         private System.Windows.Forms.TextBox iloscTXT;
         private System.Windows.Forms.ComboBox stawkiVAT;
         private System.Windows.Forms.ComboBox jednostki;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label nettoW;
+        private System.Windows.Forms.Label bruttoW;
     }
 }
