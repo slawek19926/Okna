@@ -52,7 +52,7 @@ namespace Okna
 
         private void wycenyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            wyceny form = new wyceny();
+            wyceny form = new wyceny(this);
             form.MdiParent = this;
             form.Show();
         }
@@ -110,12 +110,23 @@ namespace Okna
             var res = MessageBox.Show("Czy napewno chcesz zamknąć program?", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if(res == DialogResult.Yes)
             {
+                zapis_login();
                 Application.Exit();
             }
             else
             {
                 e.Cancel = true;
             }
+        }
+
+        private void zapis_login()
+        {
+            db_connection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "Update uzytkownicy set logged='0' where username=@user";
+            cmd.Parameters.AddWithValue("@user", logged.Text);
+            cmd.Connection = connect;
+            cmd.ExecuteNonQuery();
         }
 
         private void kontrahenciToolStripMenuItem_Click(object sender, EventArgs e)
@@ -208,7 +219,6 @@ namespace Okna
                     {
                         narzędziaAdministratorToolStripMenuItem.Visible = false;
                         rysujOknotestToolStripMenuItem.Visible = false;
-                        fORM1ToolStripMenuItem.Visible = false;
                         fbFakturyToolStripMenuItem.Visible = false;
                     }
                     else

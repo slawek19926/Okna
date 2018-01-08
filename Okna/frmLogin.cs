@@ -100,6 +100,38 @@ namespace Okna
             }
         }
 
+        private bool Zalogowany(string user, string pass)
+        {
+            db_connection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "Select * from uzytkownicy where username=@user and password=MD5(@pass)";
+            cmd.Parameters.AddWithValue("@user", txtLogin.Text);
+            cmd.Parameters.AddWithValue("@pass", txtPassword.Text);
+            cmd.Connection = connect;
+            MySqlDataReader zalogowany = cmd.ExecuteReader();
+            if (zalogowany.Read())
+            {
+                connect.Close();
+                return true;
+            }
+            else
+            {
+                connect.Close();
+                return false;
+            }
+        }
+
+        private void zapis_login()
+        {
+            db_connection();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "Update uzytkownicy set logged='1' WHERE username=@user and password=MD5(@pass)";
+            cmd.Parameters.AddWithValue("@user", txtLogin.Text);
+            cmd.Parameters.AddWithValue("@pass", txtPassword.Text);
+            cmd.Connection = connect;
+            cmd.ExecuteNonQuery();
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string user = txtLogin.Text;
@@ -126,13 +158,36 @@ namespace Okna
 
                     if (l == "1")
                     {
-                        MessageBox.Show("Zalogowano pomyślnie","Sukces",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        bool log = Zalogowany(user,pass);
+                        if (log)
+                        {
+                            db_connection();
+                            MySqlCommand cmd2 = new MySqlCommand();
+                            cmd2.CommandText = "Select * from uzytkownicy where username=@user and password=MD5(@pass)";
+                            cmd2.Parameters.AddWithValue("@user", txtLogin.Text);
+                            cmd2.Parameters.AddWithValue("@pass", txtPassword.Text);
+                            cmd2.Connection = connect;
+                            MySqlDataReader login1 = cmd2.ExecuteReader();
+                            while (login1.Read())
+                            {
+                                string jest = login1.GetString("logged");
+                                if(jest == "1")
+                                {
+                                    MessageBox.Show("Inny użytkownik o tym loginie jest już zalogowany!","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                                }
+                                else
+                                {
+                                    zapis_login();
+                                    MessageBox.Show("Zalogowano pomyślnie", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        var MyIni = new INIFile("WektorSettings.ini");
-                        MyIni.Write("user", user, "logged");
-                        Form1 frm = new Form1();
-                        frm.Show();
-                        Hide();
+                                    var MyIni = new INIFile("WektorSettings.ini");
+                                    MyIni.Write("user", user, "logged");
+                                    Form1 frm = new Form1();
+                                    frm.Show();
+                                    Hide();
+                                }
+                            }
+                        }
                     }
                     else
                     {

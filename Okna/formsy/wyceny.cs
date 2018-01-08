@@ -15,10 +15,12 @@ namespace Okna
 {
     public partial class wyceny : Form
     {
-        public wyceny()
+        Form1 Form1;
+        public wyceny(Form1 Form1)
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
+            this.Form1 = Form1;
         }
         DataSet ds = new DataSet();
         DataTable dt = new DataTable();
@@ -64,7 +66,10 @@ namespace Okna
             obj_Conn.ConnectionString = connectionString;
 
             obj_Conn.Open();
-            MySqlCommand obj_Cmd = new MySqlCommand("SELECT nrw as nra,lpad(nrw," + zera + ",0) as nrw,data,b.id as idk,b.nazwa as klient,kwota," +
+            string zalogowany = Form1.logged.Text;
+            if(zalogowany == "admin")
+            {
+                MySqlCommand obj_Cmd = new MySqlCommand("SELECT nrw as nra,numer,lpad(nrw," + zera + ",0) as nrw,data,b.id as idk,b.nazwa as klient,kwota," +
                 "case " +
                 "when realizacja = '0' then 'Nie' " +
                 "when realizacja = '1' then 'Tak' " +
@@ -72,40 +77,92 @@ namespace Okna
                 "FROM wyceny a " +
                 "LEFT JOIN klienci b ON (a.klient = b.id) WHERE a.zamow = '0'", obj_Conn);
 
-            MySqlDataReader obj_Reader = obj_Cmd.ExecuteReader();
+                MySqlDataReader obj_Reader = obj_Cmd.ExecuteReader();
 
-            dt.Columns.Add("Lp");
-            dt.Columns.Add("Numer");
-            dt.Columns.Add("Klient");
-            dt.Columns.Add("Wartość brutto");
-            dt.Columns.Add("Z dnia");
-            dt.Columns.Add("Zrealizowano");
-            dt.Columns.Add("Data realizacji");
-            dt.Columns.Add("id_klient");
+                dt.Columns.Add("Lp");
+                dt.Columns.Add("Numer");
+                dt.Columns.Add("Klient");
+                dt.Columns.Add("Wartość brutto");
+                dt.Columns.Add("Z dnia");
+                dt.Columns.Add("Zrealizowano");
+                dt.Columns.Add("Data realizacji");
+                dt.Columns.Add("id_klient");
 
-            while (obj_Reader.Read())
-            {
-                DataRow row = dt.NewRow();
-                var data = Convert.ToDateTime(obj_Reader["data"]);
-                var real = obj_Reader["gotowe"];
-                row["Lp"] = obj_Reader["nra"];
-                row["Numer"] = przed + "/" + obj_Reader["nrw"] + "/" + data.ToString("MM") + "/" + data.ToString("yyyy");
-                row["Klient"] = obj_Reader["klient"];
-                row["Wartość brutto"] = string.Format("{0:c}", obj_Reader["kwota"]);
-                row["Z dnia"] = data.ToString("dd") + "/" + data.ToString("MM") + "/" + data.ToString("yyyy");
-                row["Zrealizowano"] = real;
-                if (real.ToString() == "Nie")
+                while (obj_Reader.Read())
                 {
-                    row["Data realizacji"] = "";
+                    DataRow row = dt.NewRow();
+                    int index = dt.Rows.Count + 1;
+                    var data = Convert.ToDateTime(obj_Reader["data"]);
+                    var real = obj_Reader["gotowe"];
+                    row["Lp"] = index;
+                    row["Numer"] = obj_Reader["numer"];
+                    row["Klient"] = obj_Reader["klient"];
+                    row["Wartość brutto"] = string.Format("{0:c}", obj_Reader["kwota"]);
+                    row["Z dnia"] = data.ToString("dd") + "/" + data.ToString("MM") + "/" + data.ToString("yyyy");
+                    row["Zrealizowano"] = real;
+                    if (real.ToString() == "Nie")
+                    {
+                        row["Data realizacji"] = "";
+                    }
+                    else
+                    {
+                        row["Data realizacji"] = data;
+                    }
+                    row[7] = obj_Reader["idk"];
+                    dt.Rows.Add(row);
                 }
-                else
-                {
-                    row["Data realizacji"] = data;
-                }
-                row[7] = obj_Reader["idk"];
-                dt.Rows.Add(row);
+                dataGridView1.DataSource = dt;
             }
-            dataGridView1.DataSource = dt;
+            else
+            {
+                string klient = Form1.logged.Text;
+                MySqlCommand obj_Cmd = new MySqlCommand("SELECT nrw as nra,numer,lpad(nrw," + zera + ",0) as nrw,data,b.id as idk,b.nazwa as klient,kwota,wycena_user" +
+                "case " +
+                "when realizacja = '0' then 'Nie' " +
+                "when realizacja = '1' then 'Tak' " +
+                "END AS gotowe " +
+                "FROM wyceny a " +
+                "LEFT JOIN klienci b ON (a.klient = b.id) WHERE a.zamow = '0' and user_id = (SELECT id FROM uzytkownicy WHERE username = '" + klient + "')", obj_Conn);
+
+                MySqlDataReader obj_Reader = obj_Cmd.ExecuteReader();
+
+                dt.Columns.Add("Lp");
+                dt.Columns.Add("Numer");
+                dt.Columns.Add("Klient");
+                dt.Columns.Add("Wartość brutto");
+                dt.Columns.Add("Z dnia");
+                dt.Columns.Add("Zrealizowano");
+                dt.Columns.Add("Data realizacji");
+                dt.Columns.Add("id_klient");
+                dt.Columns.Add("wycena_user");
+
+                while (obj_Reader.Read())
+                {
+                    DataRow row = dt.NewRow();
+                    int index = dt.Rows.Count + 1;
+                    var data = Convert.ToDateTime(obj_Reader["data"]);
+                    var real = obj_Reader["gotowe"];
+                    row["Lp"] = index;
+                    row["Numer"] = obj_Reader["numer"];
+                    row["Klient"] = obj_Reader["klient"];
+                    row["Wartość brutto"] = string.Format("{0:c}", obj_Reader["kwota"]);
+                    row["Z dnia"] = data.ToString("dd") + "/" + data.ToString("MM") + "/" + data.ToString("yyyy");
+                    row["Zrealizowano"] = real;
+                    if (real.ToString() == "Nie")
+                    {
+                        row["Data realizacji"] = "";
+                    }
+                    else
+                    {
+                        row["Data realizacji"] = data;
+                    }
+                    row[7] = obj_Reader["idk"];
+                    row[8] = obj_Reader["wycena_user"];
+                    dt.Rows.Add(row);
+                }
+                dataGridView1.DataSource = dt;
+            }
+
             dataGridView1.Columns[1].Width = 200;
             dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[7].Visible = false;

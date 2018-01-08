@@ -79,7 +79,8 @@ namespace Okna
             using (var connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                var query = "SELECT lpad(max(id+1)," + MyIni.Read("zera","wyceny") + ",0) as numer FROM wyceny_detail";
+                string klient = Form1.logged.Text;
+                var query = $"{$"ALTER TABLE wyceny ADD INDEX (user_id); INSERT IGNORE INTO wyceny (user_id) VALUES ((SELECT id FROM uzytkownicy WHERE username = '{klient}')); SELECT lpad(max(wycena_user+1),"}{MyIni.Read("zera","wyceny")},0) as numer FROM wyceny WHERE user_id = (SELECT id FROM uzytkownicy WHERE username = '{klient}')";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     using (var reader = command.ExecuteReader())
@@ -89,11 +90,11 @@ namespace Okna
                         {
                             if (MyIni.Read("przed","wyceny") == "")
                             {
-                                wycena_nr.Text = "Wycena nr: wyc/" + reader.GetString("numer") + "/" + DateTime.Now.ToString("MM") + "/" + DateTime.Today.Year;
+                                wycena_nr.Text = "wyc/" + reader.GetString("numer") + "/" + DateTime.Now.ToString("MM") + "/" + DateTime.Today.Year;
                             }
                             else
                             {
-                                wycena_nr.Text = "Wycena nr: " + MyIni.Read("przed", "wyceny") + "/" + reader.GetString("numer") + "/" + DateTime.Now.ToString("MM") + "/" + DateTime.Today.Year;
+                                wycena_nr.Text = "" + MyIni.Read("przed", "wyceny") + "/" + reader.GetString("numer") + "/" + DateTime.Now.ToString("MM") + "/" + DateTime.Today.Year;
                             }
                             numerek.Text = reader.GetString("numer");
                         }
@@ -508,6 +509,7 @@ namespace Okna
                 {
                     try
                     {
+                        string klient = Form1.logged.Text;
                         MySqlCommand cmd = new MySqlCommand();
                         cmd = connection.CreateCommand();
                         if (row.IsNewRow) continue;
@@ -518,8 +520,8 @@ namespace Okna
                         cmd.Parameters.AddWithValue("@cena", row.Cells[4].Value.ToString().Replace("zł", "").Replace(",", "."));
                         cmd.Parameters.AddWithValue("@data", DateTime.Now);
                         cmd.Parameters.AddWithValue("@kwota", sumaTXT.Text.Replace("zł", "").Replace(",", "."));
-                        cmd.CommandText = $"INSERT IGNORE INTO wyceny (nrw,klient,kwota,data) VALUES (@id,(SELECT id FROM klienci WHERE nazwa = '{klientTXT.Text}'),@kwota,@data); " +
-                            $"INSERT INTO wyceny_detail (id,id_product,id_klient,rabat,ilosc,cena) VALUES (@id,(SELECT id FROM cenniki WHERE reference = @indeks),(SELECT id FROM klienci WHERE nazwa ='{klientTXT.Text}'),@rabat,@ilosc,@cena);";
+                        cmd.CommandText = $"INSERT IGNORE INTO wyceny (wycena_user,numer,klient,kwota,data,user_id) VALUES (@id,'{wycena_nr.Text}',(SELECT id FROM klienci WHERE nazwa = '{klientTXT.Text}'),@kwota,@data,(SELECT id FROM uzytkownicy WHERE username = '{klient}')); " +
+                            $"INSERT INTO wyceny_detail (wycena_user,id,id_product,id_klient,rabat,ilosc,cena) VALUES (@id,(SELECT nrw FROM wyceny WHERE wycena_user = @id),(SELECT id FROM cenniki WHERE reference = @indeks),(SELECT id FROM klienci WHERE nazwa ='{klientTXT.Text}'),@rabat,@ilosc,@cena);";
                         connection.Open();
                         cmd.ExecuteNonQuery();
                         connection.Close();

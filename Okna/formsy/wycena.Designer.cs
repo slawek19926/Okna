@@ -318,13 +318,13 @@
             // 
             // wycena_nr
             // 
-            this.wycena_nr.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wycena_nr.Dock = System.Windows.Forms.DockStyle.Top;
             this.wycena_nr.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.wycena_nr.Location = new System.Drawing.Point(0, 0);
             this.wycena_nr.Name = "wycena_nr";
             this.wycena_nr.Size = new System.Drawing.Size(918, 103);
-            this.wycena_nr.TabIndex = 10;
-            this.wycena_nr.Text = "Wycena nr: wycena_nr";
+            this.wycena_nr.TabIndex = 11;
+            this.wycena_nr.Text = "label5";
             this.wycena_nr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // print_btn
@@ -434,7 +434,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Narzut;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
-        public System.Windows.Forms.Label wycena_nr;
         public System.Windows.Forms.Label numerek;
+        public System.Windows.Forms.Label wycena_nr;
     }
 }

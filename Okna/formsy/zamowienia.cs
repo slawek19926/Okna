@@ -69,7 +69,7 @@ namespace Okna
                 "LEFT JOIN status b ON(a.status = b.id)" +
                 "LEFT JOIN klienci c ON(a.klient_id = c.id) " +
                 "LEFT JOIN fakt d ON(a.zamowienie_id = d.zam)" +
-                "ORDER BY nrw ASC", obj_Conn);
+                "GROUP BY nrw ORDER BY nrw ASC", obj_Conn);
 
             MySqlDataReader obj_Reader = obj_Cmd.ExecuteReader();
             DataTable dt = new DataTable();
