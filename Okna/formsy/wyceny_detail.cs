@@ -16,10 +16,12 @@ namespace Okna.formsy
     public partial class wyceny_detail : Form
     {
         private wyceny wyceny;
-        public wyceny_detail(wyceny wyceny)
+        private Form1 Form1;
+        public wyceny_detail(wyceny wyceny,Form1 Form1)
         {
             InitializeComponent();
             this.wyceny = wyceny;
+            this.Form1 = Form1;
             Text = "Wycena: " + wyceny.dataGridView1.CurrentRow.Cells[1].Value.ToString();
         }
         DataSet ds = new DataSet();
@@ -49,6 +51,7 @@ namespace Okna.formsy
         }
         private void wyceny_detail_Load(object sender, EventArgs e)
         {
+            string user_id = Form1.logged.Text;
             wycena_nr.Text = "Wycena nr: " + wyceny.dataGridView1.CurrentRow.Cells[1].Value.ToString();
             var MyIni = new INIFile("WektorSettings.ini");
             server = MyIni.Read("server", "Okna");
@@ -66,7 +69,7 @@ namespace Okna.formsy
                 "LEFT JOIN klienci b ON (a.id_klient = b.id) " +
                 "LEFT JOIN cenniki c ON (a.id_product = c.id) " +
                 "LEFT JOIN wyceny d ON (a.id_wyc = d.nrw)" +
-                "WHERE a.id = '" + wyceny.dataGridView1.CurrentRow.Cells[0].Value + "'", obj_Conn);
+                "WHERE a.wycena_user = '" + wyceny.dataGridView1.CurrentRow.Cells[8].Value + "' AND a.user_id = (SELECT id FROM uzytkownicy WHERE username = '" + user_id + "')", obj_Conn);
 
             MySqlDataReader obj_Reader = obj_Cmd.ExecuteReader();
 

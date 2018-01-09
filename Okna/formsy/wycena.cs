@@ -80,7 +80,7 @@ namespace Okna
             {
                 connection.Open();
                 string klient = Form1.logged.Text;
-                var query = $"{$"ALTER TABLE wyceny ADD INDEX (user_id); INSERT IGNORE INTO wyceny (user_id) VALUES ((SELECT id FROM uzytkownicy WHERE username = '{klient}')); SELECT lpad(max(wycena_user+1),"}{MyIni.Read("zera","wyceny")},0) as numer FROM wyceny WHERE user_id = (SELECT id FROM uzytkownicy WHERE username = '{klient}')";
+                var query = $"{$"SELECT lpad(max(wycena+1),"}{MyIni.Read("zera","wyceny")},0) as numer FROM uzytkownicy WHERE id = (SELECT id FROM uzytkownicy WHERE username = '{klient}')";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     using (var reader = command.ExecuteReader())
@@ -521,7 +521,8 @@ namespace Okna
                         cmd.Parameters.AddWithValue("@data", DateTime.Now);
                         cmd.Parameters.AddWithValue("@kwota", sumaTXT.Text.Replace("zł", "").Replace(",", "."));
                         cmd.CommandText = $"INSERT IGNORE INTO wyceny (wycena_user,numer,klient,kwota,data,user_id) VALUES (@id,'{wycena_nr.Text}',(SELECT id FROM klienci WHERE nazwa = '{klientTXT.Text}'),@kwota,@data,(SELECT id FROM uzytkownicy WHERE username = '{klient}')); " +
-                            $"INSERT INTO wyceny_detail (wycena_user,id,id_product,id_klient,rabat,ilosc,cena) VALUES (@id,(SELECT nrw FROM wyceny WHERE wycena_user = @id),(SELECT id FROM cenniki WHERE reference = @indeks),(SELECT id FROM klienci WHERE nazwa ='{klientTXT.Text}'),@rabat,@ilosc,@cena);";
+                            $"INSERT INTO wyceny_detail (wycena_user,id,id_product,id_klient,rabat,ilosc,cena,user_id) VALUES (@id,(SELECT nrw FROM wyceny WHERE wycena_user = @id),(SELECT id FROM cenniki WHERE reference = @indeks),(SELECT id FROM klienci WHERE nazwa ='{klientTXT.Text}'),@rabat,@ilosc,@cena,(SELECT id FROM uzytkownicy WHERE username = '{klient}'));" +
+                            $"UPDATE uzytkownicy SET wycena = (SELECT MAX(wycena_user) FROM wyceny WHERE user_id IN (SELECT id FROM (SELECT * FROM uzytkownicy) AS m1)) WHERE id IN (SELECT id FROM (SELECT * FROM uzytkownicy) AS m2 WHERE username = '{klient}')";
                         connection.Open();
                         cmd.ExecuteNonQuery();
                         connection.Close();

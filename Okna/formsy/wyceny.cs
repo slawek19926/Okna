@@ -116,7 +116,7 @@ namespace Okna
             else
             {
                 string klient = Form1.logged.Text;
-                MySqlCommand obj_Cmd = new MySqlCommand("SELECT nrw as nra,numer,lpad(nrw," + zera + ",0) as nrw,data,b.id as idk,b.nazwa as klient,kwota,wycena_user" +
+                MySqlCommand obj_Cmd = new MySqlCommand("SELECT nrw as nra,numer,lpad(nrw," + zera + ",0) as nrw,data,b.id as idk,b.nazwa as klient,kwota,wycena_user," +
                 "case " +
                 "when realizacja = '0' then 'Nie' " +
                 "when realizacja = '1' then 'Tak' " +
@@ -166,6 +166,7 @@ namespace Okna
             dataGridView1.Columns[1].Width = 200;
             dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[7].Visible = false;
+            dataGridView1.Columns[8].Visible = false;
         }
 
         private void detailBTN_Click(object sender, EventArgs e)
@@ -238,7 +239,7 @@ namespace Okna
 
         private void detailBTN_Click_1(object sender, EventArgs e)
         {
-            formsy.wyceny_detail form = new formsy.wyceny_detail(this);
+            formsy.wyceny_detail form = new formsy.wyceny_detail(this,Form1);
             form.Show();
         }
 
