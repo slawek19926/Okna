@@ -80,7 +80,7 @@ namespace Okna
             {
                 connection.Open();
                 string klient = Form1.logged.Text;
-                var query = $"{$"SELECT lpad(max(wycena+1),"}{MyIni.Read("zera","wyceny")},0) as numer FROM uzytkownicy WHERE id = (SELECT id FROM uzytkownicy WHERE username = '{klient}')";
+                var query = $"{$"SELECT lpad(max(wycena+1),"}{MyIni.Read("zera","wyceny")},0) as numer,wycena,id FROM uzytkownicy WHERE id = (SELECT id FROM uzytkownicy WHERE username = '{klient}')";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     using (var reader = command.ExecuteReader())
@@ -91,10 +91,14 @@ namespace Okna
                             if (MyIni.Read("przed","wyceny") == "")
                             {
                                 wycena_nr.Text = "wyc/" + reader.GetString("numer") + "/" + DateTime.Now.ToString("MM") + "/" + DateTime.Today.Year;
+                                numberBAZA.Text = reader.GetString("wycena");
+                                userID.Text = reader.GetString("id");
                             }
                             else
                             {
                                 wycena_nr.Text = "" + MyIni.Read("przed", "wyceny") + "/" + reader.GetString("numer") + "/" + DateTime.Now.ToString("MM") + "/" + DateTime.Today.Year;
+                                numberBAZA.Text = reader.GetString("wycena");
+                                userID.Text = reader.GetString("id");
                             }
                             numerek.Text = reader.GetString("numer");
                         }
@@ -509,7 +513,11 @@ namespace Okna
                 {
                     try
                     {
+                        int id_user = Convert.ToInt32(userID.Text);
                         string klient = Form1.logged.Text;
+                        int nr = Convert.ToInt32(numberBAZA.Text);
+                        int numer = nr + 1;
+                        string str = numer.ToString();
                         MySqlCommand cmd = new MySqlCommand();
                         cmd = connection.CreateCommand();
                         if (row.IsNewRow) continue;
@@ -520,9 +528,9 @@ namespace Okna
                         cmd.Parameters.AddWithValue("@cena", row.Cells[4].Value.ToString().Replace("zł", "").Replace(",", "."));
                         cmd.Parameters.AddWithValue("@data", DateTime.Now);
                         cmd.Parameters.AddWithValue("@kwota", sumaTXT.Text.Replace("zł", "").Replace(",", "."));
-                        cmd.CommandText = $"INSERT IGNORE INTO wyceny (wycena_user,numer,klient,kwota,data,user_id) VALUES (@id,'{wycena_nr.Text}',(SELECT id FROM klienci WHERE nazwa = '{klientTXT.Text}'),@kwota,@data,(SELECT id FROM uzytkownicy WHERE username = '{klient}')); " +
-                            $"INSERT INTO wyceny_detail (wycena_user,id,id_product,id_klient,rabat,ilosc,cena,user_id) VALUES (@id,(SELECT nrw FROM wyceny WHERE wycena_user = @id),(SELECT id FROM cenniki WHERE reference = @indeks),(SELECT id FROM klienci WHERE nazwa ='{klientTXT.Text}'),@rabat,@ilosc,@cena,(SELECT id FROM uzytkownicy WHERE username = '{klient}'));" +
-                            $"UPDATE uzytkownicy SET wycena = (SELECT MAX(wycena_user) FROM wyceny WHERE user_id IN (SELECT id FROM (SELECT * FROM uzytkownicy) AS m1)) WHERE id IN (SELECT id FROM (SELECT * FROM uzytkownicy) AS m2 WHERE username = '{klient}')";
+                        cmd.CommandText = $"INSERT IGNORE INTO wyceny (nrw,user_id,wycena_user,numer,klient,kwota,data) VALUES (@id,'{id_user}','{nr}','{wycena_nr.Text}',(SELECT id FROM klienci WHERE nazwa = '{klientTXT.Text}'),@kwota,@data); " +
+                            $"INSERT INTO wyceny_detail (id,user_id,wycena_user,id_product,id_klient,rabat,ilosc,cena) VALUES (@id,'{id_user}','{nr}',(SELECT id FROM cenniki WHERE reference = @indeks),(SELECT id FROM klienci WHERE nazwa ='{klientTXT.Text}'),@rabat,@ilosc,@cena);" +
+                            $"UPDATE uzytkownicy SET wycena = '{str}' WHERE username = '{klient}';";
                         connection.Open();
                         cmd.ExecuteNonQuery();
                         connection.Close();

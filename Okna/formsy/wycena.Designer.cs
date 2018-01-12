@@ -60,6 +60,8 @@
             this.numerek = new System.Windows.Forms.Label();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.numberBAZA = new System.Windows.Forms.Label();
+            this.userID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -355,7 +357,6 @@
             this.numerek.Size = new System.Drawing.Size(35, 13);
             this.numerek.TabIndex = 10;
             this.numerek.Text = "label5";
-            this.numerek.Visible = false;
             // 
             // printPreviewDialog1
             // 
@@ -367,11 +368,32 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // numberBAZA
+            // 
+            this.numberBAZA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.numberBAZA.AutoSize = true;
+            this.numberBAZA.Location = new System.Drawing.Point(766, 467);
+            this.numberBAZA.Name = "numberBAZA";
+            this.numberBAZA.Size = new System.Drawing.Size(35, 13);
+            this.numberBAZA.TabIndex = 11;
+            this.numberBAZA.Text = "label5";
+            // 
+            // userID
+            // 
+            this.userID.AutoSize = true;
+            this.userID.Location = new System.Drawing.Point(827, 467);
+            this.userID.Name = "userID";
+            this.userID.Size = new System.Drawing.Size(35, 13);
+            this.userID.TabIndex = 12;
+            this.userID.Text = "label5";
+            // 
             // wycena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(943, 506);
+            this.Controls.Add(this.userID);
+            this.Controls.Add(this.numberBAZA);
             this.Controls.Add(this.numerek);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.panel1);
@@ -436,5 +458,7 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         public System.Windows.Forms.Label numerek;
         public System.Windows.Forms.Label wycena_nr;
+        private System.Windows.Forms.Label numberBAZA;
+        private System.Windows.Forms.Label userID;
     }
 }

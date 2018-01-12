@@ -173,7 +173,7 @@
             // katalogToolStripMenuItem
             // 
             this.katalogToolStripMenuItem.Name = "katalogToolStripMenuItem";
-            this.katalogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.katalogToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.katalogToolStripMenuItem.Text = "Katalog";
             this.katalogToolStripMenuItem.Click += new System.EventHandler(this.katalogToolStripMenuItem_Click);
             // 
@@ -208,6 +208,7 @@
             this.klienciToolStripMenuItem.Name = "klienciToolStripMenuItem";
             this.klienciToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.klienciToolStripMenuItem.Text = "Klienci";
+            this.klienciToolStripMenuItem.Click += new System.EventHandler(this.klienciToolStripMenuItem_Click);
             // 
             // ustawieniaToolStripMenuItem
             // 

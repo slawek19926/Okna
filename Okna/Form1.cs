@@ -241,5 +241,11 @@ namespace Okna
             finanse.rabaty frm = new finanse.rabaty();
             frm.Show();
         }
+
+        private void klienciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formsy.klienci frm = new formsy.klienci();
+            frm.Show();
+        }
     }
 }

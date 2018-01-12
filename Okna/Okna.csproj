@@ -52,9 +52,7 @@
   <PropertyGroup>
     <StartupObject>Okna.Program</StartupObject>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>OknaInfo.manifest</ApplicationManifest>
-  </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
     <ApplicationIcon>icona2.ico</ApplicationIcon>
   </PropertyGroup>
@@ -89,6 +87,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>OknaInfo.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlanJuden.MvcReportViewer">
@@ -230,6 +231,12 @@
       <DependentUpon>towarAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Formatowanie.cs" />
+    <Compile Include="formsy\add_klient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formsy\add_klient.Designer.cs">
+      <DependentUpon>add_klient.cs</DependentUpon>
+    </Compile>
     <Compile Include="formsy\add_product.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,6 +260,18 @@
     </Compile>
     <Compile Include="formsy\edit_towar.Designer.cs">
       <DependentUpon>edit_towar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formsy\FormSearchClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formsy\FormSearchClient.Designer.cs">
+      <DependentUpon>FormSearchClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formsy\klienci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formsy\klienci.Designer.cs">
+      <DependentUpon>klienci.cs</DependentUpon>
     </Compile>
     <Compile Include="formsy\klients.cs">
       <SubType>Form</SubType>
@@ -400,6 +419,9 @@
     <EmbeddedResource Include="finanse\towarAdd.resx">
       <DependentUpon>towarAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formsy\add_klient.resx">
+      <DependentUpon>add_klient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formsy\add_product.resx">
       <DependentUpon>add_product.cs</DependentUpon>
     </EmbeddedResource>
@@ -411,6 +433,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formsy\edit_towar.resx">
       <DependentUpon>edit_towar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formsy\FormSearchClient.resx">
+      <DependentUpon>FormSearchClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formsy\klienci.resx">
+      <DependentUpon>klienci.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formsy\klients.resx">
       <DependentUpon>klients.cs</DependentUpon>
