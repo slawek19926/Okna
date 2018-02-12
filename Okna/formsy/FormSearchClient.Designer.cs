@@ -30,7 +30,6 @@
         {
             this.button9 = new System.Windows.Forms.Button();
             this.buttonCzWszystko = new System.Windows.Forms.Button();
-            this.buttonCzPesel = new System.Windows.Forms.Button();
             this.buttonCzNip = new System.Windows.Forms.Button();
             this.buttonCzPanstwo = new System.Windows.Forms.Button();
             this.buttonCzPoczta = new System.Windows.Forms.Button();
@@ -39,7 +38,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.buttonCEIDG = new System.Windows.Forms.Button();
+            this.buttonReset = new System.Windows.Forms.Button();
             this.textBoxKrs = new System.Windows.Forms.TextBox();
             this.textBoxNip = new System.Windows.Forms.TextBox();
             this.textBoxRegon = new System.Windows.Forms.TextBox();
@@ -49,14 +48,12 @@
             this.buttonCzMiejscowosc = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonCzNazwa = new System.Windows.Forms.Button();
-            this.textBoxPESEL = new System.Windows.Forms.TextBox();
             this.textBoxN = new System.Windows.Forms.TextBox();
             this.textBoxPanstwo = new System.Windows.Forms.TextBox();
             this.textBoxPoczta = new System.Windows.Forms.TextBox();
             this.textBoxUlica = new System.Windows.Forms.TextBox();
             this.textBoxMiejscowosc = new System.Windows.Forms.TextBox();
             this.textBoxNazwa = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -66,15 +63,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonSearch = new System.Windows.Forms.Button();
-            this.numericUpDownZoom = new System.Windows.Forms.NumericUpDown();
-            this.pictureBoxLoad = new System.Windows.Forms.PictureBox();
-            this.webBrowser = new System.Windows.Forms.WebBrowser();
-            this.labelLoad = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.buttonCzKod = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownZoom)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoad)).BeginInit();
             this.SuspendLayout();
             // 
             // button9
@@ -85,6 +79,7 @@
             this.button9.TabIndex = 9;
             this.button9.Text = "Dodaj klienta";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // buttonCzWszystko
             // 
@@ -96,18 +91,9 @@
             this.buttonCzWszystko.UseVisualStyleBackColor = true;
             this.buttonCzWszystko.Click += new System.EventHandler(this.buttonCzWszystko_Click);
             // 
-            // buttonCzPesel
-            // 
-            this.buttonCzPesel.Location = new System.Drawing.Point(302, 322);
-            this.buttonCzPesel.Name = "buttonCzPesel";
-            this.buttonCzPesel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCzPesel.TabIndex = 8;
-            this.buttonCzPesel.Text = "Czyść";
-            this.buttonCzPesel.UseVisualStyleBackColor = true;
-            // 
             // buttonCzNip
             // 
-            this.buttonCzNip.Location = new System.Drawing.Point(302, 274);
+            this.buttonCzNip.Location = new System.Drawing.Point(302, 329);
             this.buttonCzNip.Name = "buttonCzNip";
             this.buttonCzNip.Size = new System.Drawing.Size(75, 23);
             this.buttonCzNip.TabIndex = 8;
@@ -116,7 +102,7 @@
             // 
             // buttonCzPanstwo
             // 
-            this.buttonCzPanstwo.Location = new System.Drawing.Point(302, 227);
+            this.buttonCzPanstwo.Location = new System.Drawing.Point(302, 282);
             this.buttonCzPanstwo.Name = "buttonCzPanstwo";
             this.buttonCzPanstwo.Size = new System.Drawing.Size(75, 23);
             this.buttonCzPanstwo.TabIndex = 8;
@@ -180,18 +166,19 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "* Pola muszą zostać poprawnie wypełnione";
             // 
-            // buttonCEIDG
+            // buttonReset
             // 
-            this.buttonCEIDG.Location = new System.Drawing.Point(222, 260);
-            this.buttonCEIDG.Name = "buttonCEIDG";
-            this.buttonCEIDG.Size = new System.Drawing.Size(94, 37);
-            this.buttonCEIDG.TabIndex = 5;
-            this.buttonCEIDG.Text = "Resetuj";
-            this.buttonCEIDG.UseVisualStyleBackColor = true;
-            this.buttonCEIDG.Click += new System.EventHandler(this.buttonReset_Click);
+            this.buttonReset.Location = new System.Drawing.Point(222, 260);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(94, 37);
+            this.buttonReset.TabIndex = 5;
+            this.buttonReset.Text = "Resetuj";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // textBoxKrs
             // 
+            this.textBoxKrs.Enabled = false;
             this.textBoxKrs.Location = new System.Drawing.Point(287, 81);
             this.textBoxKrs.Name = "textBoxKrs";
             this.textBoxKrs.Size = new System.Drawing.Size(133, 20);
@@ -206,6 +193,7 @@
             // 
             // textBoxRegon
             // 
+            this.textBoxRegon.Enabled = false;
             this.textBoxRegon.Location = new System.Drawing.Point(9, 81);
             this.textBoxRegon.Name = "textBoxRegon";
             this.textBoxRegon.Size = new System.Drawing.Size(133, 20);
@@ -252,22 +240,22 @@
             // 
             this.groupBox3.Controls.Add(this.button9);
             this.groupBox3.Controls.Add(this.buttonCzWszystko);
-            this.groupBox3.Controls.Add(this.buttonCzPesel);
             this.groupBox3.Controls.Add(this.buttonCzNip);
+            this.groupBox3.Controls.Add(this.buttonCzKod);
             this.groupBox3.Controls.Add(this.buttonCzPanstwo);
             this.groupBox3.Controls.Add(this.buttonCzPoczta);
             this.groupBox3.Controls.Add(this.buttonCzUlica);
             this.groupBox3.Controls.Add(this.buttonCzMiejscowosc);
             this.groupBox3.Controls.Add(this.buttonCzNazwa);
-            this.groupBox3.Controls.Add(this.textBoxPESEL);
             this.groupBox3.Controls.Add(this.textBoxN);
+            this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Controls.Add(this.textBoxPanstwo);
             this.groupBox3.Controls.Add(this.textBoxPoczta);
             this.groupBox3.Controls.Add(this.textBoxUlica);
             this.groupBox3.Controls.Add(this.textBoxMiejscowosc);
             this.groupBox3.Controls.Add(this.textBoxNazwa);
-            this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
@@ -289,23 +277,16 @@
             this.buttonCzNazwa.Text = "Czyść";
             this.buttonCzNazwa.UseVisualStyleBackColor = true;
             // 
-            // textBoxPESEL
-            // 
-            this.textBoxPESEL.Location = new System.Drawing.Point(24, 324);
-            this.textBoxPESEL.Name = "textBoxPESEL";
-            this.textBoxPESEL.Size = new System.Drawing.Size(272, 20);
-            this.textBoxPESEL.TabIndex = 7;
-            // 
             // textBoxN
             // 
-            this.textBoxN.Location = new System.Drawing.Point(24, 276);
+            this.textBoxN.Location = new System.Drawing.Point(24, 331);
             this.textBoxN.Name = "textBoxN";
             this.textBoxN.Size = new System.Drawing.Size(272, 20);
             this.textBoxN.TabIndex = 7;
             // 
             // textBoxPanstwo
             // 
-            this.textBoxPanstwo.Location = new System.Drawing.Point(24, 229);
+            this.textBoxPanstwo.Location = new System.Drawing.Point(24, 284);
             this.textBoxPanstwo.Name = "textBoxPanstwo";
             this.textBoxPanstwo.Size = new System.Drawing.Size(272, 20);
             this.textBoxPanstwo.TabIndex = 7;
@@ -338,21 +319,11 @@
             this.textBoxNazwa.Size = new System.Drawing.Size(272, 20);
             this.textBoxNazwa.TabIndex = 7;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(21, 308);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 15);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "PESEL *1";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(21, 260);
+            this.label6.Location = new System.Drawing.Point(21, 315);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 15);
             this.label6.TabIndex = 5;
@@ -362,7 +333,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(21, 213);
+            this.label5.Location = new System.Drawing.Point(21, 266);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 15);
             this.label5.TabIndex = 4;
@@ -422,11 +393,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.labelLoad);
-            this.groupBox1.Controls.Add(this.webBrowser);
-            this.groupBox1.Controls.Add(this.pictureBoxLoad);
-            this.groupBox1.Controls.Add(this.numericUpDownZoom);
-            this.groupBox1.Controls.Add(this.buttonCEIDG);
+            this.groupBox1.Controls.Add(this.buttonReset);
             this.groupBox1.Controls.Add(this.buttonSearch);
             this.groupBox1.Controls.Add(this.textBoxKrs);
             this.groupBox1.Controls.Add(this.textBoxNip);
@@ -452,40 +419,35 @@
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
-            // numericUpDownZoom
+            // label7
             // 
-            this.numericUpDownZoom.Location = new System.Drawing.Point(21, 260);
-            this.numericUpDownZoom.Name = "numericUpDownZoom";
-            this.numericUpDownZoom.Size = new System.Drawing.Size(68, 20);
-            this.numericUpDownZoom.TabIndex = 6;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.Location = new System.Drawing.Point(21, 212);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(90, 15);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Kod pocztowy *";
             // 
-            // pictureBoxLoad
+            // textBox1
             // 
-            this.pictureBoxLoad.Location = new System.Drawing.Point(157, 260);
-            this.pictureBoxLoad.Name = "pictureBoxLoad";
-            this.pictureBoxLoad.Size = new System.Drawing.Size(28, 30);
-            this.pictureBoxLoad.TabIndex = 7;
-            this.pictureBoxLoad.TabStop = false;
+            this.textBox1.Location = new System.Drawing.Point(24, 230);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(272, 20);
+            this.textBox1.TabIndex = 7;
             // 
-            // webBrowser
+            // buttonCzKod
             // 
-            this.webBrowser.Location = new System.Drawing.Point(9, 107);
-            this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser.Name = "webBrowser";
-            this.webBrowser.Size = new System.Drawing.Size(411, 147);
-            this.webBrowser.TabIndex = 8;
-            this.webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser_DocumentCompleted);
-            // 
-            // labelLoad
-            // 
-            this.labelLoad.AutoSize = true;
-            this.labelLoad.Location = new System.Drawing.Point(21, 289);
-            this.labelLoad.Name = "labelLoad";
-            this.labelLoad.Size = new System.Drawing.Size(0, 13);
-            this.labelLoad.TabIndex = 9;
+            this.buttonCzKod.Location = new System.Drawing.Point(302, 228);
+            this.buttonCzKod.Name = "buttonCzKod";
+            this.buttonCzKod.Size = new System.Drawing.Size(75, 23);
+            this.buttonCzKod.TabIndex = 8;
+            this.buttonCzKod.Text = "Czyść";
+            this.buttonCzKod.UseVisualStyleBackColor = true;
             // 
             // FormSearchClient
             // 
+            this.AcceptButton = this.buttonSearch;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(855, 469);
@@ -493,6 +455,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormSearchClient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormSearchClient";
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -500,8 +463,6 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownZoom)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoad)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -510,7 +471,6 @@
 
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button buttonCzWszystko;
-        private System.Windows.Forms.Button buttonCzPesel;
         private System.Windows.Forms.Button buttonCzNip;
         private System.Windows.Forms.Button buttonCzPanstwo;
         private System.Windows.Forms.Button buttonCzPoczta;
@@ -519,7 +479,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button buttonCEIDG;
+        private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.TextBox textBoxKrs;
         private System.Windows.Forms.TextBox textBoxNip;
         private System.Windows.Forms.TextBox textBoxRegon;
@@ -529,14 +489,12 @@
         private System.Windows.Forms.Button buttonCzMiejscowosc;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button buttonCzNazwa;
-        private System.Windows.Forms.TextBox textBoxPESEL;
         private System.Windows.Forms.TextBox textBoxN;
         private System.Windows.Forms.TextBox textBoxPanstwo;
         private System.Windows.Forms.TextBox textBoxPoczta;
         private System.Windows.Forms.TextBox textBoxUlica;
         private System.Windows.Forms.TextBox textBoxMiejscowosc;
         private System.Windows.Forms.TextBox textBoxNazwa;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -546,9 +504,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonSearch;
-        private System.Windows.Forms.NumericUpDown numericUpDownZoom;
-        private System.Windows.Forms.PictureBox pictureBoxLoad;
-        private System.Windows.Forms.WebBrowser webBrowser;
-        private System.Windows.Forms.Label labelLoad;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button buttonCzKod;
     }
 }

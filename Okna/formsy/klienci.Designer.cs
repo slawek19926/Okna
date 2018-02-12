@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +49,44 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(195, 481);
             this.panel1.TabIndex = 0;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(37, 239);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(121, 46);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Informacje";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(37, 174);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(121, 46);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Usuń";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(37, 111);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(121, 46);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Edytuj";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(37, 47);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(121, 46);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Dodaj";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -70,43 +108,6 @@
             this.dataGridView1.ShowRowErrors = false;
             this.dataGridView1.Size = new System.Drawing.Size(866, 481);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(37, 47);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 46);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Dodaj";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(37, 111);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(121, 46);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Edytuj";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(37, 174);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(121, 46);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Usuń";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(37, 239);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(121, 46);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Informacje";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // klienci
             // 

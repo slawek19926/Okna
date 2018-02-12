@@ -7,27 +7,51 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NIP24;
+using System.Security.Cryptography;
+using System.IO;
+using MySql.Data.MySqlClient;
 
 namespace Okna.formsy
 {
     public partial class FormSearchClient : Form
     {
         DialogResult result;
-        int varString;
-        string wrt;
-        string varNow;
-        string varMoment;
-        string imie;
-        string nazwisko;
-        string adres;
-        string miejscowosc;
-        string ulica;
-        string poczta;
+        INIP24Client nip24 = new NIP24Client("FOcZer5yilvG", "PgAoumN9ZOzL");
 
         public FormSearchClient()
         {
             InitializeComponent();
-            webBrowser.Navigate("https://prod.ceidg.gov.pl/CEIDG/CEIDG.Public.UI/Search.aspx");
+            buttonReset.Enabled = false;
+        }
+
+        DataSet ds = new DataSet();
+        DataTable dt = new DataTable();
+        private string server;
+        private string database;
+        private string uid;
+        private string password;
+        private string connectionString;
+
+        static readonly string PasswordHash = "P@@Sw0rd";
+        static readonly string SaltKey = "S@LT&KEY";
+        static readonly string VIKey = "@1B2c3D4e5F6g7H8";
+
+        public static string Decrypt(string encryptedText)
+        {
+            byte[] cipherTextBytes = Convert.FromBase64String(encryptedText);
+            byte[] keyBytes = new Rfc2898DeriveBytes(PasswordHash, Encoding.ASCII.GetBytes(SaltKey)).GetBytes(256 / 8);
+            var symmetricKey = new RijndaelManaged() { Mode = CipherMode.CBC, Padding = PaddingMode.None };
+
+            var decryptor = symmetricKey.CreateDecryptor(keyBytes, Encoding.ASCII.GetBytes(VIKey));
+            var memoryStream = new MemoryStream(cipherTextBytes);
+            var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read);
+            byte[] plainTextBytes = new byte[cipherTextBytes.Length];
+
+            int decryptedByteCount = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length);
+            memoryStream.Close();
+            cryptoStream.Close();
+            return Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount).TrimEnd("\0".ToCharArray());
         }
 
         private void buttonSearch_Click(object sender, EventArgs e)
@@ -40,148 +64,35 @@ namespace Okna.formsy
             }
             else
             {
-                pictureBoxLoad.Visible = true;
-                labelLoad.Visible = true;
-                webBrowser.Document.GetElementById("MainContent_txtNip").SetAttribute("value", textBoxNip.Text);
-                webBrowser.Document.GetElementById("MainContent_txtRegon").SetAttribute("value", textBoxRegon.Text);
-                webBrowser.Document.GetElementById("MainContent_txtKrs").SetAttribute("value", textBoxKrs.Text);
-                webBrowser.Document.GetElementById("MainContent_btnInputSearch").InvokeMember("click");
-            }
-        }
-
-        public string CutPart(string str, string cut)
-        {
-            char[] charArray;
-
-            varString = str.LastIndexOf(cut);
-            if (varString > 0)
-                varNow = str.Remove(varString);
-
-            charArray = varNow.ToCharArray();
-            Array.Reverse(charArray);
-
-            return new string(charArray);
-        }
-
-        private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-            webBrowser.Document.ForeColor = Color.Black;
-            //https://www.youtube.com/watch?v=YEROx7EjPWg
-            webBrowser.Document.Body.Style = "zoom:100%;";
-            HtmlElement tbCaptcha_0 = webBrowser.Document.GetElementById("tbCaptcha_0");
-            HtmlElement MainContent_DataListEntities_linkHref2_0 = webBrowser.Document.GetElementById("MainContent_DataListEntities_linkHref2_0");
-            HtmlElement MainContent_lblName = webBrowser.Document.GetElementById("tbCaptcha_0");
-
-            if (tbCaptcha_0 != null) webBrowser.Document.GetElementById("MainContent_tdCaptcha2").Focus();
-            if (MainContent_DataListEntities_linkHref2_0 != null) webBrowser.Document.GetElementById("MainContent_DataListEntities_linkHref2_0").InvokeMember("click");
-
-            if (MainContent_lblName != null)
-            {
-                adres = webBrowser.Document.GetElementById("MainContent_lblPlaceOfBusinessAddress").InnerHtml;
-
-                //MIEJSCOWOŚĆ
-                if (adres.Contains(", ul.")) wrt = ", ul.";
-                else wrt = ", nr";
-                varMoment = CutPart(adres, wrt);
-                miejscowosc = CutPart(varMoment, " .csjeim");
-
-                //ULICA
-                if (adres.Contains(", ul."))
+                InvoiceData invoice = nip24.GetInvoiceData(Number.NIP, textBoxNip.Text, false);
+                if (invoice != null)
                 {
-                    varMoment = CutPart(adres, ", nr");
-                    ulica = CutPart(varMoment, " .lu");
+                    textBoxNazwa.Text = invoice.Name;
+                    textBoxMiejscowosc.Text = invoice.City;
+                    textBoxUlica.Text = invoice.Street + " " + invoice.StreetNumber;
+                    textBoxPoczta.Text = invoice.PostCity;
+                    textBox1.Text = invoice.PostCode;
+                    textBoxPanstwo.Text = "Polska";
+                    textBoxN.Text = invoice.NIP;
                 }
-                else ulica = miejscowosc;
-
-                varMoment = CutPart(adres, ", ");
-                ulica = ulica + CutPart(varMoment, "rn ,");
-
-                varString = ulica.LastIndexOf(", ");
-                if (varString > 0)
-                    ulica = ulica.Remove(varString);
-
-                //POCZTA
-                varMoment = CutPart(adres + ", p", ", p");
-                poczta = CutPart(varMoment, " rn ,");
-                poczta = poczta.Replace("poczta ", "");
-                varMoment = CutPart(poczta + ", p", ", p");
-                poczta = CutPart(varMoment, " ,");
-
-                //INNE PRZYPADKI
-                if (miejscowosc.Contains(", "))
+                else
                 {
-                    varString = miejscowosc.LastIndexOf(", ");
-                    varNow = miejscowosc.Remove(varString);
-                    miejscowosc = varNow;
+                    MessageBox.Show(nip24.LastError);
                 }
-
-                if (ulica.Contains(", "))
-                {
-                    varMoment = CutPart(ulica + ", p", ", p");
-                    ulica = CutPart(varMoment, " ,");
-                }
-
-                if (adres.Contains("lok") && !ulica.Contains("lok"))
-                {
-                    varMoment = CutPart(adres, ", ");
-                    varMoment = CutPart(varMoment, "rn ,");
-                    varMoment = CutPart(varMoment + ", p", ", p");
-                    ulica = ulica + CutPart(varMoment, ",");
-                }
-
-                if (adres.Contains("lok"))
-                {
-                    varMoment = CutPart(poczta + ", p", ", p");
-                    poczta = CutPart(varMoment, " ,");
-                }
-
-                if (poczta.Contains("opis"))
-                {
-                    varString = poczta.LastIndexOf(", opis");
-                    if (varString > 0)
-                        poczta = poczta.Remove(varString);
-                }
-
-                if (!poczta.Contains(" ")) { poczta += ", " + miejscowosc; }
-
-
-
-                imie = webBrowser.Document.GetElementById("MainContent_lblFirstName").InnerHtml;
-                nazwisko = webBrowser.Document.GetElementById("MainContent_lblLastName").InnerHtml;
-
-                //PRZYPISANIE WARTOŚCI
-                textBoxNazwa.Text = webBrowser.Document.GetElementById("MainContent_lblName").InnerHtml;
-                if (textBoxNazwa.Text == "-" || string.IsNullOrEmpty(textBoxNazwa.Text)) textBoxNazwa.Text = imie + " " + nazwisko;
-                textBoxMiejscowosc.Text = miejscowosc;
-                textBoxUlica.Text = ulica;
-                textBoxPoczta.Text = poczta;
-                textBoxPanstwo.Text = webBrowser.Document.GetElementById("MainContent_lblCitizenship").InnerHtml;
-                textBoxN.Text = webBrowser.Document.GetElementById("MainContent_lblNip").InnerHtml;
-
-                webBrowser.Visible = false;
-                buttonCEIDG.Visible = true;
                 buttonSearch.Enabled = false;
+                buttonReset.Enabled = true;
+                AcceptButton = button9;
             }
-
-            pictureBoxLoad.Visible = false;
-            labelLoad.Visible = false;
-
         }
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
-            webBrowser.Refresh();
-            webBrowser.Visible = true;
-            pictureBoxLoad.Visible = true;
-            labelLoad.Visible = true;
-            buttonCEIDG.Visible = false;
+            textBoxNip.Clear();
+            textBoxRegon.Clear();
+            textBoxKrs.Clear();
+            buttonReset.Enabled = false;
             buttonSearch.Enabled = true;
-        }
-
-        private void buttonCEIDG_Click(object sender, EventArgs e)
-        {
-            //Komunikat.Console("Kliknięto łącze do strony www.ceidg.gov.pl");
-            System.Diagnostics.Process.Start("https://prod.ceidg.gov.pl/ceidg.cms.engine/");
+            AcceptButton = buttonSearch;
         }
 
         private void textBoxRegon_KeyPress(object sender, KeyPressEventArgs e)
@@ -221,7 +132,7 @@ namespace Okna.formsy
 
         private void buttonCzNip_Click(object sender, EventArgs e) { textBoxN.Clear(); }
 
-        private void buttonCzPesel_Click(object sender, EventArgs e) { textBoxPESEL.Clear(); }
+        private void buttonCzKod_Click(object sender, EventArgs e) { textBox1.Clear(); }
 
         private void buttonCzWszystko_Click(object sender, EventArgs e)
         {
@@ -237,20 +148,50 @@ namespace Okna.formsy
                 textBoxPoczta.Clear();
                 textBoxPanstwo.Clear();
                 textBoxN.Clear();
-                textBoxPESEL.Clear();
+                textBox1.Clear();
             }
 
         }
 
-        private void numericUpDownZoom_ValueChanged(object sender, EventArgs e)
+        private void button9_Click(object sender, EventArgs e)
         {
-            //Properties.Settings.Default.zoom = Convert.ToInt32(numericUpDownZoom.Value);
-            //Properties.Settings.Default.Save();
-        }
+                //InvoiceData invoice = nip24.GetInvoiceData(Number.NIP, textBoxNip.Text, false);
+                if (textBoxNazwa.Text != null)
+                {
+                    string nazwa = textBoxNazwa.Text;
+                    string miasto = textBoxMiejscowosc.Text;
+                    string ulica = textBoxUlica.Text; 
+                    //string numer = invoice.StreetNumber;
+                    string kod = textBox1.Text;
+                    string nip = textBoxNip.Text;
 
-        private void buttonDodaj_Click(object sender, EventArgs e)
-        {
+                    var MyIni = new INIFile("WektorSettings.ini");
+                    server = MyIni.Read("server", "Okna");
+                    database = MyIni.Read("database", "Okna");
+                    uid = MyIni.Read("login", "Okna");
+                    password = Decrypt(MyIni.Read("pass", "Okna"));
 
+                    string MyConnectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";" + "Convert Zero Datetime = True;";
+                    MySqlConnection connection = new MySqlConnection(MyConnectionString);
+                try
+                {
+                    var cmd = connection.CreateCommand();
+                    cmd.CommandText = $"INSERT INTO klienci (nazwa,ulica,kod,miasto,nip,firma) VALUES ('{nazwa}','{ulica}','{kod}','{miasto}','{nip}',1)";
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    MessageBox.Show("Dodano klienta do bazy danych");
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Klient o podanym numerze NIP: " + nip + " już istnieje!","Błąd",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+                    
+                }
+                else
+                {
+                    MessageBox.Show(nip24.LastError);
+                }
         }
     }
 }

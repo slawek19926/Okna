@@ -104,5 +104,10 @@ namespace Okna.formsy
             FormSearchClient frm = new FormSearchClient();
             frm.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -357,6 +357,7 @@
             this.numerek.Size = new System.Drawing.Size(35, 13);
             this.numerek.TabIndex = 10;
             this.numerek.Text = "label5";
+            this.numerek.Visible = false;
             // 
             // printPreviewDialog1
             // 
@@ -377,6 +378,7 @@
             this.numberBAZA.Size = new System.Drawing.Size(35, 13);
             this.numberBAZA.TabIndex = 11;
             this.numberBAZA.Text = "label5";
+            this.numberBAZA.Visible = false;
             // 
             // userID
             // 
@@ -386,6 +388,7 @@
             this.userID.Size = new System.Drawing.Size(35, 13);
             this.userID.TabIndex = 12;
             this.userID.Text = "label5";
+            this.userID.Visible = false;
             // 
             // wycena
             // 

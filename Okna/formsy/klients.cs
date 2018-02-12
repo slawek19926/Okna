@@ -57,7 +57,7 @@ namespace Okna.formsy
             using (var connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                var query = "SELECT nazwa FROM klienci WHERE odbiorca = '1'";
+                var query = "SELECT * FROM klienci";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     using (var reader = command.ExecuteReader())
@@ -75,6 +75,12 @@ namespace Okna.formsy
         private void useBTN_Click(object sender, EventArgs e)
         {
             wycena.klientTXT.Text = klientBOX.SelectedItem.ToString();
+            Close();
+        }
+        private void addKLIENT_Click(object sener, EventArgs e)
+        {
+            FormSearchClient frm = new FormSearchClient();
+            frm.Show();
             Close();
         }
     }

@@ -31,13 +31,14 @@
             this.useBTN = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.klientBOX = new System.Windows.Forms.ComboBox();
+            this.addKLIENT = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // useBTN
             // 
-            this.useBTN.Location = new System.Drawing.Point(69, 162);
+            this.useBTN.Location = new System.Drawing.Point(40, 121);
             this.useBTN.Name = "useBTN";
-            this.useBTN.Size = new System.Drawing.Size(150, 46);
+            this.useBTN.Size = new System.Drawing.Size(96, 46);
             this.useBTN.TabIndex = 1;
             this.useBTN.Text = "Wybierz";
             this.useBTN.UseVisualStyleBackColor = true;
@@ -62,13 +63,24 @@
             this.klientBOX.Size = new System.Drawing.Size(198, 21);
             this.klientBOX.TabIndex = 3;
             // 
+            // addKLIENT
+            // 
+            this.addKLIENT.Location = new System.Drawing.Point(142, 121);
+            this.addKLIENT.Name = "addKLIENT";
+            this.addKLIENT.Size = new System.Drawing.Size(96, 46);
+            this.addKLIENT.TabIndex = 1;
+            this.addKLIENT.Text = "Dodaj nowego";
+            this.addKLIENT.UseVisualStyleBackColor = true;
+            this.addKLIENT.Click += new System.EventHandler(this.addKLIENT_Click);
+            // 
             // klients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 247);
+            this.ClientSize = new System.Drawing.Size(284, 205);
             this.Controls.Add(this.klientBOX);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.addKLIENT);
             this.Controls.Add(this.useBTN);
             this.Name = "klients";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -84,5 +96,6 @@
         private System.Windows.Forms.Button useBTN;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox klientBOX;
+        private System.Windows.Forms.Button addKLIENT;
     }
 }
