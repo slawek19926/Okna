@@ -152,7 +152,7 @@ namespace Okna
             }
 
             Boolean found = false;
-            foreach (DataGridViewRow rows in wycena.dataGridView1.Rows)
+            foreach (DataGridViewRow rows in wycena.metroGrid1.Rows)
             {
                 if (rows.Cells[0].Value.ToString() == indeks)
                 {
@@ -164,7 +164,7 @@ namespace Okna
             if (!found)
             {
                 object[] row = new object[] { indeks, nazwa, netto, rabat + " %", po_r, ile };
-                wycena.dataGridView1.Rows.Add(row);
+                wycena.metroGrid1.Rows.Add(row);
             }
 
         }

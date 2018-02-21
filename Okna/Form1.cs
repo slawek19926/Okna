@@ -11,16 +11,25 @@ using System.Deployment.Application;
 using System.IO;
 using MySql.Data.MySqlClient;
 using System.Security.Cryptography;
+using MaterialSkin;
+using MaterialSkin.Controls;
+using MetroFramework;
+using MetroFramework.Controls;
 
 namespace Okna
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MaterialForm
     {
+        private readonly MaterialSkinManager materialSkinManager;
         string path = AppDomain.CurrentDomain.BaseDirectory + "\\logged.ext";
         public Form1()
         {
             InitializeComponent();
-            WindowState = FormWindowState.Maximized;
+            materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+
             Text = "Wektor wersja " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
 
             const string REGISTRY_KEY = @"HKEY_CURRENT_USER\Software\WektorApp";
@@ -41,13 +50,22 @@ namespace Okna
         private void fORM1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             wycena form = new wycena(this);
-            form.MdiParent = this;
+            //form.MdiParent = this;
             form.Show();
         }
 
         private void zakończToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            var res = MetroMessageBox.Show(this, "Napewno chcesz zakończyć działanie aplikacji?","Zakończyć?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(res == DialogResult.Yes)
+            {
+                zapis_login();
+                Application.Exit();
+            }
+            else
+            {
+
+            }
         }
 
         private void wycenyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -107,11 +125,13 @@ namespace Okna
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var res = MessageBox.Show("Czy napewno chcesz zamknąć program?", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(res == DialogResult.Yes)
+            frmLogin f = new frmLogin();
+            var res = MetroMessageBox.Show(this, "Napewno chcesz się wylogować?", "Zakończyć?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
             {
                 zapis_login();
-                Application.Exit();
+                f.Show();
+                e.Cancel = false;
             }
             else
             {
@@ -246,6 +266,36 @@ namespace Okna
         {
             formsy.klienci frm = new formsy.klienci();
             frm.Show();
+        }
+
+        private void materialFlatButton1_Click(object sender, EventArgs e)
+        {
+            plikStrip.Show(materialFlatButton1,0, materialFlatButton1.Height);
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            finanseStrip.Show(materialRaisedButton1, 0, materialRaisedButton1.Height);
+        }
+
+        private void materialRaisedButton2_Click(object sender, EventArgs e)
+        {
+            towaryStrip.Show(materialRaisedButton2, 0, materialRaisedButton2.Height);
+        }
+
+        private void materialRaisedButton3_Click(object sender, EventArgs e)
+        {
+            produkcjaStrip.Show(materialRaisedButton3, 0, materialRaisedButton3.Height);
+        }
+
+        private void materialRaisedButton4_Click(object sender, EventArgs e)
+        {
+            konfiguracjaStrip.Show(materialRaisedButton4, 0, materialRaisedButton4.Height);
+        }
+
+        private void materialRaisedButton5_Click(object sender, EventArgs e)
+        {
+            pomocStrip.Show(materialRaisedButton5, 0, materialRaisedButton5.Height);
         }
     }
 }

@@ -22,20 +22,20 @@ namespace Okna.formsy
         private void edit_towar_Load(object sender, EventArgs e)
         {
             //przypisanie pobieranych danych
-            var indeks = wycena.dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            var nazwa = wycena.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            var indeks = wycena.metroGrid1.CurrentRow.Cells[0].Value.ToString();
+            var nazwa = wycena.metroGrid1.CurrentRow.Cells[1].Value.ToString();
 
             //wyświetlenie podbranych danych
-            Text = "Edytuj towar " + wycena.dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            Text = "Edytuj towar " + wycena.metroGrid1.CurrentRow.Cells[0].Value.ToString();
             indeksBOX.Text = indeks;
             nazwa_BOX.Text = nazwa;
-            netto_przed.Text= wycena.dataGridView1.CurrentRow.Cells[2].Value.ToString() + " zł";
-            rabat_BOX.Text = wycena.dataGridView1.CurrentRow.Cells[3].Value.ToString().Replace("%","");
-            netto_po.Text = wycena.dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            ilosc_BOX.Text = wycena.dataGridView1.CurrentRow.Cells[5].Value.ToString();
-            wart_netto.Text = wycena.dataGridView1.CurrentRow.Cells[6].Value.ToString();
-            wart_brutto.Text = wycena.dataGridView1.CurrentRow.Cells[7].Value.ToString();
-            narzut.Text = wycena.dataGridView1.CurrentRow.Cells[8].Value.ToString().Replace("%", "");
+            netto_przed.Text= wycena.metroGrid1.CurrentRow.Cells[2].Value.ToString() + " zł";
+            rabat_BOX.Text = wycena.metroGrid1.CurrentRow.Cells[3].Value.ToString().Replace("%","");
+            netto_po.Text = wycena.metroGrid1.CurrentRow.Cells[4].Value.ToString();
+            ilosc_BOX.Text = wycena.metroGrid1.CurrentRow.Cells[5].Value.ToString();
+            wart_netto.Text = wycena.metroGrid1.CurrentRow.Cells[6].Value.ToString();
+            wart_brutto.Text = wycena.metroGrid1.CurrentRow.Cells[7].Value.ToString();
+            narzut.Text = wycena.metroGrid1.CurrentRow.Cells[8].Value.ToString().Replace("%", "");
         }
 
         private void ilosc_BOX_TextChanged(object sender, EventArgs e)
@@ -134,12 +134,12 @@ namespace Okna.formsy
 
         private void save_BTN_Click(object sender, EventArgs e)
         {
-            wycena.dataGridView1.CurrentRow.Cells[3].Value = rabat_BOX.Text + "%";
-            wycena.dataGridView1.CurrentRow.Cells[4].Value = netto_po.Text;
-            wycena.dataGridView1.CurrentRow.Cells[5].Value = ilosc_BOX.Text;
-            wycena.dataGridView1.CurrentRow.Cells[6].Value = wart_netto.Text;
-            wycena.dataGridView1.CurrentRow.Cells[7].Value = wart_brutto.Text;
-            wycena.dataGridView1.CurrentRow.Cells[8].Value = narzut.Text + "%";
+            wycena.metroGrid1.CurrentRow.Cells[3].Value = rabat_BOX.Text + "%";
+            wycena.metroGrid1.CurrentRow.Cells[4].Value = netto_po.Text;
+            wycena.metroGrid1.CurrentRow.Cells[5].Value = ilosc_BOX.Text;
+            wycena.metroGrid1.CurrentRow.Cells[6].Value = wart_netto.Text;
+            wycena.metroGrid1.CurrentRow.Cells[7].Value = wart_brutto.Text;
+            wycena.metroGrid1.CurrentRow.Cells[8].Value = narzut.Text + "%";
             Close();
         }
     }

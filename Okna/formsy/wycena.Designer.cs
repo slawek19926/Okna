@@ -29,10 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wycena));
-            this.addBTN = new System.Windows.Forms.Button();
-            this.editBTN = new System.Windows.Forms.Button();
-            this.deleteBTN = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.numerek = new System.Windows.Forms.Label();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.numberBAZA = new System.Windows.Forms.Label();
+            this.userID = new System.Windows.Forms.Label();
+            this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
             this.indeks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cena = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,74 +47,89 @@
             this.wart_n = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wart_b = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Narzut = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.sumaTXT = new System.Windows.Forms.Label();
-            this.resztaTXT = new System.Windows.Forms.Label();
-            this.zaplaconoTXT = new System.Windows.Forms.TextBox();
-            this.slownie = new System.Windows.Forms.Label();
-            this.saveBTN = new System.Windows.Forms.Button();
-            this.userBTN = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.klientTXT = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.wycena_nr = new System.Windows.Forms.Label();
-            this.print_btn = new System.Windows.Forms.Button();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.numerek = new System.Windows.Forms.Label();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.numberBAZA = new System.Windows.Forms.Label();
-            this.userID = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.print_btn = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.addBTN = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.editBTN = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.deleteBTN = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.saveBTN = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.userBTN = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.zaplaconoTXT = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.klientTXT = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.slownie = new MaterialSkin.Controls.MaterialLabel();
+            this.sumaTXT = new MaterialSkin.Controls.MaterialLabel();
+            this.resztaTXT = new MaterialSkin.Controls.MaterialLabel();
+            this.wycena_nr = new MaterialSkin.Controls.MaterialLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             this.SuspendLayout();
             // 
-            // addBTN
+            // numerek
             // 
-            this.addBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addBTN.Location = new System.Drawing.Point(13, 331);
-            this.addBTN.Name = "addBTN";
-            this.addBTN.Size = new System.Drawing.Size(111, 42);
-            this.addBTN.TabIndex = 0;
-            this.addBTN.Text = "Dodaj";
-            this.addBTN.UseVisualStyleBackColor = true;
-            this.addBTN.Click += new System.EventHandler(this.addBTN_Click);
+            this.numerek.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.numerek.AutoSize = true;
+            this.numerek.Location = new System.Drawing.Point(1104, 465);
+            this.numerek.Name = "numerek";
+            this.numerek.Size = new System.Drawing.Size(35, 13);
+            this.numerek.TabIndex = 10;
+            this.numerek.Text = "label5";
+            this.numerek.Visible = false;
             // 
-            // editBTN
+            // printPreviewDialog1
             // 
-            this.editBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.editBTN.Location = new System.Drawing.Point(130, 331);
-            this.editBTN.Name = "editBTN";
-            this.editBTN.Size = new System.Drawing.Size(111, 42);
-            this.editBTN.TabIndex = 0;
-            this.editBTN.Text = "Edytuj";
-            this.editBTN.UseVisualStyleBackColor = true;
-            this.editBTN.Click += new System.EventHandler(this.editBTN_Click);
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
-            // deleteBTN
+            // numberBAZA
             // 
-            this.deleteBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.deleteBTN.Location = new System.Drawing.Point(247, 331);
-            this.deleteBTN.Name = "deleteBTN";
-            this.deleteBTN.Size = new System.Drawing.Size(111, 42);
-            this.deleteBTN.TabIndex = 0;
-            this.deleteBTN.Text = "Usuń";
-            this.deleteBTN.UseVisualStyleBackColor = true;
-            this.deleteBTN.Click += new System.EventHandler(this.deleteBTN_Click);
+            this.numberBAZA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.numberBAZA.AutoSize = true;
+            this.numberBAZA.Location = new System.Drawing.Point(974, 467);
+            this.numberBAZA.Name = "numberBAZA";
+            this.numberBAZA.Size = new System.Drawing.Size(35, 13);
+            this.numberBAZA.TabIndex = 11;
+            this.numberBAZA.Text = "label5";
+            this.numberBAZA.Visible = false;
             // 
-            // dataGridView1
+            // userID
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.userID.AutoSize = true;
+            this.userID.Location = new System.Drawing.Point(827, 467);
+            this.userID.Name = "userID";
+            this.userID.Size = new System.Drawing.Size(35, 13);
+            this.userID.TabIndex = 12;
+            this.userID.Text = "label5";
+            this.userID.Visible = false;
+            // 
+            // metroGrid1
+            // 
+            this.metroGrid1.AllowUserToAddRows = false;
+            this.metroGrid1.AllowUserToDeleteRows = false;
+            this.metroGrid1.AllowUserToResizeColumns = false;
+            this.metroGrid1.AllowUserToResizeRows = false;
+            this.metroGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.metroGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.metroGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.metroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.metroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.metroGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.metroGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.indeks,
             this.nazwa,
             this.cena,
@@ -119,24 +139,41 @@
             this.wart_n,
             this.wart_b,
             this.Narzut});
-            this.dataGridView1.Location = new System.Drawing.Point(13, 118);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.ShowCellErrors = false;
-            this.dataGridView1.ShowCellToolTips = false;
-            this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.ShowRowErrors = false;
-            this.dataGridView1.Size = new System.Drawing.Size(918, 207);
-            this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DynList_CellValueChanged);
-            this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
-            this.dataGridView1.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.DynList_RowValidated);
-            this.dataGridView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.metroGrid1.EnableHeadersVisualStyles = false;
+            this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.metroGrid1.GridColor = System.Drawing.Color.Gray;
+            this.metroGrid1.Location = new System.Drawing.Point(13, 118);
+            this.metroGrid1.Name = "metroGrid1";
+            this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.metroGrid1.RowHeadersVisible = false;
+            this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.metroGrid1.Size = new System.Drawing.Size(1129, 207);
+            this.metroGrid1.TabIndex = 13;
+            this.metroGrid1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroGrid1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DynList_CellValueChanged);
+            this.metroGrid1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
+            this.metroGrid1.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.DynList_RowValidated);
+            this.metroGrid1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
             // 
             // indeks
             // 
-            this.indeks.Frozen = true;
             this.indeks.HeaderText = "Indeks";
             this.indeks.Name = "indeks";
             this.indeks.ReadOnly = true;
@@ -157,6 +194,7 @@
             // 
             this.rabat.HeaderText = "Rabat";
             this.rabat.Name = "rabat";
+            this.rabat.ReadOnly = true;
             // 
             // po_r
             // 
@@ -188,266 +226,282 @@
             this.Narzut.Name = "Narzut";
             this.Narzut.ReadOnly = true;
             // 
-            // label1
+            // print_btn
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 394);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Zpłacono:";
+            this.print_btn.AutoSize = true;
+            this.print_btn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.print_btn.Depth = 0;
+            this.print_btn.Icon = null;
+            this.print_btn.Location = new System.Drawing.Point(302, 334);
+            this.print_btn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.print_btn.Name = "print_btn";
+            this.print_btn.Primary = true;
+            this.print_btn.Size = new System.Drawing.Size(73, 36);
+            this.print_btn.TabIndex = 14;
+            this.print_btn.Text = "Drukuj";
+            this.print_btn.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // addBTN
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 418);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Reszta:";
+            this.addBTN.AutoSize = true;
+            this.addBTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.addBTN.Depth = 0;
+            this.addBTN.Icon = null;
+            this.addBTN.Location = new System.Drawing.Point(17, 334);
+            this.addBTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.addBTN.Name = "addBTN";
+            this.addBTN.Primary = true;
+            this.addBTN.Size = new System.Drawing.Size(65, 36);
+            this.addBTN.TabIndex = 15;
+            this.addBTN.Text = "Dodaj";
+            this.addBTN.UseVisualStyleBackColor = true;
+            this.addBTN.Click += new System.EventHandler(this.addBTN_Click);
             // 
-            // label3
+            // editBTN
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(13, 440);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 16);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Do zpałaty:";
+            this.editBTN.AutoSize = true;
+            this.editBTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.editBTN.Depth = 0;
+            this.editBTN.Icon = null;
+            this.editBTN.Location = new System.Drawing.Point(88, 334);
+            this.editBTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.editBTN.Name = "editBTN";
+            this.editBTN.Primary = true;
+            this.editBTN.Size = new System.Drawing.Size(71, 36);
+            this.editBTN.TabIndex = 16;
+            this.editBTN.Text = "Edytuj";
+            this.editBTN.UseVisualStyleBackColor = true;
+            this.editBTN.Click += new System.EventHandler(this.editBTN_Click);
             // 
-            // sumaTXT
+            // deleteBTN
             // 
-            this.sumaTXT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.sumaTXT.AutoSize = true;
-            this.sumaTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.sumaTXT.ForeColor = System.Drawing.Color.Red;
-            this.sumaTXT.Location = new System.Drawing.Point(108, 440);
-            this.sumaTXT.Name = "sumaTXT";
-            this.sumaTXT.Size = new System.Drawing.Size(36, 16);
-            this.sumaTXT.TabIndex = 4;
-            this.sumaTXT.Text = "0,00";
-            // 
-            // resztaTXT
-            // 
-            this.resztaTXT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.resztaTXT.AutoSize = true;
-            this.resztaTXT.Location = new System.Drawing.Point(108, 418);
-            this.resztaTXT.Name = "resztaTXT";
-            this.resztaTXT.Size = new System.Drawing.Size(28, 13);
-            this.resztaTXT.TabIndex = 3;
-            this.resztaTXT.Text = "0,00";
-            // 
-            // zaplaconoTXT
-            // 
-            this.zaplaconoTXT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.zaplaconoTXT.Location = new System.Drawing.Point(111, 389);
-            this.zaplaconoTXT.Name = "zaplaconoTXT";
-            this.zaplaconoTXT.Size = new System.Drawing.Size(100, 20);
-            this.zaplaconoTXT.TabIndex = 5;
-            this.zaplaconoTXT.TextChanged += new System.EventHandler(this.zaplaconoTXT_TextChanged);
-            this.zaplaconoTXT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.zaplaconoTXT_KeyDown);
-            this.zaplaconoTXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.zaplaconoTXT_KeyPress);
-            // 
-            // slownie
-            // 
-            this.slownie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.slownie.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.slownie.Location = new System.Drawing.Point(13, 465);
-            this.slownie.Name = "slownie";
-            this.slownie.Size = new System.Drawing.Size(1000, 15);
-            this.slownie.TabIndex = 3;
-            this.slownie.Text = "slownie";
-            this.slownie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.deleteBTN.AutoSize = true;
+            this.deleteBTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.deleteBTN.Depth = 0;
+            this.deleteBTN.Icon = null;
+            this.deleteBTN.Location = new System.Drawing.Point(165, 334);
+            this.deleteBTN.MouseState = MaterialSkin.MouseState.HOVER;
+            this.deleteBTN.Name = "deleteBTN";
+            this.deleteBTN.Primary = true;
+            this.deleteBTN.Size = new System.Drawing.Size(57, 36);
+            this.deleteBTN.TabIndex = 17;
+            this.deleteBTN.Text = "Usuń";
+            this.deleteBTN.UseVisualStyleBackColor = true;
+            this.deleteBTN.Click += new System.EventHandler(this.deleteBTN_Click);
             // 
             // saveBTN
             // 
-            this.saveBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.saveBTN.Location = new System.Drawing.Point(364, 331);
+            this.saveBTN.AutoSize = true;
+            this.saveBTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.saveBTN.Depth = 0;
+            this.saveBTN.Icon = null;
+            this.saveBTN.Location = new System.Drawing.Point(228, 334);
+            this.saveBTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.saveBTN.Name = "saveBTN";
-            this.saveBTN.Size = new System.Drawing.Size(111, 42);
-            this.saveBTN.TabIndex = 0;
+            this.saveBTN.Primary = true;
+            this.saveBTN.Size = new System.Drawing.Size(68, 36);
+            this.saveBTN.TabIndex = 18;
             this.saveBTN.Text = "Zapisz";
             this.saveBTN.UseVisualStyleBackColor = true;
             this.saveBTN.Click += new System.EventHandler(this.saveBTN_Click);
             // 
             // userBTN
             // 
-            this.userBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.userBTN.Location = new System.Drawing.Point(247, 389);
+            this.userBTN.AutoSize = true;
+            this.userBTN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.userBTN.Depth = 0;
+            this.userBTN.Icon = null;
+            this.userBTN.Location = new System.Drawing.Point(228, 392);
+            this.userBTN.MouseState = MaterialSkin.MouseState.HOVER;
             this.userBTN.Name = "userBTN";
-            this.userBTN.Size = new System.Drawing.Size(111, 42);
-            this.userBTN.TabIndex = 0;
+            this.userBTN.Primary = true;
+            this.userBTN.Size = new System.Drawing.Size(137, 36);
+            this.userBTN.TabIndex = 19;
+            this.userBTN.Text = "Wybierz klienta";
             this.userBTN.UseVisualStyleBackColor = true;
             this.userBTN.Click += new System.EventHandler(this.userBTN_Click);
             // 
-            // label4
+            // zaplaconoTXT
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(366, 404);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 15);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Wybrany klient:";
+            this.zaplaconoTXT.Depth = 0;
+            this.zaplaconoTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.zaplaconoTXT.Hint = "";
+            this.zaplaconoTXT.Location = new System.Drawing.Point(111, 384);
+            this.zaplaconoTXT.MaxLength = 32767;
+            this.zaplaconoTXT.MouseState = MaterialSkin.MouseState.HOVER;
+            this.zaplaconoTXT.Name = "zaplaconoTXT";
+            this.zaplaconoTXT.PasswordChar = '\0';
+            this.zaplaconoTXT.SelectedText = "";
+            this.zaplaconoTXT.SelectionLength = 0;
+            this.zaplaconoTXT.SelectionStart = 0;
+            this.zaplaconoTXT.Size = new System.Drawing.Size(111, 23);
+            this.zaplaconoTXT.TabIndex = 20;
+            this.zaplaconoTXT.TabStop = false;
+            this.zaplaconoTXT.Text = "0";
+            this.zaplaconoTXT.UseSystemPasswordChar = false;
+            this.zaplaconoTXT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.zaplaconoTXT_KeyDown);
+            this.zaplaconoTXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.zaplaconoTXT_KeyPress);
+            this.zaplaconoTXT.TextChanged += new System.EventHandler(this.zaplaconoTXT_TextChanged);
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(371, 400);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(110, 19);
+            this.materialLabel1.TabIndex = 21;
+            this.materialLabel1.Text = "Wybrany klient:";
             // 
             // klientTXT
             // 
-            this.klientTXT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.klientTXT.AutoSize = true;
-            this.klientTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.klientTXT.Location = new System.Drawing.Point(475, 404);
+            this.klientTXT.Depth = 0;
+            this.klientTXT.Font = new System.Drawing.Font("Roboto", 11F);
+            this.klientTXT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.klientTXT.Location = new System.Drawing.Point(487, 400);
+            this.klientTXT.MouseState = MaterialSkin.MouseState.HOVER;
             this.klientTXT.Name = "klientTXT";
-            this.klientTXT.Size = new System.Drawing.Size(0, 15);
-            this.klientTXT.TabIndex = 7;
+            this.klientTXT.Size = new System.Drawing.Size(0, 19);
+            this.klientTXT.TabIndex = 22;
             this.klientTXT.TextChanged += new System.EventHandler(this.klients_TextChanged);
             // 
-            // panel1
+            // materialLabel2
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.AutoSize = true;
-            this.panel1.Controls.Add(this.wycena_nr);
-            this.panel1.Location = new System.Drawing.Point(13, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(918, 103);
-            this.panel1.TabIndex = 8;
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(10, 394);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(63, 13);
+            this.materialLabel2.TabIndex = 23;
+            this.materialLabel2.Text = "Zapłacono:";
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(10, 418);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(43, 13);
+            this.materialLabel3.TabIndex = 24;
+            this.materialLabel3.Text = "Reszta:";
+            // 
+            // materialLabel4
+            // 
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
+            this.materialLabel4.ForeColor = System.Drawing.Color.Red;
+            this.materialLabel4.Location = new System.Drawing.Point(10, 440);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(89, 16);
+            this.materialLabel4.TabIndex = 25;
+            this.materialLabel4.Text = "Do zapłaty:";
+            // 
+            // slownie
+            // 
+            this.slownie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.slownie.Depth = 0;
+            this.slownie.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
+            this.slownie.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.slownie.Location = new System.Drawing.Point(13, 478);
+            this.slownie.MouseState = MaterialSkin.MouseState.HOVER;
+            this.slownie.Name = "slownie";
+            this.slownie.Size = new System.Drawing.Size(1129, 19);
+            this.slownie.TabIndex = 26;
+            this.slownie.Text = "slownie";
+            // 
+            // sumaTXT
+            // 
+            this.sumaTXT.AutoSize = true;
+            this.sumaTXT.Depth = 0;
+            this.sumaTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
+            this.sumaTXT.ForeColor = System.Drawing.Color.Red;
+            this.sumaTXT.Location = new System.Drawing.Point(108, 440);
+            this.sumaTXT.MouseState = MaterialSkin.MouseState.HOVER;
+            this.sumaTXT.Name = "sumaTXT";
+            this.sumaTXT.Size = new System.Drawing.Size(36, 16);
+            this.sumaTXT.TabIndex = 27;
+            this.sumaTXT.Text = "0,00";
+            // 
+            // resztaTXT
+            // 
+            this.resztaTXT.AutoSize = true;
+            this.resztaTXT.Depth = 0;
+            this.resztaTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.resztaTXT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.resztaTXT.Location = new System.Drawing.Point(108, 418);
+            this.resztaTXT.MouseState = MaterialSkin.MouseState.HOVER;
+            this.resztaTXT.Name = "resztaTXT";
+            this.resztaTXT.Size = new System.Drawing.Size(28, 13);
+            this.resztaTXT.TabIndex = 28;
+            this.resztaTXT.Text = "0,00";
             // 
             // wycena_nr
             // 
-            this.wycena_nr.Dock = System.Windows.Forms.DockStyle.Top;
-            this.wycena_nr.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.wycena_nr.Location = new System.Drawing.Point(0, 0);
+            this.wycena_nr.Depth = 0;
+            this.wycena_nr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.wycena_nr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.wycena_nr.Location = new System.Drawing.Point(13, 66);
+            this.wycena_nr.MouseState = MaterialSkin.MouseState.HOVER;
             this.wycena_nr.Name = "wycena_nr";
-            this.wycena_nr.Size = new System.Drawing.Size(918, 103);
-            this.wycena_nr.TabIndex = 11;
-            this.wycena_nr.Text = "label5";
+            this.wycena_nr.Size = new System.Drawing.Size(1135, 49);
+            this.wycena_nr.TabIndex = 29;
+            this.wycena_nr.Text = "Wycena nr";
             this.wycena_nr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // print_btn
-            // 
-            this.print_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.print_btn.Location = new System.Drawing.Point(481, 331);
-            this.print_btn.Name = "print_btn";
-            this.print_btn.Size = new System.Drawing.Size(111, 42);
-            this.print_btn.TabIndex = 0;
-            this.print_btn.Text = "Drukuj";
-            this.print_btn.UseVisualStyleBackColor = true;
-            this.print_btn.Click += new System.EventHandler(this.print_btn_Click);
-            // 
-            // progressBar
-            // 
-            this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar.Location = new System.Drawing.Point(718, 483);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(222, 23);
-            this.progressBar.TabIndex = 9;
-            // 
-            // numerek
-            // 
-            this.numerek.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.numerek.AutoSize = true;
-            this.numerek.Location = new System.Drawing.Point(896, 465);
-            this.numerek.Name = "numerek";
-            this.numerek.Size = new System.Drawing.Size(35, 13);
-            this.numerek.TabIndex = 10;
-            this.numerek.Text = "label5";
-            this.numerek.Visible = false;
-            // 
-            // printPreviewDialog1
-            // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
-            // 
-            // numberBAZA
-            // 
-            this.numberBAZA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.numberBAZA.AutoSize = true;
-            this.numberBAZA.Location = new System.Drawing.Point(766, 467);
-            this.numberBAZA.Name = "numberBAZA";
-            this.numberBAZA.Size = new System.Drawing.Size(35, 13);
-            this.numberBAZA.TabIndex = 11;
-            this.numberBAZA.Text = "label5";
-            this.numberBAZA.Visible = false;
-            // 
-            // userID
-            // 
-            this.userID.AutoSize = true;
-            this.userID.Location = new System.Drawing.Point(827, 467);
-            this.userID.Name = "userID";
-            this.userID.Size = new System.Drawing.Size(35, 13);
-            this.userID.TabIndex = 12;
-            this.userID.Text = "label5";
-            this.userID.Visible = false;
             // 
             // wycena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(943, 506);
-            this.Controls.Add(this.userID);
-            this.Controls.Add(this.numberBAZA);
-            this.Controls.Add(this.numerek);
-            this.Controls.Add(this.progressBar);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.klientTXT);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.zaplaconoTXT);
-            this.Controls.Add(this.sumaTXT);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(1151, 506);
+            this.Controls.Add(this.wycena_nr);
             this.Controls.Add(this.resztaTXT);
+            this.Controls.Add(this.sumaTXT);
             this.Controls.Add(this.slownie);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.materialLabel4);
+            this.Controls.Add(this.materialLabel3);
+            this.Controls.Add(this.materialLabel2);
+            this.Controls.Add(this.klientTXT);
+            this.Controls.Add(this.materialLabel1);
+            this.Controls.Add(this.zaplaconoTXT);
             this.Controls.Add(this.userBTN);
-            this.Controls.Add(this.print_btn);
             this.Controls.Add(this.saveBTN);
             this.Controls.Add(this.deleteBTN);
             this.Controls.Add(this.editBTN);
             this.Controls.Add(this.addBTN);
+            this.Controls.Add(this.print_btn);
+            this.Controls.Add(this.userID);
+            this.Controls.Add(this.numberBAZA);
+            this.Controls.Add(this.numerek);
+            this.Controls.Add(this.metroGrid1);
             this.Name = "wycena";
             this.ShowIcon = false;
             this.Text = "wycena";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.wycena_FormClosing);
             this.Load += new System.EventHandler(this.wycena_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button addBTN;
-        private System.Windows.Forms.Button editBTN;
-        private System.Windows.Forms.Button deleteBTN;
-        public System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label sumaTXT;
-        private System.Windows.Forms.Label resztaTXT;
-        private System.Windows.Forms.TextBox zaplaconoTXT;
-        private System.Windows.Forms.Label slownie;
-        private System.Windows.Forms.Button saveBTN;
-        private System.Windows.Forms.Button userBTN;
-        private System.Windows.Forms.Label label4;
-        public System.Windows.Forms.Label klientTXT;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button print_btn;
-        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        public System.Windows.Forms.Label numerek;
+        private System.Windows.Forms.Label numberBAZA;
+        private System.Windows.Forms.Label userID;
         private System.Windows.Forms.DataGridViewTextBoxColumn indeks;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazwa;
         private System.Windows.Forms.DataGridViewTextBoxColumn cena;
@@ -457,11 +511,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn wart_n;
         private System.Windows.Forms.DataGridViewTextBoxColumn wart_b;
         private System.Windows.Forms.DataGridViewTextBoxColumn Narzut;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
-        private System.Drawing.Printing.PrintDocument printDocument1;
-        public System.Windows.Forms.Label numerek;
-        public System.Windows.Forms.Label wycena_nr;
-        private System.Windows.Forms.Label numberBAZA;
-        private System.Windows.Forms.Label userID;
+        public MetroFramework.Controls.MetroGrid metroGrid1;
+        private MaterialSkin.Controls.MaterialRaisedButton print_btn;
+        private MaterialSkin.Controls.MaterialRaisedButton addBTN;
+        private MaterialSkin.Controls.MaterialRaisedButton editBTN;
+        private MaterialSkin.Controls.MaterialRaisedButton deleteBTN;
+        private MaterialSkin.Controls.MaterialRaisedButton saveBTN;
+        private MaterialSkin.Controls.MaterialRaisedButton userBTN;
+        private MaterialSkin.Controls.MaterialSingleLineTextField zaplaconoTXT;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        private MaterialSkin.Controls.MaterialLabel slownie;
+        private MaterialSkin.Controls.MaterialLabel sumaTXT;
+        private MaterialSkin.Controls.MaterialLabel resztaTXT;
+        public MaterialSkin.Controls.MaterialLabel klientTXT;
+        public MaterialSkin.Controls.MaterialLabel wycena_nr;
     }
 }

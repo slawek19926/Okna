@@ -12,28 +12,36 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Data.SqlClient;
 using System.Collections;
+using MaterialSkin;
+using MaterialSkin.Controls;
+using MetroFramework;
+using MetroFramework.Controls;
 
 namespace Okna
 
 {
 
-    public partial class wycena : Form
+    public partial class wycena : MaterialForm
     {
+        private readonly MaterialSkinManager materialSkinManager;
         string strCurrency;
         Boolean acceptableKey = false;
         Form1 Form1;
         public wycena(Form1 Form1)
         {
             InitializeComponent();
+            materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             this.Form1 = Form1;
-            WindowState = FormWindowState.Maximized;
             Text = "Wycena " + klientTXT.Text;
             FormClosing += wycena_FormClosing;
 
             double sum = 0;
-            for (int i =0; i < dataGridView1.Rows.Count; ++i)
+            for (int i =0; i < metroGrid1.Rows.Count; ++i)
             {
-                sum += Convert.ToInt32(dataGridView1.Rows[i].Cells[7].Value);
+                sum += Convert.ToInt32(metroGrid1.Rows[i].Cells[7].Value);
             }
             sumaTXT.Text = sum.ToString("c");
             editBTN.Enabled = false;
@@ -107,8 +115,8 @@ namespace Okna
             }
 
 
-            dataGridView1.Columns[1].Width = 325;
-            dataGridView1.Columns[2].DefaultCellStyle.Format = "c";
+            metroGrid1.Columns[1].Width = 325;
+            metroGrid1.Columns[2].DefaultCellStyle.Format = "c";
             decimal kwota = Convert.ToDecimal(suma());
             int zlote = (int)kwota;
             int grosze = (int)(100 * kwota) % 100;
@@ -119,7 +127,7 @@ namespace Okna
                 Formatowanie.LiczbaSlownie(grosze),
                 Formatowanie.WalutaSlownie(grosze, "grosze"));
 
-            if(klientTXT.Text == "")
+            if (klientTXT.Text == "")
             {
                 userBTN.Text = "Wybierz klienta";
             }
@@ -187,17 +195,6 @@ namespace Okna
         {
             add_product form = new add_product(this);
             form.Show();
-            int i = 0;
-            progressBar.Visible = true;
-            progressBar.Value = 0;
-            progressBar.Minimum = 0;
-            progressBar.Maximum = 100;
-            progressBar.Step = 10;
-
-            for (i=0; i <= 100; ++i)
-            {
-                progressBar.PerformStep();
-            }
         }
 
         private void editBTN_Click(object sender, EventArgs e)
@@ -207,16 +204,16 @@ namespace Okna
         }
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            for(int i = 0; i < dataGridView1.Rows.Count; ++i)
+            for(int i = 0; i < metroGrid1.Rows.Count; ++i)
             {
-                decimal n = Decimal.Parse(dataGridView1.Rows[i].Cells[4].Value.ToString().Replace("zł","")); //netto
-                decimal ile = Decimal.Parse(dataGridView1.Rows[i].Cells[5].Value.ToString()); //ilość
+                decimal n = Decimal.Parse(metroGrid1.Rows[i].Cells[4].Value.ToString().Replace("zł","")); //netto
+                decimal ile = Decimal.Parse(metroGrid1.Rows[i].Cells[5].Value.ToString()); //ilość
                 decimal vat = Decimal.Parse("1,23");
-                dataGridView1.Rows[i].Cells[6].Value = n * ile;
-                dataGridView1.Rows[i].Cells[7].Value = Math.Round((n*ile)*vat,2);
-                dataGridView1.Rows[i].Cells[8].Value = "0 %";
+                metroGrid1.Rows[i].Cells[6].Value = n * ile;
+                metroGrid1.Rows[i].Cells[7].Value = Math.Round((n*ile)*vat,2);
+                metroGrid1.Rows[i].Cells[8].Value = "0 %";
             }
-            if (dataGridView1.RowCount >= 1)
+            if (metroGrid1.RowCount >= 1)
             {
                 editBTN.Enabled = true;
                 deleteBTN.Enabled = true;
@@ -240,22 +237,22 @@ namespace Okna
                 //7 - wartość brutto
                 //8 - narzut
                 ChangedRow = false;
-                decimal n = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString()); //netto
-                decimal r = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString().Replace("%","")); //rabat
-                decimal szt = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString()); //ilość
+                decimal n = Decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[2].Value.ToString()); //netto
+                decimal r = Decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[3].Value.ToString().Replace("%","")); //rabat
+                decimal szt = Decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[5].Value.ToString()); //ilość
                 decimal vat = Decimal.Parse("1,23"); 
-                dataGridView1.Rows[e.RowIndex].Cells[4].Value = Math.Round((n-(n*(r/100))),2) ; //po rabacie netto
-                decimal netto = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()); //po rabacie netto
-                dataGridView1.Rows[e.RowIndex].Cells[6].Value = Math.Round(netto * szt, 2); //wartość netto
-                decimal wartn = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString());
-                dataGridView1.Rows[e.RowIndex].Cells[7].Value = Math.Round(wartn*vat, 2); //wartość brutto
-                decimal narzut = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString()); //narzut
+                metroGrid1.Rows[e.RowIndex].Cells[4].Value = Math.Round((n-(n*(r/100))),2) ; //po rabacie netto
+                decimal netto = Decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[4].Value.ToString()); //po rabacie netto
+                metroGrid1.Rows[e.RowIndex].Cells[6].Value = Math.Round(netto * szt, 2); //wartość netto
+                decimal wartn = Decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[6].Value.ToString());
+                metroGrid1.Rows[e.RowIndex].Cells[7].Value = Math.Round(wartn*vat, 2); //wartość brutto
+                decimal narzut = Decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[8].Value.ToString()); //narzut
 
-                dataGridView1.Rows[e.RowIndex].Cells[4].Value = Math.Round(netto + (netto * (narzut / 100)), 2); //netto po narzucie
-                decimal nettoN = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
-                dataGridView1.Rows[e.RowIndex].Cells[6].Value = Math.Round(nettoN * szt, 2); //wartosc netto po narzucie
-                decimal wnnetoN = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString()); //wartosc netto po narzucie
-                dataGridView1.Rows[e.RowIndex].Cells[7].Value = Math.Round(wnnetoN * vat, 2); //wartosc netto po narzucie
+                metroGrid1.Rows[e.RowIndex].Cells[4].Value = Math.Round(netto + (netto * (narzut / 100)), 2); //netto po narzucie
+                decimal nettoN = Decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[4].Value.ToString());
+                metroGrid1.Rows[e.RowIndex].Cells[6].Value = Math.Round(nettoN * szt, 2); //wartosc netto po narzucie
+                decimal wnnetoN = Decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[6].Value.ToString()); //wartosc netto po narzucie
+                metroGrid1.Rows[e.RowIndex].Cells[7].Value = Math.Round(wnnetoN * vat, 2); //wartosc netto po narzucie
 
                 wyliczenie_kwoty();
             }
@@ -269,21 +266,21 @@ namespace Okna
         public double suma()
         {
             double sum = 0;
-            for(int i = 0; i <dataGridView1.Rows.Count;++i)
+            for (int i = 0; i < metroGrid1.Rows.Count; ++i)
             {
                 double d = 0;
-                Double.TryParse(dataGridView1.Rows[i].Cells[7].Value.ToString().Replace("zł",""), out d);
+                Double.TryParse(metroGrid1.Rows[i].Cells[7].Value.ToString().Replace("zł", ""), out d);
                 sum += d;
             }
             return sum;
         }
         private void deleteBTN_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            foreach (DataGridViewRow row in metroGrid1.SelectedRows)
             {
-                dataGridView1.Rows.RemoveAt(row.Index);
+                metroGrid1.Rows.RemoveAt(row.Index);
             }
-            if (dataGridView1.RowCount == 1)
+            if (metroGrid1.RowCount == 1)
             {
                 editBTN.Enabled = false;
                 deleteBTN.Enabled = false;
@@ -474,7 +471,7 @@ namespace Okna
                 {
                     zaplaconoTXT.Text = strCurrency.Substring(0, strCurrency.Length - 2) + "," + strCurrency.Substring(strCurrency.Length - 2) + " zł";
                 }
-                zaplaconoTXT.Select(zaplaconoTXT.Text.Length, 0);
+                //zaplaconoTXT.Select(zaplaconoTXT.Text.Length, 0);
             }
             e.Handled = true;
         }
@@ -509,7 +506,7 @@ namespace Okna
                 string MyConnectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
                 MySqlConnection connection = new MySqlConnection(MyConnectionString);
 
-                foreach (DataGridViewRow row in dataGridView1.Rows)
+                foreach (DataGridViewRow row in metroGrid1.Rows)
                 {
                     try
                     {
@@ -564,7 +561,7 @@ namespace Okna
             string MyConnectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
             MySqlConnection connection = new MySqlConnection(MyConnectionString);
 
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach (DataGridViewRow row in metroGrid1.Rows)
             {
                 try
                 {

@@ -12,15 +12,25 @@ using System.Security.Cryptography;
 using System.IO;
 using MySql.Data.MySqlClient;
 using System.Xml;
+using MaterialSkin;
+using MaterialSkin.Controls;
+using MetroFramework;
 
 namespace Okna
 {
-    public partial class frmLogin : Form
+    public partial class frmLogin : MaterialForm
     {
+        private readonly MaterialSkinManager materialSkinManager;
         string path = AppDomain.CurrentDomain.BaseDirectory + "\\logged.ext";
         public frmLogin()
         {
             InitializeComponent();
+
+            materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+
             Text = "Logowanie";
             txtPassword.PasswordChar = '*';
 
@@ -138,7 +148,8 @@ namespace Okna
             string pass = txtPassword.Text;
             if (user == "" || pass == "")
             {
-                MessageBox.Show("Podaj nazwę użytkownika i hasło!");
+                boxes.frmOK frm = new boxes.frmOK();
+                frm.Show();
                 return;
             }
             bool r = validate_login(user, pass);
@@ -173,17 +184,17 @@ namespace Okna
                                 string jest = login1.GetString("logged");
                                 if(jest == "1")
                                 {
-                                    MessageBox.Show("Inny użytkownik o tym loginie jest już zalogowany!","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                                    boxes.frmUser frm = new boxes.frmUser();
+                                    frm.Show();
                                 }
                                 else
                                 {
                                     zapis_login();
-                                    MessageBox.Show("Zalogowano pomyślnie", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    boxes.frmZalogowany frms = new boxes.frmZalogowany();
+                                    frms.Show();
 
                                     var MyIni = new INIFile("WektorSettings.ini");
                                     MyIni.Write("user", user, "logged");
-                                    Form1 frm = new Form1();
-                                    frm.Show();
                                     Hide();
                                 }
                             }
@@ -198,13 +209,13 @@ namespace Okna
             }
             else
             {
-                MessageBox.Show("Nieprawidłowa nazwa użytkownika lub hasło","Błąd",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MetroMessageBox.Show(this,"Nieprawidłowa nazwa użytkownika lub hasło","Błąd",MessageBoxButtons.OK,MessageBoxIcon.Error);
             } 
         }
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var res = MessageBox.Show("Napewno chcesz zakończyć działanie programu?", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var res = MetroMessageBox.Show(this,"Napewno chcesz zakończyć działanie programu?", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
             {
                 e.Cancel = false;

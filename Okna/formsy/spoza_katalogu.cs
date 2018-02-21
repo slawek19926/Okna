@@ -255,7 +255,7 @@ namespace Okna.formsy
                 conn.Close();
                 MessageBox.Show("Zapisanie danych było udane");
                 object[] row = new object[] { indeks, nazwa, netto, rabat, netto, ilosc };
-                wycena.dataGridView1.Rows.Add(row);
+                wycena.metroGrid1.Rows.Add(row);
                 Close();
             }
             catch (Exception ex)
