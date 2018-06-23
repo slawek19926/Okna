@@ -62,7 +62,7 @@ namespace Okna
             }
             if (password.Text != password2.Text)
             {
-                MessageBox.Show("Hasła do siebie nie pasują");
+                MessageBox.Show("Hasła nie są takie same");
                 password2.Focus();
                 return;
             }
