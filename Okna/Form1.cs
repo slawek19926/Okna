@@ -71,28 +71,28 @@ namespace Okna
         private void wycenyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             wyceny form = new wyceny(this);
-            form.MdiParent = this;
+            //form.MdiParent = this;
             form.Show();
         }
 
         private void zamówieniaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             zamowienia form = new zamowienia(this);
-            form.MdiParent = this;
+            //form.MdiParent = this;
             form.Show();
         }
 
         private void ustawieniaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formsy.settings form = new formsy.settings(this);
-            form.MdiParent = this;
+            //form.MdiParent = this;
             form.Show();
         }
 
         private void zleceniaProdukcyjneToolStripMenuItem_Click(object sender, EventArgs e)
         {
             produkcja.prod_zlec form = new produkcja.prod_zlec();
-            form.MdiParent = this;
+            //form.MdiParent = this;
             form.Show();
         }
 
@@ -105,21 +105,21 @@ namespace Okna
         private void rysujOknotestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             test.newWindow form = new test.newWindow(this);
-            form.MdiParent = this;
+            //form.MdiParent = this;
             form.Show();
         }
 
         private void fakturyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             finanse.faktury form = new finanse.faktury(this);
-            form.MdiParent = this;
+            //form.MdiParent = this;
             form.Show();
         }
 
         private void katalogToolStripMenuItem_Click(object sender, EventArgs e)
         {
             okucia.katalog form = new okucia.katalog(this);
-            form.MdiParent = this;
+            //form.MdiParent = this;
             form.Show();
         }
 
@@ -158,7 +158,7 @@ namespace Okna
         private void fbFakturyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             finanse.fb_faktury form = new finanse.fb_faktury(this);
-            form.MdiParent = this;
+            //form.MdiParent = this;            //form.MdiParent = this;
             form.Show();
         }
 
