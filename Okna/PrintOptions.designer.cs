@@ -75,9 +75,9 @@ namespace PrintDataGrid
             this.chkFitToPageWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkFitToPageWidth.Location = new System.Drawing.Point(187, 78);
             this.chkFitToPageWidth.Name = "chkFitToPageWidth";
-            this.chkFitToPageWidth.Size = new System.Drawing.Size(121, 18);
+            this.chkFitToPageWidth.Size = new System.Drawing.Size(134, 18);
             this.chkFitToPageWidth.TabIndex = 21;
-            this.chkFitToPageWidth.Text = "Wype³nij strone";
+            this.chkFitToPageWidth.Text = "Dopasuj do strony";
             this.chkFitToPageWidth.UseVisualStyleBackColor = true;
             // 
             // lblTitle
@@ -224,6 +224,5 @@ namespace PrintDataGrid
         protected System.Windows.Forms.Button btnCancel;
         protected System.Windows.Forms.Button btnHelp;
         internal System.Windows.Forms.CheckedListBox chklst;
-
     }
 }

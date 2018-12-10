@@ -26,8 +26,9 @@ namespace Okna
     {
         private readonly MaterialSkinManager materialSkinManager;
         string strCurrency;
-        Boolean acceptableKey = false;
+        bool acceptableKey = false;
         Form1 Form1;
+        public static string klients;
         public wycena(Form1 Form1)
         {
             InitializeComponent();
@@ -52,6 +53,7 @@ namespace Okna
             InitTimer();
         }
         private static DataGrid dg;
+        public static string numer_wyceny;
         private Timer tajmer;
         private string server;
         private string database;
@@ -76,7 +78,9 @@ namespace Okna
             cryptoStream.Close();
             return Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount).TrimEnd("\0".ToCharArray());
         }
-        private void wycena_Load(object sender, EventArgs e)
+
+
+        public void wycena_Load(object sender, EventArgs e)
         {
             //pobiera numer wyceny
             var MyIni = new INIFile("WektorSettings.ini");
@@ -100,13 +104,15 @@ namespace Okna
                         {
                             if (MyIni.Read("przed","wyceny") == "")
                             {
-                                wycena_nr.Text = "wyc/" + reader.GetString("numer") + "/" + DateTime.Now.ToString("MM") + "/" + DateTime.Today.Year;
+                                numer_wyceny = "wyc/" + reader.GetString("numer") + "/" + DateTime.Now.ToString("MM") + "/" + DateTime.Today.Year;
+                                wycena_nr.Text = numer_wyceny;
                                 numberBAZA.Text = reader.GetString("wycena");
                                 userID.Text = reader.GetString("id");
                             }
                             else
                             {
-                                wycena_nr.Text = "" + MyIni.Read("przed", "wyceny") + "/" + reader.GetString("numer") + "/" + DateTime.Now.ToString("MM") + "/" + DateTime.Today.Year;
+                                numer_wyceny = "" + MyIni.Read("przed", "wyceny") + "/" + reader.GetString("numer") + "/" + DateTime.Now.ToString("MM") + "/" + DateTime.Today.Year;
+                                wycena_nr.Text = numer_wyceny;
                                 numberBAZA.Text = reader.GetString("wycena");
                                 userID.Text = reader.GetString("id");
                             }
@@ -190,7 +196,8 @@ namespace Okna
             else
             {
                 userBTN.Text = "Zmień klienta";
-                Text = "Wycena: " + klientTXT.Text ;
+                klients = klientTXT.Text;
+                Text = "Wycena: " + klients ;
             }
         }
         private void addBTN_Click(object sender, EventArgs e)
@@ -602,15 +609,15 @@ namespace Okna
             print.printDial frm = new print.printDial(this,Form1);
             frm.Show();
         }
-
-        private void print_btn_Click_1(object sender, EventArgs e)
+            
+        public void print_btn_Click_1(object sender, EventArgs e)
         {
-            // Calling Datagrid Printing
-            // Calling DataGridView Printing
-            PrintDGV.Print_DataGridView(metroGrid1);
-
-            //ClsPrint _ClsPrint = new ClsPrint(metroGrid1, "header doc text");
-            //_ClsPrint.PrintForm();
+            var result = MessageBox.Show("Narazie da się drukować na domyślnej drukarce. Kontynuować?", "Informacja", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if(result == DialogResult.Yes)
+            {
+                //Ładuje okno konfiguracji wydruku
+                PrintDGV.Print_DataGridView(metroGrid1);
+            }
         }
     }
 }

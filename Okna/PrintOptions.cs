@@ -1,3 +1,4 @@
+using Okna;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ namespace PrintDataGrid
 {
     public partial class PrintOptions : Form
     {
+        
         public PrintOptions()
         {
             InitializeComponent();
@@ -22,23 +24,27 @@ namespace PrintDataGrid
                      chklst.Items.Add(field, true);
         }
 
+        static string wycena_numer;
+
         private void PrintOtions_Load(object sender, EventArgs e)
         {
             // Initialize some controls
             rdoAllRows.Checked = true;
-            chkFitToPageWidth.Checked = true; 
+            chkFitToPageWidth.Checked = true;
+            wycena_numer = "wycena nr: " + wycena.numer_wyceny + ", klient: " + wycena.klients;
+            txtTitle.Text = wycena_numer;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
 
         public List<string> GetSelectedColumns()
