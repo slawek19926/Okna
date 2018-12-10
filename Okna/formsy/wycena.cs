@@ -221,6 +221,7 @@ namespace Okna
                 metroGrid1.Rows[i].Cells[6].Value = n * ile;
                 metroGrid1.Rows[i].Cells[7].Value = Math.Round((n*ile)*vat,2);
                 metroGrid1.Rows[i].Cells[8].Value = "0 %";
+                
             }
             if (metroGrid1.RowCount >= 1)
             {
@@ -267,6 +268,35 @@ namespace Okna
             }
 
         }
+
+        void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex == this.metroGrid1.NewRowIndex)
+            {
+                e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
+                e.CellStyle.ForeColor = Color.Red;
+                switch (e.ColumnIndex)
+                {
+                    case 0:
+                        e.Value = "Total";
+                        break;
+
+                    case 2:
+                        var sum = 0.0d;
+                        for (int i = 0; i < this.metroGrid1.NewRowIndex; i++)
+                        {
+                            var value = this.metroGrid1[2, i].Value;
+                            if (value is double)
+                            {
+                                sum += ((double)value);
+                            }
+                        }
+                        e.Value = Math.Round(sum, 2);
+                        break;
+                }
+            }
+        }
+
         bool ChangedRow;
         private void DynList_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
