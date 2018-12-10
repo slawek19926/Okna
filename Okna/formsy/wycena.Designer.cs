@@ -116,7 +116,7 @@
             this.metroGrid1.AllowUserToResizeRows = false;
             this.metroGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.metroGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.metroGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.metroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.metroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -149,7 +149,7 @@
             this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle2;
             this.metroGrid1.EnableHeadersVisualStyles = false;
             this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.metroGrid1.GridColor = System.Drawing.Color.Gray;
+            this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.metroGrid1.Location = new System.Drawing.Point(13, 118);
             this.metroGrid1.Name = "metroGrid1";
             this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -240,6 +240,7 @@
             this.print_btn.TabIndex = 14;
             this.print_btn.Text = "Drukuj";
             this.print_btn.UseVisualStyleBackColor = true;
+            this.print_btn.Click += new System.EventHandler(this.print_btn_Click_1);
             // 
             // addBTN
             // 
@@ -373,12 +374,12 @@
             // 
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel2.Location = new System.Drawing.Point(10, 394);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(63, 13);
+            this.materialLabel2.Size = new System.Drawing.Size(84, 19);
             this.materialLabel2.TabIndex = 23;
             this.materialLabel2.Text = "Zapłacono:";
             // 
@@ -386,12 +387,12 @@
             // 
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel3.Location = new System.Drawing.Point(10, 418);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(43, 13);
+            this.materialLabel3.Size = new System.Drawing.Size(58, 19);
             this.materialLabel3.TabIndex = 24;
             this.materialLabel3.Text = "Reszta:";
             // 
@@ -399,12 +400,12 @@
             // 
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
-            this.materialLabel4.ForeColor = System.Drawing.Color.Red;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel4.Location = new System.Drawing.Point(10, 440);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(89, 16);
+            this.materialLabel4.Size = new System.Drawing.Size(83, 19);
             this.materialLabel4.TabIndex = 25;
             this.materialLabel4.Text = "Do zapłaty:";
             // 
@@ -412,7 +413,7 @@
             // 
             this.slownie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.slownie.Depth = 0;
-            this.slownie.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
+            this.slownie.Font = new System.Drawing.Font("Roboto", 11F);
             this.slownie.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.slownie.Location = new System.Drawing.Point(13, 478);
             this.slownie.MouseState = MaterialSkin.MouseState.HOVER;
@@ -425,12 +426,12 @@
             // 
             this.sumaTXT.AutoSize = true;
             this.sumaTXT.Depth = 0;
-            this.sumaTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
-            this.sumaTXT.ForeColor = System.Drawing.Color.Red;
+            this.sumaTXT.Font = new System.Drawing.Font("Roboto", 11F);
+            this.sumaTXT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.sumaTXT.Location = new System.Drawing.Point(108, 440);
             this.sumaTXT.MouseState = MaterialSkin.MouseState.HOVER;
             this.sumaTXT.Name = "sumaTXT";
-            this.sumaTXT.Size = new System.Drawing.Size(36, 16);
+            this.sumaTXT.Size = new System.Drawing.Size(36, 19);
             this.sumaTXT.TabIndex = 27;
             this.sumaTXT.Text = "0,00";
             // 
@@ -438,19 +439,19 @@
             // 
             this.resztaTXT.AutoSize = true;
             this.resztaTXT.Depth = 0;
-            this.resztaTXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.resztaTXT.Font = new System.Drawing.Font("Roboto", 11F);
             this.resztaTXT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.resztaTXT.Location = new System.Drawing.Point(108, 418);
             this.resztaTXT.MouseState = MaterialSkin.MouseState.HOVER;
             this.resztaTXT.Name = "resztaTXT";
-            this.resztaTXT.Size = new System.Drawing.Size(28, 13);
+            this.resztaTXT.Size = new System.Drawing.Size(36, 19);
             this.resztaTXT.TabIndex = 28;
             this.resztaTXT.Text = "0,00";
             // 
             // wycena_nr
             // 
             this.wycena_nr.Depth = 0;
-            this.wycena_nr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.wycena_nr.Font = new System.Drawing.Font("Roboto", 11F);
             this.wycena_nr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.wycena_nr.Location = new System.Drawing.Point(13, 66);
             this.wycena_nr.MouseState = MaterialSkin.MouseState.HOVER;

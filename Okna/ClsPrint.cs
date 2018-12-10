@@ -26,18 +26,15 @@ namespace Okna
         private PrintDocument _printDocument = new PrintDocument();
         private DataGridView gw = new DataGridView();
         private string _ReportHeader;
-        private string _ReportFooter;
-        
 
         #endregion
 
-        public ClsPrint(DataGridView gridview, string ReportHeader, string ReportFooter)
-        { 
+        public ClsPrint(DataGridView gridview, string ReportHeader)
+        {
             _printDocument.PrintPage += new PrintPageEventHandler(_printDocument_PrintPage);
             _printDocument.BeginPrint += new PrintEventHandler(_printDocument_BeginPrint);
             gw = gridview;
             _ReportHeader = ReportHeader;
-            _ReportFooter = ReportFooter;
         }
 
         public void PrintForm()
@@ -53,17 +50,14 @@ namespace Okna
             //    _printDocument.DocumentName = "Test Page Print";
             //    _printDocument.Print();
             //}
-            
-            //Open the print preview dialog
 
+            //Open the print preview dialog
             PrintPreviewDialog objPPdialog = new PrintPreviewDialog();
-            objPPdialog.WindowState = FormWindowState.Maximized;
-            objPPdialog.PrintPreviewControl.Zoom = 1.0;
             objPPdialog.Document = _printDocument;
             objPPdialog.ShowDialog();
         }
 
-        private void _printDocument_PrintPage(object sender, PrintPageEventArgs e)
+        private void _printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             //try
             //{
@@ -80,9 +74,9 @@ namespace Okna
             {
                 foreach (DataGridViewColumn GridCol in gw.Columns)
                 {
-                    iTmpWidth = (int)(Math.Floor(GridCol.Width /
-                        (double)iTotalWidth * iTotalWidth *
-                        (e.MarginBounds.Width / (double)iTotalWidth)));
+                    iTmpWidth = (int)(Math.Floor((double)((double)GridCol.Width /
+                        (double)iTotalWidth * (double)iTotalWidth *
+                        ((double)e.MarginBounds.Width / (double)iTotalWidth))));
 
                     iHeaderHeight = (int)(e.Graphics.MeasureString(GridCol.HeaderText,
                         GridCol.InheritedStyle.Font, iTmpWidth).Height) + 11;
@@ -113,21 +107,12 @@ namespace Okna
 
                     if (bNewPage)
                     {
-                        
                         //Draw Header
                         e.Graphics.DrawString(_ReportHeader,
-                            new Font("Verdana",12, FontStyle.Bold),
-                            Brushes.Black, 250,
+                            new Font(gw.Font, FontStyle.Bold),
+                            Brushes.Black, e.MarginBounds.Left,
                             e.MarginBounds.Top - e.Graphics.MeasureString(_ReportHeader,
                             new Font(gw.Font, FontStyle.Bold),
-                            e.MarginBounds.Width).Height - 13);
-
-                        //Draw Footer
-                        e.Graphics.DrawString(_ReportFooter,
-                            new Font("Verdana", 8, FontStyle.Regular),
-                            Brushes.Black, 550,
-                            860 - e.Graphics.MeasureString(_ReportFooter,
-                            new Font(gw.Font, FontStyle.Regular),
                             e.MarginBounds.Width).Height - 13);
 
                         String strDate = "";
@@ -142,19 +127,16 @@ namespace Okna
                             new Font(new Font(gw.Font, FontStyle.Bold),
                             FontStyle.Bold), e.MarginBounds.Width).Height - 13);
 
-                        //Draw Columns   
-                        
+                        //Draw Columns                 
                         iTopMargin = e.MarginBounds.Top;
                         DataGridViewColumn[] _GridCol = new DataGridViewColumn[gw.Columns.Count];
                         int colcount = 0;
-                        
                         //Convert ltr to rtl
-
                         foreach (DataGridViewColumn GridCol in gw.Columns)
                         {
                             _GridCol[colcount++] = GridCol;
                         }
-                        for (int i = 0; i <= (_GridCol.Count() - 1); i++)
+                        for (int i = (_GridCol.Count() - 1); i >= 0; i--)
                         {
                             e.Graphics.FillRectangle(new SolidBrush(Color.LightGray),
                                 new Rectangle((int)arrColumnLefts[iCount], iTopMargin,
@@ -164,7 +146,6 @@ namespace Okna
                                 new Rectangle((int)arrColumnLefts[iCount], iTopMargin,
                                 (int)arrColumnWidths[iCount], iHeaderHeight));
 
-                            _GridCol[2].Visible = false;
                             e.Graphics.DrawString(_GridCol[i].HeaderText,
                                 _GridCol[i].InheritedStyle.Font,
                                 new SolidBrush(_GridCol[i].InheritedStyle.ForeColor),
@@ -178,14 +159,13 @@ namespace Okna
                     iCount = 0;
                     DataGridViewCell[] _GridCell = new DataGridViewCell[GridRow.Cells.Count];
                     int cellcount = 0;
-                    
                     //Convert ltr to rtl
                     foreach (DataGridViewCell Cel in GridRow.Cells)
                     {
                         _GridCell[cellcount++] = Cel;
                     }
                     //Draw Columns Contents                
-                    for (int i = 0; i <= (_GridCell.Count() - 1); i++)
+                    for (int i = (_GridCell.Count() - 1); i >= 0; i--)
                     {
                         if (_GridCell[i].Value != null)
                         {
@@ -193,8 +173,8 @@ namespace Okna
                                 _GridCell[i].InheritedStyle.Font,
                                 new SolidBrush(_GridCell[i].InheritedStyle.ForeColor),
                                 new RectangleF((int)arrColumnLefts[iCount],
-                                iTopMargin,
-                                (int)arrColumnWidths[iCount], iCellHeight),
+                                (float)iTopMargin,
+                                (int)arrColumnWidths[iCount], (float)iCellHeight),
                                 strFormat);
                         }
                         //Drawing Cells Borders 
@@ -220,7 +200,7 @@ namespace Okna
             //}
         }
 
-        private void _printDocument_BeginPrint(object sender, PrintEventArgs e)
+        private void _printDocument_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             try
             {

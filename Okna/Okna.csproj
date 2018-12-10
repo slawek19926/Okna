@@ -365,6 +365,13 @@
     <Compile Include="okucia\katalog.Designer.cs">
       <DependentUpon>katalog.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrintDGV.cs" />
+    <Compile Include="PrintOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintOptions.designer.cs">
+      <DependentUpon>PrintOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="print\printDial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -512,6 +519,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="okucia\katalog.resx">
       <DependentUpon>katalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintOptions.resx">
+      <DependentUpon>PrintOptions.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="print\printDial.resx">
       <DependentUpon>printDial.cs</DependentUpon>

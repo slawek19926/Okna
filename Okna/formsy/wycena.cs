@@ -16,6 +16,7 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 using MetroFramework;
 using MetroFramework.Controls;
+using PrintDataGrid;
 
 namespace Okna
 
@@ -50,6 +51,7 @@ namespace Okna
             print_btn.Enabled = true;
             InitTimer();
         }
+        private static DataGrid dg;
         private Timer tajmer;
         private string server;
         private string database;
@@ -599,6 +601,16 @@ namespace Okna
             zapisDoBazy();
             print.printDial frm = new print.printDial(this,Form1);
             frm.Show();
+        }
+
+        private void print_btn_Click_1(object sender, EventArgs e)
+        {
+            // Calling Datagrid Printing
+            // Calling DataGridView Printing
+            PrintDGV.Print_DataGridView(metroGrid1);
+
+            //ClsPrint _ClsPrint = new ClsPrint(metroGrid1, "header doc text");
+            //_ClsPrint.PrintForm();
         }
     }
 }

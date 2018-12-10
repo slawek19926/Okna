@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nip24Library", "..\..\..\Do
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nip24Example", "..\..\..\Downloads\nip24-cs-client-1.3.1\nip24Example\nip24Example.csproj", "{B3503509-7290-4BE0-9BCC-44AAEDF9591D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintDataGridView", "..\..\..\Downloads\PrintDataGridView_src_CS\PrintDataGridView\PrintDataGridView.csproj", "{66C11737-3FF1-4C9D-BCA9-A6CC5629360C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,14 @@ Global
 		{B3503509-7290-4BE0-9BCC-44AAEDF9591D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B3503509-7290-4BE0-9BCC-44AAEDF9591D}.Release|x86.ActiveCfg = Release|Any CPU
 		{B3503509-7290-4BE0-9BCC-44AAEDF9591D}.Release|x86.Build.0 = Release|Any CPU
+		{66C11737-3FF1-4C9D-BCA9-A6CC5629360C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66C11737-3FF1-4C9D-BCA9-A6CC5629360C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66C11737-3FF1-4C9D-BCA9-A6CC5629360C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{66C11737-3FF1-4C9D-BCA9-A6CC5629360C}.Debug|x86.Build.0 = Debug|Any CPU
+		{66C11737-3FF1-4C9D-BCA9-A6CC5629360C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66C11737-3FF1-4C9D-BCA9-A6CC5629360C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66C11737-3FF1-4C9D-BCA9-A6CC5629360C}.Release|x86.ActiveCfg = Release|Any CPU
+		{66C11737-3FF1-4C9D-BCA9-A6CC5629360C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
