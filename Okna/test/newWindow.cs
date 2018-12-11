@@ -23,7 +23,7 @@ namespace Okna.test
             InitializeComponent();
             this.Form1 = Form1;
             WindowState = FormWindowState.Maximized;
-            Text = "Nowy projekt";
+            Text = "Nowy projekt test";
             Cursor = new Cursor(Cursor.Current.Handle);
             int pozX = Cursor.Position.X;
             int pozY = Cursor.Position.Y;
