@@ -17,6 +17,8 @@ using MaterialSkin.Controls;
 using MetroFramework;
 using MetroFramework.Controls;
 using PrintDataGrid;
+using Okna.TestSortWithSum;
+using System.Web.UI.WebControls;
 
 namespace Okna
 
@@ -51,8 +53,11 @@ namespace Okna
             saveBTN.Enabled = false;
             print_btn.Enabled = true;
             InitTimer();
+
+            //metroGrid1.RowPrePaint += metroGrrid1_RowPrePaint;
+            //metroGrid1.CellFormatting += metroGrid1_CellFormatting;
         }
-        private static DataGrid dg;
+        //private static DataGrid dg;
         public static string numer_wyceny;
         private Timer tajmer;
         private string server;
@@ -213,7 +218,7 @@ namespace Okna
         }
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            for(int i = 0; i < metroGrid1.Rows.Count; ++i)
+            for (int i = 0; i < metroGrid1.Rows.Count; ++i)
             {
                 decimal n = Decimal.Parse(metroGrid1.Rows[i].Cells[4].Value.ToString().Replace("zł","")); //netto
                 decimal ile = Decimal.Parse(metroGrid1.Rows[i].Cells[5].Value.ToString()); //ilość
@@ -232,6 +237,7 @@ namespace Okna
             }
             wyliczenie_kwoty();
         }
+
         public void DynList_RowValidated(object sender, DataGridViewCellEventArgs e)
         {
             if (ChangedRow == true)
@@ -266,7 +272,6 @@ namespace Okna
 
                 wyliczenie_kwoty();
             }
-
         }
 
         void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -283,9 +288,9 @@ namespace Okna
 
                     case 2:
                         var sum = 0.0d;
-                        for (int i = 0; i < this.metroGrid1.NewRowIndex; i++)
+                        for (int i = 0; i < metroGrid1.NewRowIndex; i++)
                         {
-                            var value = this.metroGrid1[2, i].Value;
+                            var value = metroGrid1[2, i].Value;
                             if (value is double)
                             {
                                 sum += ((double)value);
@@ -301,6 +306,10 @@ namespace Okna
         private void DynList_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             ChangedRow = true;
+            //if (e.RowIndex != metroGrid1.NewRowIndex && e.ColumnIndex == 6)
+            //{
+            //    metroGrid1.InvalidateRow(metroGrid1.NewRowIndex);
+            //}
         }
         public double suma()
         {
@@ -647,6 +656,16 @@ namespace Okna
             {
                 //Ładuje okno konfiguracji wydruku
                 PrintDGV.Print_DataGridView(metroGrid1);
+            }
+        }
+
+        private void metroGrid1_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            if (e.RowIndex == metroGrid1.NewRowIndex)
+            {
+                e.PaintHeader(DataGridViewPaintParts.Background | DataGridViewPaintParts.Border);
+                e.PaintCells(e.ClipBounds, DataGridViewPaintParts.All);
+                e.Handled = true;
             }
         }
     }

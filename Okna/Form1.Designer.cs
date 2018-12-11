@@ -86,6 +86,9 @@
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.logged = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.menuStrip1.SuspendLayout();
             this.plikStrip.SuspendLayout();
             this.finanseStrip.SuspendLayout();
@@ -548,7 +551,7 @@
             // rabatyToolStripMenuItem1
             // 
             this.rabatyToolStripMenuItem1.Name = "rabatyToolStripMenuItem1";
-            this.rabatyToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.rabatyToolStripMenuItem1.Size = new System.Drawing.Size(110, 22);
             this.rabatyToolStripMenuItem1.Text = "Rabaty";
             this.rabatyToolStripMenuItem1.Click += new System.EventHandler(this.rabatyToolStripMenuItem_Click);
             // 
@@ -589,12 +592,12 @@
             this.materialLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel1.Location = new System.Drawing.Point(12, 465);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(138, 15);
+            this.materialLabel1.Size = new System.Drawing.Size(173, 19);
             this.materialLabel1.TabIndex = 13;
             this.materialLabel1.Text = "Zalogowany użytkownik:";
             // 
@@ -603,12 +606,12 @@
             this.logged.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.logged.AutoSize = true;
             this.logged.Depth = 0;
-            this.logged.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.logged.Font = new System.Drawing.Font("Roboto", 11F);
             this.logged.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.logged.Location = new System.Drawing.Point(156, 465);
             this.logged.MouseState = MaterialSkin.MouseState.HOVER;
             this.logged.Name = "logged";
-            this.logged.Size = new System.Drawing.Size(90, 15);
+            this.logged.Size = new System.Drawing.Size(108, 19);
             this.logged.TabIndex = 14;
             this.logged.Text = "materialLabel2";
             // 
@@ -625,11 +628,50 @@
             this.materialTabSelector1.TabIndex = 15;
             this.materialTabSelector1.Text = "materialTabSelector1";
             // 
+            // metroButton1
+            // 
+            this.metroButton1.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.metroButton1.Location = new System.Drawing.Point(35, 123);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(150, 150);
+            this.metroButton1.TabIndex = 16;
+            this.metroButton1.Text = "Nowa wycena";
+            this.metroButton1.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
+            // metroButton2
+            // 
+            this.metroButton2.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.metroButton2.Location = new System.Drawing.Point(35, 279);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(150, 150);
+            this.metroButton2.TabIndex = 16;
+            this.metroButton2.Text = "Wyceny";
+            this.metroButton2.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
+            // 
+            // metroButton3
+            // 
+            this.metroButton3.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.metroButton3.Location = new System.Drawing.Point(191, 123);
+            this.metroButton3.Name = "metroButton3";
+            this.metroButton3.Size = new System.Drawing.Size(150, 150);
+            this.metroButton3.TabIndex = 17;
+            this.metroButton3.Text = "Zamówienia";
+            this.metroButton3.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroButton3.UseSelectable = true;
+            this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1059, 489);
+            this.Controls.Add(this.metroButton3);
+            this.Controls.Add(this.metroButton2);
+            this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.logged);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.materialRaisedButton5);
@@ -719,6 +761,9 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         public MaterialSkin.Controls.MaterialLabel logged;
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroButton metroButton3;
     }
 }
 

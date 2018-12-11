@@ -169,6 +169,7 @@
             this.metroGrid1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroGrid1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.metroGrid1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DynList_CellValueChanged);
+            this.metroGrid1.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.metroGrid1_RowPrePaint);
             this.metroGrid1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
             this.metroGrid1.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.DynList_RowValidated);
             this.metroGrid1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);

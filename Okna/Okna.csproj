@@ -418,6 +418,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>stylwektor_itpecetDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TestSortWithSum.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="test\newWindow.cs">
       <SubType>Form</SubType>
     </Compile>

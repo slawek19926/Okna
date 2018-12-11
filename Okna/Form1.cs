@@ -297,5 +297,23 @@ namespace Okna
         {
             pomocStrip.Show(materialRaisedButton5, 0, materialRaisedButton5.Height);
         }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            wycena form = new wycena(this);
+            form.Show();
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            wyceny form = new wyceny(this);
+            form.Show();
+        }
+
+        private void metroButton3_Click(object sender, EventArgs e)
+        {
+            zamowienia form = new zamowienia(this);
+            form.Show();
+        }
     }
 }

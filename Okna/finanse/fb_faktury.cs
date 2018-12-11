@@ -39,7 +39,7 @@ namespace Okna.finanse
             server = "localhost";
             uid = "SYSDBA";
             password = "masterkey";
-            database = "192.168.1.5:C:/Users/Administrator/AppData/Roaming/Faktura-NT/Bazy danych/Allegro.fdb";
+            database = "C:/Users/Administrator/AppData/Roaming/Faktura-NT/Bazy danych/Allegro.fdb";
             connectionString = "User=" + uid + ";Password=" + password + ";Database=" + database + ";DataSource=" + server + ";Charset=NONE;";
             FbConnection conn = new FbConnection();
             conn.ConnectionString = connectionString;
