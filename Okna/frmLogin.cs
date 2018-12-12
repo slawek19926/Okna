@@ -39,8 +39,6 @@ namespace Okna
             {
                 MessageBox.Show("Caps lock jest włączony");
             }
-
-            AutoUpdater.Start("https://github.com/slawek19926/Okna/blob/1.5.4.0/version.xml");
         }
 
         DataSet ds = new DataSet();
