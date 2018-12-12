@@ -230,7 +230,7 @@ namespace Okna
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            //AutoUpdater.Start("https://github.com/slawek19926/Okna/blob/1.5.4.0/version.xml");
+            
         }
     }
 }

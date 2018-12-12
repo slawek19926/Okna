@@ -222,7 +222,7 @@ namespace Okna
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            AutoUpdater.Start("https://github.com/slawek19926/Okna/blob/1.5.4.0/version.xml");
+            AutoUpdater.Start("http://wektor.czest.pl/version.xml");
             System.Timers.Timer timer = new System.Timers.Timer
             {
                 Interval = 2 * 60 * 1000,
@@ -230,7 +230,7 @@ namespace Okna
             };
             timer.Elapsed += delegate
             {
-                AutoUpdater.Start("https://github.com/slawek19926/Okna/blob/1.5.4.0/version.xml");
+                AutoUpdater.Start("http://wektor.czest.pl/version.xml");
             };
             timer.Start();
 
