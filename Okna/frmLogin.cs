@@ -15,6 +15,7 @@ using System.Xml;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using MetroFramework;
+using AutoUpdaterDotNET;
 
 namespace Okna
 {
@@ -219,11 +220,28 @@ namespace Okna
             if (res == DialogResult.Yes)
             {
                 e.Cancel = false;
+                Environment.Exit(0);
             }
             else
             {
                 e.Cancel = true;
             }
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            AutoUpdater.Start("https://github.com/slawek19926/Okna/blob/1.5.4.0/version.xml");
+
+            System.Timers.Timer timer = new System.Timers.Timer
+            {
+                Interval = 2 * 60 * 1000,
+                SynchronizingObject = this
+            };
+            timer.Elapsed += delegate
+            {
+                AutoUpdater.Start("https://github.com/slawek19926/Okna/blob/1.5.4.0/version.xml");
+            };
+            timer.Start();
         }
     }
 }
