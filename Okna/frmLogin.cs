@@ -185,8 +185,8 @@ namespace Okna
                                 string jest = login1.GetString("logged");
                                 if(jest == "1")
                                 {
-                                    boxes.frmUser frm = new boxes.frmUser();
-                                    frm.Show();
+                                    //boxes.frmUser frm = new boxes.frmUser();
+                                    //frm.Show();
                                 }
                                 else
                                 {
