@@ -588,6 +588,7 @@
     <None Include="stylwektor_itpecetDataSet.xss">
       <DependentUpon>stylwektor_itpecetDataSet.xsd</DependentUpon>
     </None>
+    <None Include="WektorSettings.ini" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
