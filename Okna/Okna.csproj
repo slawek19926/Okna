@@ -608,6 +608,7 @@
     <Content Include="icona.ico" />
     <Content Include="icona2.ico" />
     <Content Include="przycisk.ico" />
+    <Content Include="version.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataBases\" />
