@@ -232,7 +232,7 @@ namespace Okna
             };
             timer.Elapsed += delegate
             {
-                AutoUpdater.Start("https://mega.nz/#!1EEDUahL!52BlgwQoETKMdVV4Y7Cmx-6mIyoBsSGAPzzXP8kG62g");
+                AutoUpdater.Start("https://github.com/slawek19926/Okna/blob/1.5.4.0/version.xml");
             };
             timer.Start();
 
