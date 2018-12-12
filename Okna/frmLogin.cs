@@ -170,36 +170,43 @@ namespace Okna
 
                     if (l == "1")
                     {
-                        bool log = Zalogowany(user,pass);
-                        if (log)
-                        {
-                            db_connection();
-                            MySqlCommand cmd2 = new MySqlCommand();
-                            cmd2.CommandText = "Select * from uzytkownicy where username=@user and password=MD5(@pass)";
-                            cmd2.Parameters.AddWithValue("@user", txtLogin.Text);
-                            cmd2.Parameters.AddWithValue("@pass", txtPassword.Text);
-                            cmd2.Connection = connect;
-                            MySqlDataReader login1 = cmd2.ExecuteReader();
-                            while (login1.Read())
-                            {
-                                string jest = login1.GetString("logged");
-                                if(jest == "1")
-                                {
-                                    //boxes.frmUser frm = new boxes.frmUser();
-                                    //frm.Show();
-                                }
-                                else
-                                {
-                                    zapis_login();
-                                    boxes.frmZalogowany frms = new boxes.frmZalogowany();
-                                    frms.Show();
+                        zapis_login();
+                        boxes.frmZalogowany frms = new boxes.frmZalogowany();
+                        frms.Show();
 
-                                    var MyIni = new INIFile("WektorSettings.ini");
-                                    MyIni.Write("user", user, "logged");
-                                    Hide();
-                                }
-                            }
-                        }
+                        var MyIni = new INIFile("WektorSettings.ini");
+                        MyIni.Write("user", user, "logged");
+                        Hide();
+                        //bool log = Zalogowany(user,pass);
+                        //if (log)
+                        //{
+                        //    db_connection();
+                        //    MySqlCommand cmd2 = new MySqlCommand();
+                        //    cmd2.CommandText = "Select * from uzytkownicy where username=@user and password=MD5(@pass)";
+                        //    cmd2.Parameters.AddWithValue("@user", txtLogin.Text);
+                        //    cmd2.Parameters.AddWithValue("@pass", txtPassword.Text);
+                        //    cmd2.Connection = connect;
+                        //    MySqlDataReader login1 = cmd2.ExecuteReader();
+                        //    while (login1.Read())
+                        //    {
+                        //        string jest = login1.GetString("logged");
+                        //        if(jest == "1")
+                        //        {
+                        //            boxes.frmUser frm = new boxes.frmUser();
+                        //            frm.Show();
+                        //        }
+                        //        else
+                        //        {
+                        //            zapis_login();
+                        //            boxes.frmZalogowany frms = new boxes.frmZalogowany();
+                        //            frms.Show();
+
+                        //            var MyIni = new INIFile("WektorSettings.ini");
+                        //            MyIni.Write("user", user, "logged");
+                        //            Hide();
+                        //        }
+                        //    }
+                        //}
                     }
                     else
                     {

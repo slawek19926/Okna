@@ -222,7 +222,7 @@ namespace Okna
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            AutoUpdater.Start("http://wektor.czest.pl/version.xml");
+            AutoUpdater.Start("http://stylwektor.nazwa.pl/wektorssl/version.xml");
             System.Timers.Timer timer = new System.Timers.Timer
             {
                 Interval = 2 * 60 * 1000,
@@ -230,7 +230,7 @@ namespace Okna
             };
             timer.Elapsed += delegate
             {
-                AutoUpdater.Start("http://wektor.czest.pl/version.xml");
+                AutoUpdater.Start("http://stylwektor.nazwa.pl/wektorssl/version.xml");
             };
             timer.Start();
 
@@ -328,6 +328,12 @@ namespace Okna
         private void metroButton3_Click(object sender, EventArgs e)
         {
             zamowienia form = new zamowienia(this);
+            form.Show();
+        }
+
+        private void metroButton4_Click(object sender, EventArgs e)
+        {
+            okucia.katalog form = new okucia.katalog(this);
             form.Show();
         }
     }
