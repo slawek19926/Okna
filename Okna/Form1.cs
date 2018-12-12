@@ -222,6 +222,18 @@ namespace Okna
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            System.Timers.Timer timer = new System.Timers.Timer
+            {
+                Interval = 2 * 60 * 1000,
+                SynchronizingObject = this
+            };
+            timer.Elapsed += delegate
+            {
+                AutoUpdater.Start("https://github.com/slawek19926/Okna/blob/1.5.4.0/version.xml");
+            };
+            timer.Start();
+
             var MyIni = new INIFile("WektorSettings.ini");
             logged.Text = MyIni.Read("user", "logged");
             

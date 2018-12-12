@@ -39,6 +39,8 @@ namespace Okna
             {
                 MessageBox.Show("Caps lock jest włączony");
             }
+
+            AutoUpdater.Start("https://github.com/slawek19926/Okna/blob/1.5.4.0/version.xml");
         }
 
         DataSet ds = new DataSet();
@@ -230,18 +232,7 @@ namespace Okna
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            AutoUpdater.Start("https://github.com/slawek19926/Okna/blob/1.5.4.0/version.xml");
-
-            System.Timers.Timer timer = new System.Timers.Timer
-            {
-                Interval = 2 * 60 * 1000,
-                SynchronizingObject = this
-            };
-            timer.Elapsed += delegate
-            {
-                AutoUpdater.Start("https://github.com/slawek19926/Okna/blob/1.5.4.0/version.xml");
-            };
-            timer.Start();
+            //AutoUpdater.Start("https://github.com/slawek19926/Okna/blob/1.5.4.0/version.xml");
         }
     }
 }
