@@ -63,7 +63,7 @@ namespace Okna
             if(res == DialogResult.Yes)
             {
                 zapis_login();
-                Application.Exit();
+                Environment.Exit(0);
             }
             else
             {
