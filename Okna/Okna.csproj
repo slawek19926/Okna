@@ -93,26 +93,31 @@
     <ApplicationManifest>OknaInfo.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoUpdater.NET, Version=1.4.11.0, Culture=neutral, PublicKeyToken=501435c91b35f4bc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autoupdater.NET.Official.1.4.11\lib\net40\AutoUpdater.NET.dll</HintPath>
+    <Reference Include="AutoUpdater.NET">
+      <HintPath>..\..\..\..\source\repos\WektorOkna\Okna\bin\Debug\AutoUpdater.NET.dll</HintPath>
     </Reference>
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+      <HintPath>..\..\..\..\source\repos\WektorOkna\Okna\bin\Debug\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\source\repos\WektorOkna\Okna\bin\Debug\EnvDTE.dll</HintPath>
     </Reference>
     <Reference Include="FirebirdSql.Data.FirebirdClient, Version=6.0.0.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
-      <HintPath>..\packages\FirebirdSql.Data.FirebirdClient.6.0.0-alpha2\lib\net452\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+      <HintPath>..\..\..\..\source\repos\WektorOkna\Okna\bin\Debug\FirebirdSql.Data.FirebirdClient.dll</HintPath>
     </Reference>
     <Reference Include="Google.Protobuf, Version=3.3.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Protobuf.3.3.0\lib\net45\Google.Protobuf.dll</HintPath>
+      <HintPath>..\..\..\..\source\repos\WektorOkna\Okna\bin\Debug\Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="LiczbyNaSlowaNET, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiczbyNaSlowaNET.dll.1.0.1\lib\net40\LiczbyNaSlowaNET.dll</HintPath>
+      <HintPath>..\..\..\..\source\repos\WektorOkna\Okna\bin\Debug\LiczbyNaSlowaNET.dll</HintPath>
     </Reference>
     <Reference Include="MaterialSkin">
       <HintPath>..\..\..\..\Downloads\MaterialSkin-master\MaterialSkinExample\bin\Debug\MaterialSkin.dll</HintPath>
     </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Winform.Metroframework.1.4.0\lib\net20\MetroFramework.dll</HintPath>
+      <HintPath>..\..\..\..\source\repos\WektorOkna\Okna\bin\Debug\MetroFramework.dll</HintPath>
     </Reference>
     <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
@@ -583,6 +588,7 @@
     <None Include="stylwektor_itpecetDataSet.xss">
       <DependentUpon>stylwektor_itpecetDataSet.xsd</DependentUpon>
     </None>
+    <None Include="WektorSettings.ini" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -603,6 +609,7 @@
     <Content Include="icona.ico" />
     <Content Include="icona2.ico" />
     <Content Include="przycisk.ico" />
+    <Content Include="version.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataBases\" />

@@ -63,7 +63,7 @@ namespace Okna
             if(res == DialogResult.Yes)
             {
                 zapis_login();
-                Application.Exit();
+                Environment.Exit(0);
             }
             else
             {
@@ -222,9 +222,7 @@ namespace Okna
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            AutoUpdater.Start("C:/back/version.xml");
-
+            AutoUpdater.Start("http://wektor.czest.pl/version.xml");
             System.Timers.Timer timer = new System.Timers.Timer
             {
                 Interval = 2 * 60 * 1000,
@@ -232,7 +230,7 @@ namespace Okna
             };
             timer.Elapsed += delegate
             {
-                AutoUpdater.Start("https://mega.nz/#!1EEDUahL!52BlgwQoETKMdVV4Y7Cmx-6mIyoBsSGAPzzXP8kG62g");
+                AutoUpdater.Start("http://wektor.czest.pl/version.xml");
             };
             timer.Start();
 

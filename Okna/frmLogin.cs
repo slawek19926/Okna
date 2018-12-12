@@ -15,6 +15,7 @@ using System.Xml;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using MetroFramework;
+using AutoUpdaterDotNET;
 
 namespace Okna
 {
@@ -219,11 +220,17 @@ namespace Okna
             if (res == DialogResult.Yes)
             {
                 e.Cancel = false;
+                Environment.Exit(0);
             }
             else
             {
                 e.Cancel = true;
             }
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
