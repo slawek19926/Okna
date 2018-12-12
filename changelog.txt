@@ -1,0 +1,5 @@
+Zmiany w wersji 1.5.4.0
+
+- dodano funkcjê automatycznej aktualizacji programu
+- dodano mo¿liwoœæ wydruku wyceny
+- poprawki b³êdów
