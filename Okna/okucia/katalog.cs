@@ -12,11 +12,16 @@ using System.IO;
 using MySql.Data.MySqlClient;
 using Npgsql;
 using System.Net;
+using MaterialSkin;
+using MaterialSkin.Controls;
+using MetroFramework;
+using MetroFramework.Controls;
 
 namespace Okna.okucia
 {
-    public partial class katalog : Form
+    public partial class katalog : MaterialForm
     {
+        private readonly MaterialSkinManager materialSkinManager;
         private Form1 Form1;
         bool on = true;
         bool toggleLight = true;
@@ -24,6 +29,10 @@ namespace Okna.okucia
         public katalog(Form1 Form1)
         {
             InitializeComponent();
+            materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             WindowState = FormWindowState.Maximized;
             Text = "Katalog okuć";
             this.Form1 = Form1;
@@ -157,20 +166,20 @@ namespace Okna.okucia
                     dt.Rows.Add(row);
                 }
                 source1.DataSource = dt;
-                dataGridView1.DataSource = source1;
-                dataGridView1.Columns[4].Visible = false;
-                dataGridView1.Columns[8].Visible = false;
-                dataGridView1.Columns[9].Visible = false;
-                dataGridView1.Columns[0].Width = 50;
-                dataGridView1.Columns[1].Width = 100;
-                dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                metroGrid1.DataSource = source1;
+                metroGrid1.Columns[4].Visible = false;
+                metroGrid1.Columns[8].Visible = false;
+                metroGrid1.Columns[9].Visible = false;
+                metroGrid1.Columns[0].Width = 50;
+                metroGrid1.Columns[1].Width = 100;
+                metroGrid1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
                 if (on)
                 {
-                    dataGridView1.Columns[3].Visible = true;
-                    dataGridView1.Columns[5].Visible = true;
-                    dataGridView1.Columns[6].Visible = false;
-                    dataGridView1.Columns[7].Visible = false;
+                    metroGrid1.Columns[3].Visible = true;
+                    metroGrid1.Columns[5].Visible = true;
+                    metroGrid1.Columns[6].Visible = false;
+                    metroGrid1.Columns[7].Visible = false;
                 }
 
                 if (Form1.logged.Text == "wektor")
@@ -183,23 +192,23 @@ namespace Okna.okucia
                     Text = "Katalog okuć - tryb klienta";
                     t.Start();
                     on = false;
-                    dataGridView1.Columns[3].Visible = false;
-                    dataGridView1.Columns[5].Visible = false;
-                    dataGridView1.Columns[6].Visible = true;
-                    dataGridView1.Columns[7].Visible = true;
+                    metroGrid1.Columns[3].Visible = false;
+                    metroGrid1.Columns[5].Visible = false;
+                    metroGrid1.Columns[6].Visible = true;
+                    metroGrid1.Columns[7].Visible = true;
                     button1.Enabled = false;
                 }
-                //for (int i = 0; i < dataGridView1.Columns.Count - 1; i++)
+                //for (int i = 0; i < metroGrid1.Columns.Count - 1; i++)
                 //{
-                //    dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                //    metroGrid1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 //}
-                //dataGridView1.Columns[dataGridView1.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                //metroGrid1.Columns[metroGrid1.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
-                //for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                //for (int i = 0; i < metroGrid1.Columns.Count; i++)
                 //{
-                //    int colw = dataGridView1.Columns[i].Width;
-                //    dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                //    dataGridView1.Columns[i].Width = colw;
+                //    int colw = metroGrid1.Columns[i].Width;
+                //    metroGrid1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                //    metroGrid1.Columns[i].Width = colw;
                 //}
             }
             catch (Exception ex)
@@ -229,18 +238,18 @@ namespace Okna.okucia
                 //szukanie po indeksie
                 if (searchMethod.SelectedIndex == 0)
                 {
-                    var bd = (BindingSource)dataGridView1.DataSource;
+                    var bd = (BindingSource)metroGrid1.DataSource;
                     var dt = (DataTable)bd.DataSource;
                     dt.DefaultView.RowFilter = string.Format("Indeks like '%{0}%'", searchText.Text.Trim().Replace("'", "''"));
-                    dataGridView1.Refresh();
+                    metroGrid1.Refresh();
                 }
                 //szukanie po nazwie
                 else if (searchMethod.SelectedIndex == 1)
                 {
-                    var bd = (BindingSource)dataGridView1.DataSource;
+                    var bd = (BindingSource)metroGrid1.DataSource;
                     var dt = (DataTable)bd.DataSource;
                     dt.DefaultView.RowFilter = string.Format("Nazwa like '%{0}%'", searchText.Text.Trim().Replace("'", "''"));
-                    dataGridView1.Refresh();
+                    metroGrid1.Refresh();
                 }
             }
             catch (Exception ex)
@@ -252,32 +261,32 @@ namespace Okna.okucia
         //Cena malejąco
         private void priceDesc_CheckedChanged(object sender, EventArgs e)
         {
-            dataGridView1.Sort(dataGridView1.Columns[3], ListSortDirection.Descending);
+            metroGrid1.Sort(metroGrid1.Columns[3], ListSortDirection.Descending);
         }
         //Cena rosnąco
         private void priceAsc_CheckedChanged(object sender, EventArgs e)
         {
-            dataGridView1.Sort(dataGridView1.Columns[3], ListSortDirection.Ascending);
+            metroGrid1.Sort(metroGrid1.Columns[3], ListSortDirection.Ascending);
         }
         //Indeks malejąco
         private void indeksDesc_CheckedChanged(object sender, EventArgs e)
         {
-            dataGridView1.Sort(dataGridView1.Columns[1], ListSortDirection.Descending);
+            metroGrid1.Sort(metroGrid1.Columns[1], ListSortDirection.Descending);
         }
         //Indeks rosnąco
         private void indeksAsc_CheckedChanged(object sender, EventArgs e)
         {
-            dataGridView1.Sort(dataGridView1.Columns[1], ListSortDirection.Ascending);
+            metroGrid1.Sort(metroGrid1.Columns[1], ListSortDirection.Ascending);
         }
         //Nazwa Z-A
         private void nameDesc_CheckedChanged(object sender, EventArgs e)
         {
-            dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Descending);
+            metroGrid1.Sort(metroGrid1.Columns[2], ListSortDirection.Descending);
         }
         //Nazwa A-Z
         private void nameAsc_CheckedChanged(object sender, EventArgs e)
         {
-            dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Ascending);
+            metroGrid1.Sort(metroGrid1.Columns[2], ListSortDirection.Ascending);
         }
         //Filtrowanie produktów
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -352,7 +361,7 @@ namespace Okna.okucia
             {
                 DataView dv = new DataView(dt);
                 dv.RowFilter = rowFilter;
-                dataGridView1.DataSource = dv;
+                metroGrid1.DataSource = dv;
             }
             catch (Exception)
             {
@@ -395,10 +404,10 @@ namespace Okna.okucia
                 Text = "Katalog okuć - tryb klienta";
                 t.Start();
                 on = false;
-                dataGridView1.Columns[3].Visible = false;
-                dataGridView1.Columns[5].Visible = false;
-                dataGridView1.Columns[6].Visible = true;
-                dataGridView1.Columns[7].Visible = true;
+                metroGrid1.Columns[3].Visible = false;
+                metroGrid1.Columns[5].Visible = false;
+                metroGrid1.Columns[6].Visible = true;
+                metroGrid1.Columns[7].Visible = true;
             }
             else
             {
@@ -407,10 +416,10 @@ namespace Okna.okucia
                 button1.BackColor = Color.Gray;
                 t.Stop();
                 on = true;
-                dataGridView1.Columns[3].Visible = true;
-                dataGridView1.Columns[5].Visible = true;
-                dataGridView1.Columns[6].Visible = false;
-                dataGridView1.Columns[7].Visible = false;
+                metroGrid1.Columns[3].Visible = true;
+                metroGrid1.Columns[5].Visible = true;
+                metroGrid1.Columns[6].Visible = false;
+                metroGrid1.Columns[7].Visible = false;
             }
         }
         //Szczegóły produktu

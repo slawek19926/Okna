@@ -12,16 +12,16 @@ namespace Okna.okucia
         {
             InitializeComponent();
             this.katalog = katalog;
-            Text = "Szczegóły produktu " + katalog.dataGridView1.SelectedCells[1].Value.ToString();         
+            Text = "Szczegóły produktu " + katalog.metroGrid1.SelectedCells[1].Value.ToString();         
             imgProd.Location = new Point(0, 0);
         }
 
         private void detailPROD_Load(object sender, EventArgs e)
         {
-            string indeks = katalog.dataGridView1.SelectedCells[1].Value.ToString();
-            string nazwa = katalog.dataGridView1.SelectedCells[2].Value.ToString();
-            string opis = katalog.dataGridView1.SelectedCells[9].Value.ToString();
-            int id = Convert.ToInt32(katalog.dataGridView1.SelectedCells[0].Value.ToString());
+            string indeks = katalog.metroGrid1.SelectedCells[1].Value.ToString();
+            string nazwa = katalog.metroGrid1.SelectedCells[2].Value.ToString();
+            string opis = katalog.metroGrid1.SelectedCells[9].Value.ToString();
+            int id = Convert.ToInt32(katalog.metroGrid1.SelectedCells[0].Value.ToString());
             nazaTXT.Text = indeks + " " + nazwa;
             try
             {

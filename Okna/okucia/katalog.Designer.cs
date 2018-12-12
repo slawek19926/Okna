@@ -28,50 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Ideal 4000");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Ideal 7000");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Intertec");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("System", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Zasuwnice");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Dodatki");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Klamki");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Listwy");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Osłonki");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Progi");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Przedłużki");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Płyty");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Ramy");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Skrzydła");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Słupki");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Wkręty");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Wsporniki");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Zaczepy");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Rozwórki");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Zawiasy");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Zamki");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Ramiona");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Wszystkie filtry", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8,
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12,
-            treeNode13,
-            treeNode14,
-            treeNode15,
-            treeNode16,
-            treeNode17,
-            treeNode18,
-            treeNode19,
-            treeNode20,
-            treeNode21,
-            treeNode22});
+            System.Windows.Forms.TreeNode treeNode70 = new System.Windows.Forms.TreeNode("Ideal 4000");
+            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("Ideal 7000");
+            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("Intertec");
+            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("System", new System.Windows.Forms.TreeNode[] {
+            treeNode70,
+            treeNode71,
+            treeNode72});
+            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("Zasuwnice");
+            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("Dodatki");
+            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("Klamki");
+            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("Listwy");
+            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("Osłonki");
+            System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("Progi");
+            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("Przedłużki");
+            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("Płyty");
+            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("Ramy");
+            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("Skrzydła");
+            System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("Słupki");
+            System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("Wkręty");
+            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("Wsporniki");
+            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("Zaczepy");
+            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("Rozwórki");
+            System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("Zawiasy");
+            System.Windows.Forms.TreeNode treeNode90 = new System.Windows.Forms.TreeNode("Zamki");
+            System.Windows.Forms.TreeNode treeNode91 = new System.Windows.Forms.TreeNode("Ramiona");
+            System.Windows.Forms.TreeNode treeNode92 = new System.Windows.Forms.TreeNode("Wszystkie filtry", new System.Windows.Forms.TreeNode[] {
+            treeNode74,
+            treeNode75,
+            treeNode76,
+            treeNode77,
+            treeNode78,
+            treeNode79,
+            treeNode80,
+            treeNode81,
+            treeNode82,
+            treeNode83,
+            treeNode84,
+            treeNode85,
+            treeNode86,
+            treeNode87,
+            treeNode88,
+            treeNode89,
+            treeNode90,
+            treeNode91});
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -89,40 +92,41 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.searchMethod = new System.Windows.Forms.ComboBox();
             this.searchText = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.detailBTN = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.metroPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 65);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 688);
+            this.panel1.Size = new System.Drawing.Size(200, 736);
             this.panel1.TabIndex = 0;
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox1.Location = new System.Drawing.Point(0, 1);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(196, 684);
+            this.groupBox1.Size = new System.Drawing.Size(196, 731);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtry";
@@ -132,9 +136,9 @@
             this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox5.Controls.Add(this.button1);
-            this.groupBox5.Location = new System.Drawing.Point(6, 559);
+            this.groupBox5.Location = new System.Drawing.Point(6, 647);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(184, 103);
+            this.groupBox5.Size = new System.Drawing.Size(184, 62);
             this.groupBox5.TabIndex = 6;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Cena dla klienta?";
@@ -158,7 +162,7 @@
             this.groupBox4.Controls.Add(this.fillterView);
             this.groupBox4.Location = new System.Drawing.Point(6, 289);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(184, 264);
+            this.groupBox4.Size = new System.Drawing.Size(184, 352);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Pokaż tylko";
@@ -167,19 +171,19 @@
             // 
             this.systemPRO.CheckBoxes = true;
             this.systemPRO.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.systemPRO.Location = new System.Drawing.Point(6, 189);
+            this.systemPRO.Location = new System.Drawing.Point(6, 252);
             this.systemPRO.Name = "systemPRO";
-            treeNode1.Name = "ideal 4000";
-            treeNode1.Text = "Ideal 4000";
-            treeNode2.Name = "ideal 7000";
-            treeNode2.Text = "Ideal 7000";
-            treeNode3.Name = "intertec";
-            treeNode3.Text = "Intertec";
-            treeNode4.Name = "system";
-            treeNode4.Text = "System";
+            treeNode70.Name = "ideal 4000";
+            treeNode70.Text = "Ideal 4000";
+            treeNode71.Name = "ideal 7000";
+            treeNode71.Text = "Ideal 7000";
+            treeNode72.Name = "intertec";
+            treeNode72.Text = "Intertec";
+            treeNode73.Name = "system";
+            treeNode73.Text = "System";
             this.systemPRO.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
-            this.systemPRO.Size = new System.Drawing.Size(172, 66);
+            treeNode73});
+            this.systemPRO.Size = new System.Drawing.Size(172, 85);
             this.systemPRO.TabIndex = 8;
             this.systemPRO.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
@@ -190,52 +194,53 @@
             this.fillterView.HideSelection = false;
             this.fillterView.Location = new System.Drawing.Point(6, 20);
             this.fillterView.Name = "fillterView";
-            treeNode5.Name = "zas";
-            treeNode5.Text = "Zasuwnice";
-            treeNode6.Name = "dodatki";
-            treeNode6.Text = "Dodatki";
-            treeNode7.Name = "Węzeł5";
-            treeNode7.Text = "Klamki";
-            treeNode8.Name = "Węzeł6";
-            treeNode8.Text = "Listwy";
-            treeNode9.Name = "Węzeł7";
-            treeNode9.Text = "Osłonki";
-            treeNode10.Name = "Węzeł8";
-            treeNode10.Text = "Progi";
-            treeNode11.Name = "Węzeł9";
-            treeNode11.Text = "Przedłużki";
-            treeNode12.Name = "Węzeł10";
-            treeNode12.Text = "Płyty";
-            treeNode13.Name = "Węzeł11";
-            treeNode13.Text = "Ramy";
-            treeNode14.Name = "Węzeł12";
-            treeNode14.Text = "Skrzydła";
-            treeNode15.Name = "Węzeł13";
-            treeNode15.Text = "Słupki";
-            treeNode16.Name = "Węzeł14";
-            treeNode16.Text = "Wkręty";
-            treeNode17.Name = "Węzeł15";
-            treeNode17.Text = "Wsporniki";
-            treeNode18.Name = "Węzeł16";
-            treeNode18.Text = "Zaczepy";
-            treeNode19.Name = "Węzeł17";
-            treeNode19.Text = "Rozwórki";
-            treeNode20.Name = "Węzeł18";
-            treeNode20.Text = "Zawiasy";
-            treeNode21.Name = "Węzeł19";
-            treeNode21.Text = "Zamki";
-            treeNode22.Name = "Węzeł20";
-            treeNode22.Text = "Ramiona";
-            treeNode23.Name = "all";
-            treeNode23.Text = "Wszystkie filtry";
+            treeNode74.Name = "zas";
+            treeNode74.Text = "Zasuwnice";
+            treeNode75.Name = "dodatki";
+            treeNode75.Text = "Dodatki";
+            treeNode76.Name = "Węzeł5";
+            treeNode76.Text = "Klamki";
+            treeNode77.Name = "Węzeł6";
+            treeNode77.Text = "Listwy";
+            treeNode78.Name = "Węzeł7";
+            treeNode78.Text = "Osłonki";
+            treeNode79.Name = "Węzeł8";
+            treeNode79.Text = "Progi";
+            treeNode80.Name = "Węzeł9";
+            treeNode80.Text = "Przedłużki";
+            treeNode81.Name = "Węzeł10";
+            treeNode81.Text = "Płyty";
+            treeNode82.Name = "Węzeł11";
+            treeNode82.Text = "Ramy";
+            treeNode83.Name = "Węzeł12";
+            treeNode83.Text = "Skrzydła";
+            treeNode84.Name = "Węzeł13";
+            treeNode84.Text = "Słupki";
+            treeNode85.Name = "Węzeł14";
+            treeNode85.Text = "Wkręty";
+            treeNode86.Name = "Węzeł15";
+            treeNode86.Text = "Wsporniki";
+            treeNode87.Name = "Węzeł16";
+            treeNode87.Text = "Zaczepy";
+            treeNode88.Name = "Węzeł17";
+            treeNode88.Text = "Rozwórki";
+            treeNode89.Name = "Węzeł18";
+            treeNode89.Text = "Zawiasy";
+            treeNode90.Name = "Węzeł19";
+            treeNode90.Text = "Zamki";
+            treeNode91.Name = "Węzeł20";
+            treeNode91.Text = "Ramiona";
+            treeNode92.Name = "all";
+            treeNode92.Text = "Wszystkie filtry";
             this.fillterView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode23});
-            this.fillterView.Size = new System.Drawing.Size(172, 163);
+            treeNode92});
+            this.fillterView.Size = new System.Drawing.Size(172, 226);
             this.fillterView.TabIndex = 7;
             this.fillterView.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
             this.groupBox3.Controls.Add(this.nameAsc);
             this.groupBox3.Controls.Add(this.nameDesc);
             this.groupBox3.Controls.Add(this.indeksAsc);
@@ -329,12 +334,12 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.searchMethod);
             this.groupBox2.Controls.Add(this.searchText);
-            this.groupBox2.Location = new System.Drawing.Point(6, 35);
+            this.groupBox2.Location = new System.Drawing.Point(6, 32);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(184, 80);
+            this.groupBox2.Size = new System.Drawing.Size(184, 83);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Szukaj według";
@@ -359,58 +364,95 @@
             this.searchText.TabIndex = 2;
             this.searchText.TextChanged += new System.EventHandler(this.searchText_TextChanged);
             // 
-            // panel2
+            // metroPanel1
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.detailBTN);
-            this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(200, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(752, 688);
-            this.panel2.TabIndex = 1;
-            // 
-            // detailBTN
-            // 
-            this.detailBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.detailBTN.BackColor = System.Drawing.Color.DarkGray;
-            this.detailBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.detailBTN.Location = new System.Drawing.Point(4, 618);
-            this.detailBTN.Name = "detailBTN";
-            this.detailBTN.Size = new System.Drawing.Size(125, 44);
-            this.detailBTN.TabIndex = 1;
-            this.detailBTN.Text = "Szczegóły";
-            this.detailBTN.UseVisualStyleBackColor = false;
-            this.detailBTN.Click += new System.EventHandler(this.detailBTN_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.metroPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(-2, -2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.ShowCellErrors = false;
-            this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.ShowRowErrors = false;
-            this.dataGridView1.Size = new System.Drawing.Size(752, 614);
-            this.dataGridView1.TabIndex = 0;
+            this.metroPanel1.Controls.Add(this.metroButton1);
+            this.metroPanel1.Controls.Add(this.metroGrid1);
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(198, 65);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(953, 736);
+            this.metroPanel1.TabIndex = 2;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // metroGrid1
+            // 
+            this.metroGrid1.AllowUserToResizeRows = false;
+            this.metroGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.metroGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.metroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.metroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.metroGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle11;
+            this.metroGrid1.EnableHeadersVisualStyles = false;
+            this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.metroGrid1.Location = new System.Drawing.Point(0, 0);
+            this.metroGrid1.MultiSelect = false;
+            this.metroGrid1.Name = "metroGrid1";
+            this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.metroGrid1.RowHeadersVisible = false;
+            this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.metroGrid1.ShowCellErrors = false;
+            this.metroGrid1.ShowCellToolTips = false;
+            this.metroGrid1.ShowEditingIcon = false;
+            this.metroGrid1.ShowRowErrors = false;
+            this.metroGrid1.Size = new System.Drawing.Size(950, 665);
+            this.metroGrid1.TabIndex = 2;
+            this.metroGrid1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.metroButton1.Location = new System.Drawing.Point(8, 674);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(130, 44);
+            this.metroButton1.TabIndex = 3;
+            this.metroButton1.Text = "Szczegóły";
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.detailBTN_Click);
             // 
             // katalog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(952, 688);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(1151, 801);
+            this.Controls.Add(this.metroPanel1);
             this.Controls.Add(this.panel1);
-            this.MaximizeBox = false;
             this.Name = "katalog";
             this.ShowIcon = false;
             this.Text = "katalog";
@@ -423,8 +465,8 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.metroPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -432,7 +474,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox searchText;
         private System.Windows.Forms.ComboBox searchMethod;
@@ -449,7 +490,8 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TreeView systemPRO;
-        private System.Windows.Forms.Button detailBTN;
-        public System.Windows.Forms.DataGridView dataGridView1;
+        private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        public MetroFramework.Controls.MetroGrid metroGrid1;
     }
 }
