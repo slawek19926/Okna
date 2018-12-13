@@ -129,6 +129,7 @@ namespace Okna.okucia
                 dt.Columns.Add("System");
                 dt.Columns.Add("Opis");
                 dt.Columns.Add("G rab");
+                dt.Columns.Add("Cena katalogowa");
 
                 Bitmap b = new Bitmap(50, 15);
                 using(Graphics g = Graphics.FromImage(b))
@@ -162,6 +163,7 @@ namespace Okna.okucia
                     row[8] = rdr[5];
                     row[9] = rdr[6];
                     row[10] = rdr[7];
+                    row[11] = string.Format("{0:c}", rdr[3]);
 
                     dt.Rows.Add(row);
                 }

@@ -135,10 +135,10 @@ namespace Okna.formsy
         private void save_BTN_Click(object sender, EventArgs e)
         {
             wycena.metroGrid1.CurrentRow.Cells[3].Value = rabat_BOX.Text + "%";
-            wycena.metroGrid1.CurrentRow.Cells[4].Value = netto_po.Text;
+            wycena.metroGrid1.CurrentRow.Cells[4].Value = netto_po.Text.Replace(".",",").Replace("zł", "");
             wycena.metroGrid1.CurrentRow.Cells[5].Value = ilosc_BOX.Text;
-            wycena.metroGrid1.CurrentRow.Cells[6].Value = wart_netto.Text;
-            wycena.metroGrid1.CurrentRow.Cells[7].Value = wart_brutto.Text;
+            wycena.metroGrid1.CurrentRow.Cells[6].Value = wart_netto.Text.Replace(".", ",").Replace("zł", "");
+            wycena.metroGrid1.CurrentRow.Cells[7].Value = wart_brutto.Text.Replace(".", ",").Replace("zł", "");
             wycena.metroGrid1.CurrentRow.Cells[8].Value = narzut.Text + "%";
             Close();
         }

@@ -150,6 +150,16 @@ namespace Okna
             }
 
             //this.reportViewer1.RefreshReport();
+            //int idx = metroGrid1.Rows.Count;
+            //if(idx == 0)
+            //{
+
+            //}
+            //else
+            //{
+            //    object[] row = new object[] { "Łącznie", " ", " ", " ", " ", " ", "0,00 zł", "0,00 zł", "" };
+            //    metroGrid1.Rows.Add(row);
+            //}
         }
         private void wycena_FormClosing(Object sender, FormClosingEventArgs e)
         {
@@ -253,21 +263,21 @@ namespace Okna
                 //7 - wartość brutto
                 //8 - narzut
                 ChangedRow = false;
-                decimal n = Decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[2].Value.ToString()); //netto
-                decimal r = Decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[3].Value.ToString().Replace("%","")); //rabat
-                decimal szt = Decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[5].Value.ToString()); //ilość
-                decimal vat = Decimal.Parse("1,23"); 
+                decimal n = decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[2].Value.ToString()); //netto
+                decimal r = decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[3].Value.ToString().Replace("%","")); //rabat
+                decimal szt = decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[5].Value.ToString()); //ilość
+                decimal vat = decimal.Parse("1,23"); 
                 metroGrid1.Rows[e.RowIndex].Cells[4].Value = Math.Round((n-(n*(r/100))),2) ; //po rabacie netto
-                decimal netto = Decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[4].Value.ToString()); //po rabacie netto
+                decimal netto = decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[4].Value.ToString()); //po rabacie netto
                 metroGrid1.Rows[e.RowIndex].Cells[6].Value = Math.Round(netto * szt, 2); //wartość netto
-                decimal wartn = Decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[6].Value.ToString());
+                decimal wartn = decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[6].Value.ToString());
                 metroGrid1.Rows[e.RowIndex].Cells[7].Value = Math.Round(wartn*vat, 2); //wartość brutto
-                decimal narzut = Decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[8].Value.ToString()); //narzut
+                decimal narzut = decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[8].Value.ToString()); //narzut
 
                 metroGrid1.Rows[e.RowIndex].Cells[4].Value = Math.Round(netto + (netto * (narzut / 100)), 2); //netto po narzucie
-                decimal nettoN = Decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[4].Value.ToString());
+                decimal nettoN = decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[4].Value.ToString());
                 metroGrid1.Rows[e.RowIndex].Cells[6].Value = Math.Round(nettoN * szt, 2); //wartosc netto po narzucie
-                decimal wnnetoN = Decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[6].Value.ToString()); //wartosc netto po narzucie
+                decimal wnnetoN = decimal.Parse(metroGrid1.Rows[e.RowIndex].Cells[6].Value.ToString()); //wartosc netto po narzucie
                 metroGrid1.Rows[e.RowIndex].Cells[7].Value = Math.Round(wnnetoN * vat, 2); //wartosc netto po narzucie
 
                 wyliczenie_kwoty();
@@ -276,7 +286,7 @@ namespace Okna
 
         void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.RowIndex == this.metroGrid1.NewRowIndex)
+            if (e.RowIndex == metroGrid1.NewRowIndex)
             {
                 e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
                 e.CellStyle.ForeColor = Color.Red;
@@ -655,7 +665,7 @@ namespace Okna
             if(result == DialogResult.Yes)
             {
                 //Ładuje okno konfiguracji wydruku
-                PrintDGV.Print_DataGridView(metroGrid1);
+                PrintDGV.Print_DataGridView(metroGrid1)
             }
         }
 

@@ -38,15 +38,6 @@
             this.numberBAZA = new System.Windows.Forms.Label();
             this.userID = new System.Windows.Forms.Label();
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
-            this.indeks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cena = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rabat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.po_r = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ilosc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wart_n = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wart_b = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Narzut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.print_btn = new MaterialSkin.Controls.MaterialRaisedButton();
             this.addBTN = new MaterialSkin.Controls.MaterialRaisedButton();
             this.editBTN = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -63,6 +54,15 @@
             this.sumaTXT = new MaterialSkin.Controls.MaterialLabel();
             this.resztaTXT = new MaterialSkin.Controls.MaterialLabel();
             this.wycena_nr = new MaterialSkin.Controls.MaterialLabel();
+            this.indeks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rabat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.po_r = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ilosc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wart_n = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wart_b = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Narzut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -173,60 +173,6 @@
             this.metroGrid1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
             this.metroGrid1.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.DynList_RowValidated);
             this.metroGrid1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
-            // 
-            // indeks
-            // 
-            this.indeks.HeaderText = "Indeks";
-            this.indeks.Name = "indeks";
-            this.indeks.ReadOnly = true;
-            // 
-            // nazwa
-            // 
-            this.nazwa.HeaderText = "Nazwa";
-            this.nazwa.Name = "nazwa";
-            this.nazwa.ReadOnly = true;
-            // 
-            // cena
-            // 
-            this.cena.HeaderText = "Netto";
-            this.cena.Name = "cena";
-            this.cena.ReadOnly = true;
-            // 
-            // rabat
-            // 
-            this.rabat.HeaderText = "Rabat";
-            this.rabat.Name = "rabat";
-            this.rabat.ReadOnly = true;
-            // 
-            // po_r
-            // 
-            this.po_r.HeaderText = "Po rabacie";
-            this.po_r.Name = "po_r";
-            this.po_r.ReadOnly = true;
-            // 
-            // ilosc
-            // 
-            this.ilosc.HeaderText = "Ilość";
-            this.ilosc.Name = "ilosc";
-            this.ilosc.ReadOnly = true;
-            // 
-            // wart_n
-            // 
-            this.wart_n.HeaderText = "Wartość netto";
-            this.wart_n.Name = "wart_n";
-            this.wart_n.ReadOnly = true;
-            // 
-            // wart_b
-            // 
-            this.wart_b.HeaderText = "Wartość brutto";
-            this.wart_b.Name = "wart_b";
-            this.wart_b.ReadOnly = true;
-            // 
-            // Narzut
-            // 
-            this.Narzut.HeaderText = "Narzut";
-            this.Narzut.Name = "Narzut";
-            this.Narzut.ReadOnly = true;
             // 
             // print_btn
             // 
@@ -463,6 +409,60 @@
             this.wycena_nr.Text = "Wycena nr";
             this.wycena_nr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // indeks
+            // 
+            this.indeks.HeaderText = "Indeks";
+            this.indeks.Name = "indeks";
+            this.indeks.ReadOnly = true;
+            // 
+            // nazwa
+            // 
+            this.nazwa.HeaderText = "Nazwa";
+            this.nazwa.Name = "nazwa";
+            this.nazwa.ReadOnly = true;
+            // 
+            // cena
+            // 
+            this.cena.HeaderText = "Netto";
+            this.cena.Name = "cena";
+            this.cena.ReadOnly = true;
+            // 
+            // rabat
+            // 
+            this.rabat.HeaderText = "Rabat";
+            this.rabat.Name = "rabat";
+            this.rabat.ReadOnly = true;
+            // 
+            // po_r
+            // 
+            this.po_r.HeaderText = "Cena netto";
+            this.po_r.Name = "po_r";
+            this.po_r.ReadOnly = true;
+            // 
+            // ilosc
+            // 
+            this.ilosc.HeaderText = "Ilość";
+            this.ilosc.Name = "ilosc";
+            this.ilosc.ReadOnly = true;
+            // 
+            // wart_n
+            // 
+            this.wart_n.HeaderText = "Wartość netto";
+            this.wart_n.Name = "wart_n";
+            this.wart_n.ReadOnly = true;
+            // 
+            // wart_b
+            // 
+            this.wart_b.HeaderText = "Wartość brutto";
+            this.wart_b.Name = "wart_b";
+            this.wart_b.ReadOnly = true;
+            // 
+            // Narzut
+            // 
+            this.Narzut.HeaderText = "Narzut";
+            this.Narzut.Name = "Narzut";
+            this.Narzut.ReadOnly = true;
+            // 
             // wycena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -505,15 +505,6 @@
         public System.Windows.Forms.Label numerek;
         private System.Windows.Forms.Label numberBAZA;
         private System.Windows.Forms.Label userID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn indeks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nazwa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cena;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rabat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn po_r;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ilosc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn wart_n;
-        private System.Windows.Forms.DataGridViewTextBoxColumn wart_b;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Narzut;
         public MetroFramework.Controls.MetroGrid metroGrid1;
         private MaterialSkin.Controls.MaterialRaisedButton print_btn;
         private MaterialSkin.Controls.MaterialRaisedButton addBTN;
@@ -531,5 +522,14 @@
         private MaterialSkin.Controls.MaterialLabel resztaTXT;
         public MaterialSkin.Controls.MaterialLabel klientTXT;
         public MaterialSkin.Controls.MaterialLabel wycena_nr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn indeks;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nazwa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cena;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rabat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn po_r;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ilosc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wart_n;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wart_b;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Narzut;
     }
 }
