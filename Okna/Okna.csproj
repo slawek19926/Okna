@@ -96,6 +96,13 @@
     <Reference Include="AutoUpdater.NET">
       <HintPath>..\..\..\..\source\repos\WektorOkna\Okna\bin\Debug\AutoUpdater.NET.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportAppServer.Controllers, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\source\repos\WektorOkna\Okna\bin\Debug\Dapper.dll</HintPath>
     </Reference>
@@ -107,6 +114,7 @@
     <Reference Include="FirebirdSql.Data.FirebirdClient, Version=6.0.0.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\source\repos\WektorOkna\Okna\bin\Debug\FirebirdSql.Data.FirebirdClient.dll</HintPath>
     </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Google.Protobuf, Version=3.3.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\source\repos\WektorOkna\Okna\bin\Debug\Google.Protobuf.dll</HintPath>
     </Reference>
@@ -117,7 +125,8 @@
       <HintPath>..\..\..\..\Downloads\MaterialSkin-master\MaterialSkinExample\bin\Debug\MaterialSkin.dll</HintPath>
     </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\source\repos\WektorOkna\Okna\bin\Debug\MetroFramework.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x86\Release\MetroFramework.dll</HintPath>
     </Reference>
     <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
@@ -386,6 +395,12 @@
     <Compile Include="print\printDial.Designer.cs">
       <DependentUpon>printDial.cs</DependentUpon>
     </Compile>
+    <Compile Include="print\wycena_prt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="print\wycena_prt.Designer.cs">
+      <DependentUpon>wycena_prt.cs</DependentUpon>
+    </Compile>
     <Compile Include="produkcja\prod_zlec.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -421,11 +436,6 @@
     <Compile Include="RoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="stylwektor_itpecetDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>stylwektor_itpecetDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="TestSortWithSum.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -434,6 +444,11 @@
     </Compile>
     <Compile Include="test\newWindow.Designer.cs">
       <DependentUpon>newWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wyc_tmpDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>wyc_tmpDataSet.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
@@ -539,6 +554,10 @@
       <DependentUpon>printDial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="print\Report1.rdlc" />
+    <EmbeddedResource Include="print\wycena_prt.resx">
+      <DependentUpon>wycena_prt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="print\wyc_prt.rdlc" />
     <EmbeddedResource Include="produkcja\prod_zlec.resx">
       <DependentUpon>prod_zlec.cs</DependentUpon>
     </EmbeddedResource>
@@ -577,23 +596,30 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="stylwektor_itpecetDataSet.xsc">
-      <DependentUpon>stylwektor_itpecetDataSet.xsd</DependentUpon>
+    <None Include="WektorSettings.ini" />
+    <None Include="wyc_tmpDataSet.xsc">
+      <DependentUpon>wyc_tmpDataSet.xsd</DependentUpon>
     </None>
-    <None Include="stylwektor_itpecetDataSet.xsd">
+    <None Include="wyc_tmpDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>stylwektor_itpecetDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>wyc_tmpDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="stylwektor_itpecetDataSet.xss">
-      <DependentUpon>stylwektor_itpecetDataSet.xsd</DependentUpon>
+    <None Include="wyc_tmpDataSet.xss">
+      <DependentUpon>wyc_tmpDataSet.xsd</DependentUpon>
     </None>
-    <None Include="WektorSettings.ini" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DataBases\wyc_tmp.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DataBases\wyc_tmp_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>wyc_tmp.mdf</DependentUpon>
+    </Content>
     <Content Include="docs\MySqlCommand.xml" />
     <Content Include="docs\MySqlCommandBuilder.xml" />
     <Content Include="docs\MySqlConnection.xml" />
@@ -612,7 +638,6 @@
     <Content Include="version.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DataBases\" />
     <Folder Include="style\" />
   </ItemGroup>
   <ItemGroup>
@@ -629,6 +654,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

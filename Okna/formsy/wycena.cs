@@ -15,10 +15,11 @@ using System.Collections;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using MetroFramework;
-using MetroFramework.Controls;
 using PrintDataGrid;
 using Okna.TestSortWithSum;
 using System.Web.UI.WebControls;
+using Okna.print;
+using Microsoft.Reporting.WinForms;
 
 namespace Okna
 
@@ -658,14 +659,38 @@ namespace Okna
             print.printDial frm = new print.printDial(this,Form1);
             frm.Show();
         }
-            
+
         public void print_btn_Click_1(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Narazie da się drukować na domyślnej drukarce. Kontynuować?", "Informacja", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if(result == DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
-                //Ładuje okno konfiguracji wydruku
-                PrintDGV.Print_DataGridView(metroGrid1)
+                //saveBTN_Click(e, e);
+                ////Ładuje okno konfiguracji wydruku
+                ////PrintDGV.Print_DataGridView(metroGrid1);
+                ///
+                //ExportDgvToXML();
+
+                wycena_prt form = new wycena_prt();
+                form.Show();
+            }
+        }
+
+        private void ExportDgvToXML()
+        {
+            DataTable dt = (DataTable)metroGrid1.DataSource;
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "XML|*.xml";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    dt.WriteXml(sfd.FileName);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
             }
         }
 
