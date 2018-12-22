@@ -66,7 +66,7 @@ namespace Okna.formsy
                 obj_Conn.ConnectionString = connectionString;
 
                 obj_Conn.Open();
-                MySqlCommand obj_Cmd = new MySqlCommand("SELECT id,symbol,nazwa,ulica,nr,kod,miasto,nip FROM klienci", obj_Conn);
+                MySqlCommand obj_Cmd = new MySqlCommand("SELECT id,symbol,nazwa,ulica,nr,kod,miasto,nip FROM klienci WHERE is_deleted = 0", obj_Conn);
                 MySqlDataReader obj_Reader = obj_Cmd.ExecuteReader();
 
                 dt.Columns.Add("Lp");
@@ -83,7 +83,7 @@ namespace Okna.formsy
                     row[0] = obj_Reader[0];
                     row[1] = obj_Reader[1];
                     row[2] = obj_Reader[2];
-                    row[3] = obj_Reader[3] + " " + obj_Reader[4];
+                    row[3] = obj_Reader[3];
                     row[4] = obj_Reader[5];
                     row[5] = obj_Reader[6];
                     row[6] = obj_Reader[7];
@@ -107,7 +107,44 @@ namespace Okna.formsy
 
         private void button3_Click(object sender, EventArgs e)
         {
+            var result = MessageBox.Show("Napewno usnąć wybranego klienta?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(result == DialogResult.Yes)
+            {
+                var MyIni = new INIFile("WektorSettings.ini");
+                server = MyIni.Read("server", "Okna");
+                database = MyIni.Read("database", "Okna");
+                uid = MyIni.Read("login", "Okna");
+                password = Decrypt(MyIni.Read("pass", "Okna"));
+                try
+                {
+                    connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";" + "Convert Zero Datetime = True;";
+                    MySqlConnection obj_Conn = new MySqlConnection();
+                    obj_Conn.ConnectionString = connectionString;
 
+                    obj_Conn.Open();
+                    MySqlCommand obj_Cmd = new MySqlCommand("UPDATE klienci SET is_deleted = 1 WHERE id = " + dataGridView1.SelectedCells[0].Value.ToString() + "", obj_Conn);
+                    obj_Cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nic z tego :(");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            edit_klient frm = new edit_klient(this);
+            frm.FormClosing += new FormClosingEventHandler(ChildFormClosing);
+            frm.Show();
+        }
+        private void ChildFormClosing(object sender, FormClosingEventArgs e)
+        {
+            
         }
     }
 }

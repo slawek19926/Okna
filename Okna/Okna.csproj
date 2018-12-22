@@ -300,6 +300,12 @@
     <Compile Include="formsy\druk.Designer.cs">
       <DependentUpon>druk.cs</DependentUpon>
     </Compile>
+    <Compile Include="formsy\edit_klient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formsy\edit_klient.Designer.cs">
+      <DependentUpon>edit_klient.cs</DependentUpon>
+    </Compile>
     <Compile Include="formsy\edit_towar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -505,6 +511,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formsy\druk.resx">
       <DependentUpon>druk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formsy\edit_klient.resx">
+      <DependentUpon>edit_klient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formsy\edit_towar.resx">
       <DependentUpon>edit_towar.cs</DependentUpon>
