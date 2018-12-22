@@ -662,36 +662,40 @@ namespace Okna
 
         public void print_btn_Click_1(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Narazie da się drukować na domyślnej drukarce. Kontynuować?", "Informacja", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (result == DialogResult.Yes)
-            {
-                //saveBTN_Click(e, e);
-                ////Ładuje okno konfiguracji wydruku
-                ////PrintDGV.Print_DataGridView(metroGrid1);
-                ///
-                //ExportDgvToXML();
+            SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder();
+            csb.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DataBases\wyc_tmp.mdf;Integrated Security=True";
 
-                wycena_prt form = new wycena_prt();
-                form.Show();
-            }
-        }
-
-        private void ExportDgvToXML()
-        {
-            DataTable dt = (DataTable)metroGrid1.DataSource;
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "XML|*.xml";
-            if (sfd.ShowDialog() == DialogResult.OK)
+            using (SqlConnection conn = new SqlConnection(csb.ConnectionString))
             {
-                try
+                conn.Open();
+                foreach (DataGridViewRow row in metroGrid1.Rows)
                 {
-                    dt.WriteXml(sfd.FileName);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO wyc_temp (wyc_nr,indeks,nazwa,cena,ilosc,wart_n,wart_v,wart_b,jm,klient_text) VALUES (@wyc_nr,@indeks,@nazwa,@cena,@ilosc,@wart_n,@wart_v,@wart_b,@jm,@klient)"))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Connection = conn;
+                        cmd.Parameters.AddWithValue("@wyc_nr", wycena_nr.Text);
+                        cmd.Parameters.AddWithValue("@indeks", row.Cells[0].Value.ToString());
+                        cmd.Parameters.AddWithValue("@nazwa", row.Cells[1].Value.ToString());
+                        cmd.Parameters.AddWithValue("@cena", row.Cells[4].Value.ToString());
+                        cmd.Parameters.AddWithValue("@ilosc", row.Cells[5].Value.ToString());
+                        decimal netto = decimal.Parse(row.Cells[4].Value.ToString().Replace("zł", ""));
+                        decimal ilosc = decimal.Parse(row.Cells[5].Value.ToString());
+                        decimal vat = decimal.Parse("1,23");
+                        decimal wartN = Math.Round(netto * ilosc,2);
+                        decimal wartB = Math.Round(wartN * vat,2);
+                        decimal wartV = Math.Round(wartB - wartN,2);
+                        cmd.Parameters.AddWithValue("@wart_n", wartN.ToString().Replace(".",","));
+                        cmd.Parameters.AddWithValue("@wart_v", wartV.ToString().Replace(".", ","));
+                        cmd.Parameters.AddWithValue("@wart_b", wartB.ToString().Replace(".", ","));
+                        cmd.Parameters.AddWithValue("@jm", "szt");
+                        cmd.Parameters.AddWithValue("@klient", klientTXT.Text);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
             }
+            wycena_prt form = new wycena_prt();
+            form.Show();
         }
 
         private void metroGrid1_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)

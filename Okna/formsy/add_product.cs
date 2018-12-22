@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.IO;
 using System.Security.Cryptography;
+using System.Data.SqlClient;
+using System.Data.Sql;
 
 namespace Okna
 {

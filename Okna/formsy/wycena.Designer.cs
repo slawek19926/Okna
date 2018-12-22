@@ -490,6 +490,7 @@
             this.Controls.Add(this.metroGrid1);
             this.Name = "wycena";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "wycena";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.wycena_FormClosing);
             this.Load += new System.EventHandler(this.wycena_Load);

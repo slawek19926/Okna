@@ -450,6 +450,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>wyc_tmpDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="wyc_tmpDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>wyc_tmpDataSet1.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
@@ -607,6 +612,17 @@
     </None>
     <None Include="wyc_tmpDataSet.xss">
       <DependentUpon>wyc_tmpDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="wyc_tmpDataSet1.xsc">
+      <DependentUpon>wyc_tmpDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="wyc_tmpDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>wyc_tmpDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="wyc_tmpDataSet1.xss">
+      <DependentUpon>wyc_tmpDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

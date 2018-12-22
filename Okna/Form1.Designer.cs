@@ -609,7 +609,7 @@
             this.logged.Depth = 0;
             this.logged.Font = new System.Drawing.Font("Roboto", 11F);
             this.logged.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.logged.Location = new System.Drawing.Point(156, 465);
+            this.logged.Location = new System.Drawing.Point(187, 465);
             this.logged.MouseState = MaterialSkin.MouseState.HOVER;
             this.logged.Name = "logged";
             this.logged.Size = new System.Drawing.Size(108, 19);
