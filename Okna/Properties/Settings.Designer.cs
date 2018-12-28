@@ -92,11 +92,44 @@ namespace Okna.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\DataBases\\wyc" +
-            "_tmp.mdf;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\wyc_tmp.mdf;I" +
+            "ntegrated Security=True")]
         public string wyc_tmpConnectionString {
             get {
                 return ((string)(this["wyc_tmpConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=stylwektor.nazwa.pl;user id=stylwektor_itpecet;password=0ptO!and;persistse" +
+            "curityinfo=True;database=stylwektor_itpecet")]
+        public string STYLWEKTOR {
+            get {
+                return ((string)(this["STYLWEKTOR"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=wektor.czest.pl;user id=stylwektor_itpecet;password=0ptO!and;database=styl" +
+            "wektor_itpecet;persistsecurityinfo=True")]
+        public string stylwektor_itpecetConnectionString2 {
+            get {
+                return ((string)(this["stylwektor_itpecetConnectionString2"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=wektor.czest.pl;user id=stylwektor_itpecet;password=0ptO!and;database=styl" +
+            "wektor_itpecet")]
+        public string stylwektor_itpecetConnectionString3 {
+            get {
+                return ((string)(this["stylwektor_itpecetConnectionString3"]));
             }
         }
     }

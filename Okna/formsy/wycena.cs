@@ -55,6 +55,8 @@ namespace Okna
             print_btn.Enabled = true;
             InitTimer();
 
+            AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ""));
+
             //metroGrid1.RowPrePaint += metroGrrid1_RowPrePaint;
             //metroGrid1.CellFormatting += metroGrid1_CellFormatting;
         }
@@ -656,21 +658,22 @@ namespace Okna
         private void print_btn_Click(object sender, EventArgs e)
         {
             zapisDoBazy();
-            print.printDial frm = new print.printDial(this,Form1);
-            frm.Show();
+            wycena_prt form = new wycena_prt();
+            form.Show();
         }
 
         public void print_btn_Click_1(object sender, EventArgs e)
         {
+
             SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder();
-            csb.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DataBases\wyc_tmp.mdf;Integrated Security=True";
+            csb.ConnectionString = @"Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|wyc_tmp.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
 
             using (SqlConnection conn = new SqlConnection(csb.ConnectionString))
             {
                 conn.Open();
                 foreach (DataGridViewRow row in metroGrid1.Rows)
                 {
-                    using (SqlCommand cmd = new SqlCommand("INSERT INTO wyc_temp (wyc_nr,indeks,nazwa,cena,ilosc,wart_n,wart_v,wart_b,jm,klient_text) VALUES (@wyc_nr,@indeks,@nazwa,@cena,@ilosc,@wart_n,@wart_v,@wart_b,@jm,@klient)"))
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO dbo.wyc_temp (wyc_nr,indeks,nazwa,cena,ilosc,wart_n,wart_v,wart_b,jm,klient_text) VALUES (@wyc_nr,@indeks,@nazwa,@cena,@ilosc,@wart_n,@wart_v,@wart_b,@jm,@klient)"))
                     {
                         cmd.CommandType = CommandType.Text;
                         cmd.Connection = conn;

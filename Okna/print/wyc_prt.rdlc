@@ -935,7 +935,7 @@
         <RepeatRowHeaders>true</RepeatRowHeaders>
         <DataSetName>DataSet2</DataSetName>
         <Left>0.17628cm</Left>
-        <Height>2.06458cm</Height>
+        <Height>2.06459cm</Height>
         <Width>17.92693cm</Width>
         <Style>
           <Border>
@@ -1022,7 +1022,6 @@
               </Paragraphs>
               <rd:DefaultName>Textbox8</rd:DefaultName>
               <Top>1.82063cm</Top>
-              <Left>0cm</Left>
               <Height>0.6cm</Height>
               <Width>8.6cm</Width>
               <Style>

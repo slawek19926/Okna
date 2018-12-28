@@ -638,10 +638,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataBases\wyc_tmp.mdf">
+    <Content Include="wyc_tmp.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="DataBases\wyc_tmp_log.ldf">
+    <Content Include="wyc_tmp_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>wyc_tmp.mdf</DependentUpon>
     </Content>
@@ -663,6 +663,7 @@
     <Content Include="version.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DataBases\" />
     <Folder Include="style\" />
   </ItemGroup>
   <ItemGroup>

@@ -9,6 +9,13 @@
       </ConnectionProperties>
       <rd:DataSourceID>fe528897-06fb-44d4-89ce-8a3168bd6e89</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="stylwektor_temp">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>f6bc36f3-fd74-40ef-9ac0-3388fb21c576</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="DataSet1">
@@ -16,52 +23,6 @@
         <DataSourceName>stylwektor_itpecetDataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
-      <Fields>
-        <Field Name="id">
-          <DataField>id</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="indeks">
-          <DataField>indeks</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="nazwa">
-          <DataField>nazwa</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="rabat">
-          <DataField>rabat</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="narzut">
-          <DataField>narzut</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="cena">
-          <DataField>cena</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="wartn">
-          <DataField>wartn</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="wart_v">
-          <DataField>wart_v</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="wartb">
-          <DataField>wartb</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="ilosc">
-          <DataField>ilosc</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="wycena_nr">
-          <DataField>wycena_nr</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-      </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>stylwektor_itpecetDataSet</rd:DataSetName>
         <rd:SchemaPath>C:\Users\alleg\documents\visual studio 2017\Projects\Okna\Okna\stylwektor_itpecetDataSet.xsd</rd:SchemaPath>
@@ -76,52 +37,6 @@
         <DataSourceName>stylwektor_itpecetDataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
-      <Fields>
-        <Field Name="id">
-          <DataField>id</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="nazwa">
-          <DataField>nazwa</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ulica">
-          <DataField>ulica</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="nr">
-          <DataField>nr</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="kod">
-          <DataField>kod</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="miasto">
-          <DataField>miasto</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="nip">
-          <DataField>nip</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="bank_pl">
-          <DataField>bank_pl</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="konto_pl">
-          <DataField>konto_pl</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="bank_eur">
-          <DataField>bank_eur</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="konto_eur">
-          <DataField>konto_eur</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>stylwektor_itpecetDataSet</rd:DataSetName>
         <rd:SchemaPath>C:\Users\alleg\documents\visual studio 2017\Projects\Okna\Okna\stylwektor_itpecetDataSet.xsd</rd:SchemaPath>
@@ -136,40 +51,6 @@
         <DataSourceName>stylwektor_itpecetDataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
-      <Fields>
-        <Field Name="id">
-          <DataField>id</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="username">
-          <DataField>username</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="password">
-          <DataField>password</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="name">
-          <DataField>name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="logged">
-          <DataField>logged</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="admin">
-          <DataField>admin</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="mag">
-          <DataField>mag</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="allowed">
-          <DataField>allowed</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-      </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>stylwektor_itpecetDataSet</rd:DataSetName>
         <rd:SchemaPath>C:\Users\alleg\documents\visual studio 2017\Projects\Okna\Okna\stylwektor_itpecetDataSet.xsd</rd:SchemaPath>
@@ -177,6 +58,20 @@
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
         <rd:TableAdapterName>uzytkownicyTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="DataSet4">
+      <Query>
+        <DataSourceName>stylwektor_temp</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <rd:DataSetInfo>
+        <rd:DataSetName>stylwektor_temp</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Admin\Documents\GitHub\Okna\Okna\stylwektor_temp.xsd</rd:SchemaPath>
+        <rd:TableName>temp</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>tempTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
