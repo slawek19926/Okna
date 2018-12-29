@@ -128,6 +128,7 @@ namespace Okna.print
             ReportParameter[] param = new ReportParameter[]
             {
                 new ReportParameter("wystawiona", wyceny.dataGridView1.CurrentRow.Cells[4].Value.ToString()),
+                new ReportParameter("wycenaNR" ,wyceny.dataGridView1.CurrentRow.Cells[1].Value.ToString()),
             };
             reportViewer1.LocalReport.SetParameters(param);
         }

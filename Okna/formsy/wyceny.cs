@@ -87,6 +87,7 @@ namespace Okna
                 dt.Columns.Add("Zrealizowano");
                 dt.Columns.Add("Data realizacji");
                 dt.Columns.Add("id_klient");
+                dt.Columns.Add("add");
 
                 while (obj_Reader.Read())
                 {
