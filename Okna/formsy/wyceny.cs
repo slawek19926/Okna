@@ -245,7 +245,8 @@ namespace Okna
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            print.pirnt_wycena frm = new print.pirnt_wycena(this,Form1);
+            frm.Show();
         }
     }
 }

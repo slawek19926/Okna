@@ -20,6 +20,7 @@ using Okna.TestSortWithSum;
 using System.Web.UI.WebControls;
 using Okna.print;
 using Microsoft.Reporting.WinForms;
+using FirebirdSql.Data.FirebirdClient;
 
 namespace Okna
 
@@ -657,46 +658,8 @@ namespace Okna
         }
         private void print_btn_Click(object sender, EventArgs e)
         {
-            zapisDoBazy();
-            wycena_prt form = new wycena_prt();
-            form.Show();
-        }
-
-        public void print_btn_Click_1(object sender, EventArgs e)
-        {
-
-            SqlConnectionStringBuilder csb = new SqlConnectionStringBuilder();
-            csb.ConnectionString = @"Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|wyc_tmp.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
-
-            using (SqlConnection conn = new SqlConnection(csb.ConnectionString))
-            {
-                conn.Open();
-                foreach (DataGridViewRow row in metroGrid1.Rows)
-                {
-                    using (SqlCommand cmd = new SqlCommand("INSERT INTO dbo.wyc_temp (wyc_nr,indeks,nazwa,cena,ilosc,wart_n,wart_v,wart_b,jm,klient_text) VALUES (@wyc_nr,@indeks,@nazwa,@cena,@ilosc,@wart_n,@wart_v,@wart_b,@jm,@klient)"))
-                    {
-                        cmd.CommandType = CommandType.Text;
-                        cmd.Connection = conn;
-                        cmd.Parameters.AddWithValue("@wyc_nr", wycena_nr.Text);
-                        cmd.Parameters.AddWithValue("@indeks", row.Cells[0].Value.ToString());
-                        cmd.Parameters.AddWithValue("@nazwa", row.Cells[1].Value.ToString());
-                        cmd.Parameters.AddWithValue("@cena", row.Cells[4].Value.ToString());
-                        cmd.Parameters.AddWithValue("@ilosc", row.Cells[5].Value.ToString());
-                        decimal netto = decimal.Parse(row.Cells[4].Value.ToString().Replace("zł", ""));
-                        decimal ilosc = decimal.Parse(row.Cells[5].Value.ToString());
-                        decimal vat = decimal.Parse("1,23");
-                        decimal wartN = Math.Round(netto * ilosc,2);
-                        decimal wartB = Math.Round(wartN * vat,2);
-                        decimal wartV = Math.Round(wartB - wartN,2);
-                        cmd.Parameters.AddWithValue("@wart_n", wartN.ToString().Replace(".",","));
-                        cmd.Parameters.AddWithValue("@wart_v", wartV.ToString().Replace(".", ","));
-                        cmd.Parameters.AddWithValue("@wart_b", wartB.ToString().Replace(".", ","));
-                        cmd.Parameters.AddWithValue("@jm", "szt");
-                        cmd.Parameters.AddWithValue("@klient", klientTXT.Text);
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-            }
+            //zapisDoBazy();
+            FBConnect();
             wycena_prt form = new wycena_prt();
             form.Show();
         }
@@ -708,6 +671,58 @@ namespace Okna
                 e.PaintHeader(DataGridViewPaintParts.Background | DataGridViewPaintParts.Border);
                 e.PaintCells(e.ClipBounds, DataGridViewPaintParts.All);
                 e.Handled = true;
+            }
+        }
+
+        private void FBConnect()
+        {
+            try
+            {
+                string fblocation = AppDomain.CurrentDomain.BaseDirectory + "DBAPP.fdb";
+                FbConnectionStringBuilder fbd = new FbConnectionStringBuilder();
+                fbd.ConnectionString = @"UserID=SYSDBA;Password=masterkey;Database=" + fblocation + "";
+
+                using (FbConnection conn = new FbConnection(fbd.ConnectionString))
+                {
+                    conn.Open();
+                    using (FbCommand del = new FbCommand("DELETE FROM wyc_temp WHERE id>0"))
+                    {
+                        del.CommandType = CommandType.Text;
+                        del.Connection = conn;
+                        del.ExecuteNonQuery();
+                    }
+
+                    foreach (DataGridViewRow row in metroGrid1.Rows)
+                    {
+                        using (FbCommand cmd = new FbCommand("INSERT INTO wyc_temp (wyc_nr,indeks,nazwa,cena,ilosc,wart_n,wart_v,wart_b,jm,klient_text) VALUES (@wyc_nr,@indeks,@nazwa,@cena,@ilosc,@wart_n,@wart_v,@wart_b,@jm,@klient)"))
+                        {
+                            cmd.CommandType = CommandType.Text;
+                            cmd.Connection = conn;
+                            cmd.Parameters.AddWithValue("@wyc_nr", wycena_nr.Text);
+                            cmd.Parameters.AddWithValue("@indeks", row.Cells[0].Value.ToString());
+                            cmd.Parameters.AddWithValue("@nazwa", row.Cells[1].Value.ToString());
+                            cmd.Parameters.AddWithValue("@cena", row.Cells[4].Value.ToString());
+                            cmd.Parameters.AddWithValue("@ilosc", row.Cells[5].Value.ToString());
+                            decimal netto = decimal.Parse(row.Cells[4].Value.ToString().Replace("zł", ""));
+                            decimal ilosc = decimal.Parse(row.Cells[5].Value.ToString());
+                            decimal vat = decimal.Parse("1,23");
+                            decimal wartN = Math.Round(netto * ilosc, 2);
+                            decimal wartB = Math.Round(wartN * vat, 2);
+                            decimal wartV = Math.Round(wartB - wartN, 2);
+                            cmd.Parameters.AddWithValue("@wart_n", wartN.ToString().Replace(".", ","));
+                            cmd.Parameters.AddWithValue("@wart_v", wartV.ToString().Replace(".", ","));
+                            cmd.Parameters.AddWithValue("@wart_b", wartB.ToString().Replace(".", ","));
+                            cmd.Parameters.AddWithValue("@jm", "szt");
+                            cmd.Parameters.AddWithValue("@klient", klientTXT.Text);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

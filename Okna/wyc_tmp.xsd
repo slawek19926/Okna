@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="wyc_tmp" targetNamespace="http://tempuri.org/wyc_tmp.xsd" xmlns:mstns="http://tempuri.org/wyc_tmp.xsd" xmlns="http://tempuri.org/wyc_tmp.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="wyc_tmp" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="wyc_tmp" msprop:Generator_UserDSName="wyc_tmp">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="wyc_temp" msprop:Generator_TableClassName="wyc_tempDataTable" msprop:Generator_TableVarName="tablewyc_temp" msprop:Generator_TablePropName="wyc_temp" msprop:Generator_RowDeletingName="wyc_tempRowDeleting" msprop:Generator_RowChangingName="wyc_tempRowChanging" msprop:Generator_RowEvHandlerName="wyc_tempRowChangeEventHandler" msprop:Generator_RowDeletedName="wyc_tempRowDeleted" msprop:Generator_UserTableName="wyc_temp" msprop:Generator_RowChangedName="wyc_tempRowChanged" msprop:Generator_RowEvArgName="wyc_tempRowChangeEvent" msprop:Generator_RowClassName="wyc_tempRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="indeks" msprop:Generator_ColumnVarNameInTable="columnindeks" msprop:Generator_ColumnPropNameInRow="indeks" msprop:Generator_ColumnPropNameInTable="indeksColumn" msprop:Generator_UserColumnName="indeks" type="xs:string" minOccurs="0" />
+              <xs:element name="nazwa" msprop:Generator_ColumnVarNameInTable="columnnazwa" msprop:Generator_ColumnPropNameInRow="nazwa" msprop:Generator_ColumnPropNameInTable="nazwaColumn" msprop:Generator_UserColumnName="nazwa" type="xs:string" minOccurs="0" />
+              <xs:element name="ilosc" msprop:Generator_ColumnVarNameInTable="columnilosc" msprop:Generator_ColumnPropNameInRow="ilosc" msprop:Generator_ColumnPropNameInTable="iloscColumn" msprop:Generator_UserColumnName="ilosc" type="xs:string" minOccurs="0" />
+              <xs:element name="cena" msprop:Generator_ColumnVarNameInTable="columncena" msprop:Generator_ColumnPropNameInRow="cena" msprop:Generator_ColumnPropNameInTable="cenaColumn" msprop:Generator_UserColumnName="cena" type="xs:string" minOccurs="0" />
+              <xs:element name="jm" msprop:Generator_ColumnVarNameInTable="columnjm" msprop:Generator_ColumnPropNameInRow="jm" msprop:Generator_ColumnPropNameInTable="jmColumn" msprop:Generator_UserColumnName="jm" type="xs:string" minOccurs="0" />
+              <xs:element name="wart_n" msprop:Generator_ColumnVarNameInTable="columnwart_n" msprop:Generator_ColumnPropNameInRow="wart_n" msprop:Generator_ColumnPropNameInTable="wart_nColumn" msprop:Generator_UserColumnName="wart_n" type="xs:string" minOccurs="0" />
+              <xs:element name="wart_v" msprop:Generator_ColumnVarNameInTable="columnwart_v" msprop:Generator_ColumnPropNameInRow="wart_v" msprop:Generator_ColumnPropNameInTable="wart_vColumn" msprop:Generator_UserColumnName="wart_v" type="xs:string" minOccurs="0" />
+              <xs:element name="wart_b" msprop:Generator_ColumnVarNameInTable="columnwart_b" msprop:Generator_ColumnPropNameInRow="wart_b" msprop:Generator_ColumnPropNameInTable="wart_bColumn" msprop:Generator_UserColumnName="wart_b" type="xs:string" minOccurs="0" />
+              <xs:element name="wyc_nr" msprop:Generator_ColumnVarNameInTable="columnwyc_nr" msprop:Generator_ColumnPropNameInRow="wyc_nr" msprop:Generator_ColumnPropNameInTable="wyc_nrColumn" msprop:Generator_UserColumnName="wyc_nr" type="xs:string" minOccurs="0" />
+              <xs:element name="klient_text" msprop:Generator_ColumnVarNameInTable="columnklient_text" msprop:Generator_ColumnPropNameInRow="klient_text" msprop:Generator_ColumnPropNameInTable="klient_textColumn" msprop:Generator_UserColumnName="klient_text" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

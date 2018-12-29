@@ -111,8 +111,8 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\..\..\source\repos\WektorOkna\Okna\bin\Debug\EnvDTE.dll</HintPath>
     </Reference>
-    <Reference Include="FirebirdSql.Data.FirebirdClient, Version=6.0.0.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\source\repos\WektorOkna\Okna\bin\Debug\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    <Reference Include="FirebirdSql.Data.FirebirdClient, Version=6.4.0.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL">
+      <HintPath>..\packages\FirebirdSql.Data.FirebirdClient.6.4.0\lib\net452\FirebirdSql.Data.FirebirdClient.dll</HintPath>
     </Reference>
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Google.Protobuf, Version=3.3.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
@@ -395,6 +395,12 @@
     <Compile Include="PrintOptions.designer.cs">
       <DependentUpon>PrintOptions.cs</DependentUpon>
     </Compile>
+    <Compile Include="print\pirnt_wycena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="print\pirnt_wycena.Designer.cs">
+      <DependentUpon>pirnt_wycena.cs</DependentUpon>
+    </Compile>
     <Compile Include="print\printDial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -451,15 +457,21 @@
     <Compile Include="test\newWindow.Designer.cs">
       <DependentUpon>newWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="wyc_tmpDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>wyc_tmpDataSet.xsd</DependentUpon>
+    <Compile Include="wyc_details.cs">
+      <DependentUpon>wyc_details.xsd</DependentUpon>
     </Compile>
-    <Compile Include="wyc_tmpDataSet1.Designer.cs">
+    <Compile Include="wyc_details.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>wyc_tmpDataSet1.xsd</DependentUpon>
+      <DependentUpon>wyc_details.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="wyc_tmp.cs">
+      <DependentUpon>wyc_tmp.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="wyc_tmp.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>wyc_tmp.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
@@ -564,6 +576,9 @@
       <DependentUpon>PrintOptions.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="print\pirnt_wycena.resx">
+      <DependentUpon>pirnt_wycena.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="print\printDial.resx">
       <DependentUpon>printDial.cs</DependentUpon>
     </EmbeddedResource>
@@ -571,6 +586,7 @@
     <EmbeddedResource Include="print\wycena_prt.resx">
       <DependentUpon>wycena_prt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="print\wyc_det.rdlc" />
     <EmbeddedResource Include="print\wyc_prt.rdlc" />
     <EmbeddedResource Include="produkcja\prod_zlec.resx">
       <DependentUpon>prod_zlec.cs</DependentUpon>
@@ -595,12 +611,14 @@
     <EmbeddedResource Include="test\newWindow.resx">
       <DependentUpon>newWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DBAPP.FDB" />
     <None Include="OknaInfo.manifest">
       <SubType>Designer</SubType>
     </None>
     <None Include="Okna_1_TemporaryKey.pfx" />
     <None Include="Okna_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Okna.print.wycena_prt.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -611,27 +629,27 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="WektorSettings.ini" />
-    <None Include="wyc_tmpDataSet.xsc">
-      <DependentUpon>wyc_tmpDataSet.xsd</DependentUpon>
+    <None Include="wyc_details.xsc">
+      <DependentUpon>wyc_details.xsd</DependentUpon>
     </None>
-    <None Include="wyc_tmpDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>wyc_tmpDataSet.Designer.cs</LastGenOutput>
+    <None Include="wyc_details.xsd">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="wyc_tmpDataSet.xss">
-      <DependentUpon>wyc_tmpDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="wyc_tmpDataSet1.xsc">
-      <DependentUpon>wyc_tmpDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="wyc_tmpDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>wyc_tmpDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
+      <LastGenOutput>wyc_details.Designer.cs</LastGenOutput>
     </None>
-    <None Include="wyc_tmpDataSet1.xss">
-      <DependentUpon>wyc_tmpDataSet1.xsd</DependentUpon>
+    <None Include="wyc_details.xss">
+      <DependentUpon>wyc_details.xsd</DependentUpon>
+    </None>
+    <None Include="wyc_tmp.xsc">
+      <DependentUpon>wyc_tmp.xsd</DependentUpon>
+    </None>
+    <None Include="wyc_tmp.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>wyc_tmp.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="wyc_tmp.xss">
+      <DependentUpon>wyc_tmp.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

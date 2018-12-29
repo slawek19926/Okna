@@ -31,29 +31,17 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.wyctempBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.wyc_tmpDataSet1 = new Okna.wyc_tmpDataSet1();
+            this.wyc_tmp = new Okna.wyc_tmp();
             this.wyctempBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.wyc_tmpDataSet = new Okna.wyc_tmpDataSet();
-            this.wyc_tempTableAdapter = new Okna.wyc_tmpDataSetTableAdapters.wyc_tempTableAdapter();
-            this.wyctmpDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.wyc_tempTableAdapter1 = new Okna.wyc_tmpDataSet1TableAdapters.wyc_tempTableAdapter();
-            this.wyc_tempBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.wyctempBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wyc_tmpDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wyc_tmp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wyctempBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wyc_tmpDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wyctmpDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wyc_tempBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
-            this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            reportDataSource1.Name = "DataSet2";
-            reportDataSource1.Value = this.wyc_tempBindingSource;
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.wyctempBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Okna.print.wyc_prt.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
@@ -62,43 +50,15 @@
             this.reportViewer1.Size = new System.Drawing.Size(1036, 863);
             this.reportViewer1.TabIndex = 0;
             // 
-            // wyctempBindingSource1
+            // wyc_tmp
             // 
-            this.wyctempBindingSource1.DataMember = "wyc_temp";
-            this.wyctempBindingSource1.DataSource = this.wyc_tmpDataSet1;
-            // 
-            // wyc_tmpDataSet1
-            // 
-            this.wyc_tmpDataSet1.DataSetName = "wyc_tmpDataSet1";
-            this.wyc_tmpDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.wyc_tmp.DataSetName = "wyc_tmp";
+            this.wyc_tmp.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // wyctempBindingSource
             // 
             this.wyctempBindingSource.DataMember = "wyc_temp";
-            this.wyctempBindingSource.DataSource = this.wyc_tmpDataSet;
-            // 
-            // wyc_tmpDataSet
-            // 
-            this.wyc_tmpDataSet.DataSetName = "wyc_tmpDataSet";
-            this.wyc_tmpDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // wyc_tempTableAdapter
-            // 
-            this.wyc_tempTableAdapter.ClearBeforeFill = true;
-            // 
-            // wyctmpDataSetBindingSource
-            // 
-            this.wyctmpDataSetBindingSource.DataSource = this.wyc_tmpDataSet;
-            this.wyctmpDataSetBindingSource.Position = 0;
-            // 
-            // wyc_tempTableAdapter1
-            // 
-            this.wyc_tempTableAdapter1.ClearBeforeFill = true;
-            // 
-            // wyc_tempBindingSource
-            // 
-            this.wyc_tempBindingSource.DataMember = "wyc_temp";
-            this.wyc_tempBindingSource.DataSource = this.wyc_tmpDataSet1;
+            this.wyctempBindingSource.DataSource = this.wyc_tmp;
             // 
             // wycena_prt
             // 
@@ -111,12 +71,8 @@
             this.Text = "wycena_prt";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.wycena_prt_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.wyctempBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wyc_tmpDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wyc_tmp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wyctempBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wyc_tmpDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wyctmpDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wyc_tempBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -124,13 +80,7 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private wyc_tmpDataSet wyc_tmpDataSet;
         private System.Windows.Forms.BindingSource wyctempBindingSource;
-        private wyc_tmpDataSetTableAdapters.wyc_tempTableAdapter wyc_tempTableAdapter;
-        private System.Windows.Forms.BindingSource wyctmpDataSetBindingSource;
-        private wyc_tmpDataSet1 wyc_tmpDataSet1;
-        private System.Windows.Forms.BindingSource wyctempBindingSource1;
-        private wyc_tmpDataSet1TableAdapters.wyc_tempTableAdapter wyc_tempTableAdapter1;
-        private System.Windows.Forms.BindingSource wyc_tempBindingSource;
+        private wyc_tmp wyc_tmp;
     }
 }

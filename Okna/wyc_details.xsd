@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="wyc_details" targetNamespace="http://tempuri.org/wyc_details.xsd" xmlns:mstns="http://tempuri.org/wyc_details.xsd" xmlns="http://tempuri.org/wyc_details.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="wyc_details" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="wyc_details" msprop:Generator_UserDSName="wyc_details">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="wyc_det" msprop:Generator_TableClassName="wyc_detDataTable" msprop:Generator_TableVarName="tablewyc_det" msprop:Generator_TablePropName="wyc_det" msprop:Generator_RowDeletingName="wyc_detRowDeleting" msprop:Generator_RowChangingName="wyc_detRowChanging" msprop:Generator_RowEvHandlerName="wyc_detRowChangeEventHandler" msprop:Generator_RowDeletedName="wyc_detRowDeleted" msprop:Generator_UserTableName="wyc_det" msprop:Generator_RowChangedName="wyc_detRowChanged" msprop:Generator_RowEvArgName="wyc_detRowChangeEvent" msprop:Generator_RowClassName="wyc_detRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ilosc" msprop:Generator_ColumnVarNameInTable="columnilosc" msprop:Generator_ColumnPropNameInRow="ilosc" msprop:Generator_ColumnPropNameInTable="iloscColumn" msprop:Generator_UserColumnName="ilosc" type="xs:string" minOccurs="0" />
+              <xs:element name="rabat" msprop:Generator_ColumnVarNameInTable="columnrabat" msprop:Generator_ColumnPropNameInRow="rabat" msprop:Generator_ColumnPropNameInTable="rabatColumn" msprop:Generator_UserColumnName="rabat" type="xs:string" minOccurs="0" />
+              <xs:element name="cena" msprop:Generator_ColumnVarNameInTable="columncena" msprop:Generator_ColumnPropNameInRow="cena" msprop:Generator_ColumnPropNameInTable="cenaColumn" msprop:Generator_UserColumnName="cena" type="xs:string" minOccurs="0" />
+              <xs:element name="nazwa" msprop:Generator_ColumnVarNameInTable="columnnazwa" msprop:Generator_ColumnPropNameInRow="nazwa" msprop:Generator_ColumnPropNameInTable="nazwaColumn" msprop:Generator_UserColumnName="nazwa" type="xs:string" minOccurs="0" />
+              <xs:element name="indeks" msprop:Generator_ColumnVarNameInTable="columnindeks" msprop:Generator_ColumnPropNameInRow="indeks" msprop:Generator_ColumnPropNameInTable="indeksColumn" msprop:Generator_UserColumnName="indeks" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="firma_det" msprop:Generator_TableClassName="firma_detDataTable" msprop:Generator_TableVarName="tablefirma_det" msprop:Generator_TablePropName="firma_det" msprop:Generator_RowDeletingName="firma_detRowDeleting" msprop:Generator_RowChangingName="firma_detRowChanging" msprop:Generator_RowEvHandlerName="firma_detRowChangeEventHandler" msprop:Generator_RowDeletedName="firma_detRowDeleted" msprop:Generator_UserTableName="firma_det" msprop:Generator_RowChangedName="firma_detRowChanged" msprop:Generator_RowEvArgName="firma_detRowChangeEvent" msprop:Generator_RowClassName="firma_detRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nazwa" msprop:Generator_ColumnVarNameInTable="columnnazwa" msprop:Generator_ColumnPropNameInRow="nazwa" msprop:Generator_ColumnPropNameInTable="nazwaColumn" msprop:Generator_UserColumnName="nazwa" type="xs:string" minOccurs="0" />
+              <xs:element name="ulica" msprop:Generator_ColumnVarNameInTable="columnulica" msprop:Generator_ColumnPropNameInRow="ulica" msprop:Generator_ColumnPropNameInTable="ulicaColumn" msprop:Generator_UserColumnName="ulica" type="xs:string" minOccurs="0" />
+              <xs:element name="nr" msprop:Generator_ColumnVarNameInTable="columnnr" msprop:Generator_ColumnPropNameInRow="nr" msprop:Generator_ColumnPropNameInTable="nrColumn" msprop:Generator_UserColumnName="nr" type="xs:string" minOccurs="0" />
+              <xs:element name="kod" msprop:Generator_ColumnVarNameInTable="columnkod" msprop:Generator_ColumnPropNameInRow="kod" msprop:Generator_ColumnPropNameInTable="kodColumn" msprop:Generator_UserColumnName="kod" type="xs:string" minOccurs="0" />
+              <xs:element name="miasto" msprop:Generator_ColumnVarNameInTable="columnmiasto" msprop:Generator_ColumnPropNameInRow="miasto" msprop:Generator_ColumnPropNameInTable="miastoColumn" msprop:Generator_UserColumnName="miasto" type="xs:string" minOccurs="0" />
+              <xs:element name="nip" msprop:Generator_ColumnVarNameInTable="columnnip" msprop:Generator_ColumnPropNameInRow="nip" msprop:Generator_ColumnPropNameInTable="nipColumn" msprop:Generator_UserColumnName="nip" type="xs:string" minOccurs="0" />
+              <xs:element name="bank_pl" msprop:Generator_ColumnVarNameInTable="columnbank_pl" msprop:Generator_ColumnPropNameInRow="bank_pl" msprop:Generator_ColumnPropNameInTable="bank_plColumn" msprop:Generator_UserColumnName="bank_pl" type="xs:string" minOccurs="0" />
+              <xs:element name="konto_pl" msprop:Generator_ColumnVarNameInTable="columnkonto_pl" msprop:Generator_ColumnPropNameInRow="konto_pl" msprop:Generator_ColumnPropNameInTable="konto_plColumn" msprop:Generator_UserColumnName="konto_pl" type="xs:string" minOccurs="0" />
+              <xs:element name="bank_eur" msprop:Generator_ColumnVarNameInTable="columnbank_eur" msprop:Generator_ColumnPropNameInRow="bank_eur" msprop:Generator_ColumnPropNameInTable="bank_eurColumn" msprop:Generator_UserColumnName="bank_eur" type="xs:string" minOccurs="0" />
+              <xs:element name="konto_eur" msprop:Generator_ColumnVarNameInTable="columnkonto_eur" msprop:Generator_ColumnPropNameInRow="konto_eur" msprop:Generator_ColumnPropNameInTable="konto_eurColumn" msprop:Generator_UserColumnName="konto_eur" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="klient_det" msprop:Generator_TableClassName="klient_detDataTable" msprop:Generator_TableVarName="tableklient_det" msprop:Generator_TablePropName="klient_det" msprop:Generator_RowDeletingName="klient_detRowDeleting" msprop:Generator_RowChangingName="klient_detRowChanging" msprop:Generator_RowEvHandlerName="klient_detRowChangeEventHandler" msprop:Generator_RowDeletedName="klient_detRowDeleted" msprop:Generator_UserTableName="klient_det" msprop:Generator_RowChangedName="klient_detRowChanged" msprop:Generator_RowEvArgName="klient_detRowChangeEvent" msprop:Generator_RowClassName="klient_detRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nazwa" msprop:Generator_ColumnVarNameInTable="columnnazwa" msprop:Generator_ColumnPropNameInRow="nazwa" msprop:Generator_ColumnPropNameInTable="nazwaColumn" msprop:Generator_UserColumnName="nazwa" type="xs:string" minOccurs="0" />
+              <xs:element name="ulica" msprop:Generator_ColumnVarNameInTable="columnulica" msprop:Generator_ColumnPropNameInRow="ulica" msprop:Generator_ColumnPropNameInTable="ulicaColumn" msprop:Generator_UserColumnName="ulica" type="xs:string" minOccurs="0" />
+              <xs:element name="kod" msprop:Generator_ColumnVarNameInTable="columnkod" msprop:Generator_ColumnPropNameInRow="kod" msprop:Generator_ColumnPropNameInTable="kodColumn" msprop:Generator_UserColumnName="kod" type="xs:string" minOccurs="0" />
+              <xs:element name="miasto" msprop:Generator_ColumnVarNameInTable="columnmiasto" msprop:Generator_ColumnPropNameInRow="miasto" msprop:Generator_ColumnPropNameInTable="miastoColumn" msprop:Generator_UserColumnName="miasto" type="xs:string" minOccurs="0" />
+              <xs:element name="nip" msprop:Generator_ColumnVarNameInTable="columnnip" msprop:Generator_ColumnPropNameInRow="nip" msprop:Generator_ColumnPropNameInTable="nipColumn" msprop:Generator_UserColumnName="nip" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
