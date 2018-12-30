@@ -1052,10 +1052,10 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.40624in</Height>
+        <Height>2.17707in</Height>
         <Style />
       </Body>
-      <Width>18.04701cm</Width>
+      <Width>17.99428cm</Width>
       <Page>
         <PageHeader>
           <Height>7.76703cm</Height>
@@ -1797,7 +1797,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Parameters!wystawiona.Value</Value>
+                      <Value>=CDate(Parameters!wystawiona.Value).ToShortDateString</Value>
                       <Style>
                         <FontSize>9pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -1805,7 +1805,9 @@
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox60</rd:DefaultName>
@@ -1839,7 +1841,9 @@
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox60</rd:DefaultName>
@@ -1866,7 +1870,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>3.38667cm</Height>
+          <Height>3.81003cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1891,7 +1895,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox11</rd:DefaultName>
-                  <Top>0.84167cm</Top>
+                  <Top>1.45021cm</Top>
                   <Height>0.6cm</Height>
                   <Width>8.6cm</Width>
                   <Style>
@@ -1907,9 +1911,9 @@
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>0.66cm</Top>
-              <Left>9.38697cm</Left>
-              <Height>1.44167cm</Height>
-              <Width>8.6cm</Width>
+              <Left>9.37408cm</Left>
+              <Height>2.05021cm</Height>
+              <Width>8.61289cm</Width>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -1937,9 +1941,44 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox10</rd:DefaultName>
-                  <Top>0.84166cm</Top>
+                  <Top>1.4502cm</Top>
+                  <Left>0.04715cm</Left>
                   <Height>0.6cm</Height>
                   <Width>8.6cm</Width>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="sporzadzil">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=Parameters!sporzadzil.Value</Value>
+                          <Style>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>sporzadzil</rd:DefaultName>
+                  <Top>0.64502cm</Top>
+                  <Left>0.17628cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>8.47087cm</Width>
+                  <ZIndex>1</ZIndex>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -1953,9 +1992,8 @@
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>0.66001cm</Top>
-              <Left>0.06004cm</Left>
-              <Height>1.44166cm</Height>
-              <Width>8.6cm</Width>
+              <Height>2.0502cm</Height>
+              <Width>8.66004cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -1975,6 +2013,40 @@
                 </Border>
               </Style>
             </Line>
+            <Textbox Name="Textbox2">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Wycenę przygotowano w programie WektorOkna</Value>
+                      <Style>
+                        <FontSize>7pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox2</rd:DefaultName>
+              <Top>3.21003cm</Top>
+              <Left>10.20527cm</Left>
+              <Height>0.6cm</Height>
+              <Width>7.72723cm</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
           </ReportItems>
           <Style>
             <Border>
@@ -2006,6 +2078,12 @@
       <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="sporzadzil">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -2021,6 +2099,11 @@
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>wycenaNR</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>sporzadzil</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

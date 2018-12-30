@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="wycena_prt" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>Okna.print.wycena_prt, Okna, Version=1.4.6.8, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>Okna.print.wycena_prt, Okna, Version=1.4.6.9, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

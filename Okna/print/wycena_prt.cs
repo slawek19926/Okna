@@ -16,14 +16,17 @@ namespace Okna.print
 {
     public partial class wycena_prt : Form
     {
-        public wycena_prt()
+        private wycena wycena;
+        public wycena_prt(wycena wycena)
         {
+            this.wycena = wycena;
             InitializeComponent();
             reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
         }
         private void wycena_prt_Load(object sender, EventArgs e)
         {
             GetData();
+            Parameters();
             reportViewer1.RefreshReport();
             this.reportViewer1.RefreshReport();
         }
@@ -41,7 +44,15 @@ namespace Okna.print
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(rds);
             reportViewer1.LocalReport.Refresh();
+        }
 
+        void Parameters()
+        {
+            ReportParameter[] param = new ReportParameter[]
+            {
+                new ReportParameter("kwotaSlownie", wycena.slownie.Text),
+            };
+            reportViewer1.LocalReport.SetParameters(param);
         }
     }
 }

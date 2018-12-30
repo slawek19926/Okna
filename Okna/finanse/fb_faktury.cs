@@ -39,7 +39,7 @@ namespace Okna.finanse
             server = "localhost";
             uid = "SYSDBA";
             password = "masterkey";
-            database = "C:/Users/Administrator/AppData/Roaming/Faktura-NT/Bazy danych/Allegro.fdb";
+            string database = @"C:\Users\Admin\AppData\Roaming\Faktura-NT\Bazy danych\ALLEGRO2018.fdb";
             connectionString = "User=" + uid + ";Password=" + password + ";Database=" + database + ";DataSource=" + server + ";Charset=NONE;";
             FbConnection conn = new FbConnection();
             conn.ConnectionString = connectionString;
@@ -128,6 +128,15 @@ namespace Okna.finanse
         private void radioButton10_CheckedChanged(object sender, EventArgs e)
         {
             dataGridView1.Sort(dataGridView1.Columns[1], ListSortDirection.Ascending);
+        }
+
+        private void detailsFbFakt_Click(object sender, EventArgs e)
+        {
+            var reult = MessageBox.Show("Ju siur rze ales gut?", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(DialogResult == DialogResult.Yes)
+            {
+                MessageBox.Show("Narazie nie da się obejżeć szczegółów tych faktur :(", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -660,7 +660,7 @@ namespace Okna
         {
             //zapisDoBazy();
             FBConnect();
-            wycena_prt form = new wycena_prt();
+            wycena_prt form = new wycena_prt(this);
             form.Show();
         }
 

@@ -129,6 +129,7 @@ namespace Okna.print
             {
                 new ReportParameter("wystawiona", wyceny.dataGridView1.CurrentRow.Cells[4].Value.ToString()),
                 new ReportParameter("wycenaNR" ,wyceny.dataGridView1.CurrentRow.Cells[1].Value.ToString()),
+                new ReportParameter("sporzadzil",Form1.logged.Text),
             };
             reportViewer1.LocalReport.SetParameters(param);
         }

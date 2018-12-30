@@ -68,7 +68,7 @@ namespace Okna.finanse
             {
                 button2.Enabled = true;
                 button3.Enabled = true;
-                button3.Image = Image.FromFile(ico1);
+                //button3.Image = Image.FromFile(ico1);
                 button4.Enabled = true;
                 button5.Visible = false;
                 button6.Visible = true;

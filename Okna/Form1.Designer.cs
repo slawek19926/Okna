@@ -90,6 +90,7 @@
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.metroButton4 = new MetroFramework.Controls.MetroButton();
+            this.metroButton5 = new MetroFramework.Controls.MetroButton();
             this.menuStrip1.SuspendLayout();
             this.plikStrip.SuspendLayout();
             this.finanseStrip.SuspendLayout();
@@ -677,11 +678,24 @@
             this.metroButton4.UseSelectable = true;
             this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click);
             // 
+            // metroButton5
+            // 
+            this.metroButton5.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.metroButton5.Location = new System.Drawing.Point(347, 123);
+            this.metroButton5.Name = "metroButton5";
+            this.metroButton5.Size = new System.Drawing.Size(150, 150);
+            this.metroButton5.TabIndex = 19;
+            this.metroButton5.Text = "Faktury Faktura-NT";
+            this.metroButton5.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroButton5.UseSelectable = true;
+            this.metroButton5.Click += new System.EventHandler(this.metroButton5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1059, 489);
+            this.Controls.Add(this.metroButton5);
             this.Controls.Add(this.metroButton4);
             this.Controls.Add(this.metroButton3);
             this.Controls.Add(this.metroButton2);
@@ -779,6 +793,7 @@
         private MetroFramework.Controls.MetroButton metroButton2;
         private MetroFramework.Controls.MetroButton metroButton3;
         private MetroFramework.Controls.MetroButton metroButton4;
+        private MetroFramework.Controls.MetroButton metroButton5;
     }
 }
 

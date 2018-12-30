@@ -518,7 +518,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
-        private MaterialSkin.Controls.MaterialLabel slownie;
         private MaterialSkin.Controls.MaterialLabel sumaTXT;
         private MaterialSkin.Controls.MaterialLabel resztaTXT;
         public MaterialSkin.Controls.MaterialLabel klientTXT;
@@ -532,5 +531,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn wart_n;
         private System.Windows.Forms.DataGridViewTextBoxColumn wart_b;
         private System.Windows.Forms.DataGridViewTextBoxColumn Narzut;
+        public MaterialSkin.Controls.MaterialLabel slownie;
     }
 }

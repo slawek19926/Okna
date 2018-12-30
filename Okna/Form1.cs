@@ -129,12 +129,11 @@ namespace Okna
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             frmLogin f = new frmLogin();
-            var res = MetroMessageBox.Show(this, "Napewno chcesz się wylogować?", "Zakończyć?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var res = MetroMessageBox.Show(this, "Napewno chcesz zakończyć działanie aplikacji?", "Zakończyć?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
             {
                 zapis_login();
-                f.Show();
-                e.Cancel = false;
+                Environment.Exit(0);
             }
             else
             {
@@ -160,9 +159,8 @@ namespace Okna
 
         private void fbFakturyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            finanse.fb_faktury form = new finanse.fb_faktury(this);
-            //form.MdiParent = this;            //form.MdiParent = this;
-            form.Show();
+            finanse.fb_faktury frm = new finanse.fb_faktury(this);
+            frm.Show();
         }
 
         private void stwórzUżytkownikaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -252,9 +250,9 @@ namespace Okna
 
                     if(l == "0")
                     {
-                        narzędziaAdministratorToolStripMenuItem.Visible = false;
-                        rysujOknotestToolStripMenuItem.Visible = false;
-                        fbFakturyToolStripMenuItem.Visible = false;
+                        narzędziaAdministratorToolStripMenuItem.Visible = true;
+                        rysujOknotestToolStripMenuItem.Visible = true;
+                        fbFakturyToolStripMenuItem.Visible = true;
                     }
                     else
                     {
@@ -335,6 +333,12 @@ namespace Okna
         {
             okucia.katalog form = new okucia.katalog(this);
             form.Show();
+        }
+
+        private void metroButton5_Click(object sender, EventArgs e)
+        {
+            finanse.fb_faktury frm = new finanse.fb_faktury(this);
+            frm.Show();
         }
     }
 }
