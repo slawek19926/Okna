@@ -43,13 +43,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.metroButton2 = new MetroFramework.Controls.MetroButton();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.saveFB = new MetroFramework.Controls.MetroButton();
+            this.testFB = new MetroFramework.Controls.MetroButton();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.fbPass = new System.Windows.Forms.TextBox();
+            this.fbUser = new System.Windows.Forms.TextBox();
+            this.fbPath = new System.Windows.Forms.TextBox();
+            this.fbServer = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -234,13 +234,13 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.metroButton2);
-            this.tabPage5.Controls.Add(this.metroButton1);
+            this.tabPage5.Controls.Add(this.saveFB);
+            this.tabPage5.Controls.Add(this.testFB);
             this.tabPage5.Controls.Add(this.label22);
-            this.tabPage5.Controls.Add(this.textBox4);
-            this.tabPage5.Controls.Add(this.textBox3);
-            this.tabPage5.Controls.Add(this.textBox2);
-            this.tabPage5.Controls.Add(this.textBox1);
+            this.tabPage5.Controls.Add(this.fbPass);
+            this.tabPage5.Controls.Add(this.fbUser);
+            this.tabPage5.Controls.Add(this.fbPath);
+            this.tabPage5.Controls.Add(this.fbServer);
             this.tabPage5.Controls.Add(this.label21);
             this.tabPage5.Controls.Add(this.label20);
             this.tabPage5.Controls.Add(this.label19);
@@ -253,23 +253,25 @@
             this.tabPage5.Text = "Baza Danych Firebird";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // metroButton2
+            // saveFB
             // 
-            this.metroButton2.Location = new System.Drawing.Point(140, 267);
-            this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(124, 48);
-            this.metroButton2.TabIndex = 6;
-            this.metroButton2.Text = "Zapisz";
-            this.metroButton2.UseSelectable = true;
+            this.saveFB.Location = new System.Drawing.Point(140, 267);
+            this.saveFB.Name = "saveFB";
+            this.saveFB.Size = new System.Drawing.Size(124, 48);
+            this.saveFB.TabIndex = 6;
+            this.saveFB.Text = "Zapisz";
+            this.saveFB.UseSelectable = true;
+            this.saveFB.Click += new System.EventHandler(this.saveFB_Click);
             // 
-            // metroButton1
+            // testFB
             // 
-            this.metroButton1.Location = new System.Drawing.Point(10, 267);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(124, 48);
-            this.metroButton1.TabIndex = 6;
-            this.metroButton1.Text = "Testuj połączenie";
-            this.metroButton1.UseSelectable = true;
+            this.testFB.Location = new System.Drawing.Point(10, 267);
+            this.testFB.Name = "testFB";
+            this.testFB.Size = new System.Drawing.Size(124, 48);
+            this.testFB.TabIndex = 6;
+            this.testFB.Text = "Testuj połączenie";
+            this.testFB.UseSelectable = true;
+            this.testFB.Click += new System.EventHandler(this.testFB_Click);
             // 
             // label22
             // 
@@ -281,33 +283,37 @@
             this.label22.TabIndex = 5;
             this.label22.Text = "Parametry połączenia z bazą danych Firebird";
             // 
-            // textBox4
+            // fbPass
             // 
-            this.textBox4.Location = new System.Drawing.Point(140, 113);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(210, 20);
-            this.textBox4.TabIndex = 4;
+            this.fbPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.fbPass.Location = new System.Drawing.Point(140, 113);
+            this.fbPass.Name = "fbPass";
+            this.fbPass.Size = new System.Drawing.Size(414, 20);
+            this.fbPass.TabIndex = 4;
             // 
-            // textBox3
+            // fbUser
             // 
-            this.textBox3.Location = new System.Drawing.Point(140, 87);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(210, 20);
-            this.textBox3.TabIndex = 4;
+            this.fbUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.fbUser.Location = new System.Drawing.Point(140, 87);
+            this.fbUser.Name = "fbUser";
+            this.fbUser.Size = new System.Drawing.Size(414, 20);
+            this.fbUser.TabIndex = 4;
             // 
-            // textBox2
+            // fbPath
             // 
-            this.textBox2.Location = new System.Drawing.Point(140, 61);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(210, 20);
-            this.textBox2.TabIndex = 4;
+            this.fbPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.fbPath.Location = new System.Drawing.Point(140, 61);
+            this.fbPath.Name = "fbPath";
+            this.fbPath.Size = new System.Drawing.Size(414, 20);
+            this.fbPath.TabIndex = 4;
             // 
-            // textBox1
+            // fbServer
             // 
-            this.textBox1.Location = new System.Drawing.Point(140, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(210, 20);
-            this.textBox1.TabIndex = 4;
+            this.fbServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.fbServer.Location = new System.Drawing.Point(140, 35);
+            this.fbServer.Name = "fbServer";
+            this.fbServer.Size = new System.Drawing.Size(414, 20);
+            this.fbServer.TabIndex = 4;
             // 
             // label21
             // 
@@ -743,11 +749,11 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private MetroFramework.Controls.MetroButton metroButton2;
-        private MetroFramework.Controls.MetroButton metroButton1;
+        private System.Windows.Forms.TextBox fbPass;
+        private System.Windows.Forms.TextBox fbUser;
+        private System.Windows.Forms.TextBox fbPath;
+        private System.Windows.Forms.TextBox fbServer;
+        private MetroFramework.Controls.MetroButton saveFB;
+        private MetroFramework.Controls.MetroButton testFB;
     }
 }

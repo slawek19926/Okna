@@ -93,8 +93,9 @@
     <ApplicationManifest>OknaInfo.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoUpdater.NET">
-      <HintPath>..\..\..\..\source\repos\WektorOkna\Okna\bin\Debug\AutoUpdater.NET.dll</HintPath>
+    <Reference Include="AutoUpdater.NET, Version=1.4.11.0, Culture=neutral, PublicKeyToken=501435c91b35f4bc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Downloads\AutoUpdater.NET-1.4.11\AutoUpdater.NET\build\lib\net20\AutoUpdater.NET.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportAppServer.Controllers, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">

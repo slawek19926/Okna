@@ -75,7 +75,7 @@ namespace Okna
                 "when realizacja = '1' then 'Tak' " +
                 "END AS gotowe " +
                 "FROM wyceny a " +
-                "LEFT JOIN klienci b ON (a.klient = b.id) WHERE a.zamow = '0'", obj_Conn);
+                "LEFT JOIN klienci b ON (a.klient = b.id) WHERE a.zamow = '0' ORDER BY a.wyc_id", obj_Conn);
 
                 MySqlDataReader obj_Reader = obj_Cmd.ExecuteReader();
 

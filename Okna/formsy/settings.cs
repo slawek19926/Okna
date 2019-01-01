@@ -5,6 +5,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using Npgsql;
+using FirebirdSql.Data.FirebirdClient;
 
 namespace Okna.formsy
 {
@@ -13,10 +14,11 @@ namespace Okna.formsy
         public settings(Form1 Form1)
         {
             InitializeComponent();
-            WindowState = FormWindowState.Maximized;
+            WindowState = FormWindowState.Normal;
             Text = "Ustawienia";
             haslo.PasswordChar = '*';
             passP.PasswordChar = '*';
+            fbPass.PasswordChar = '*';
         }
         private string server;
         private string database;
@@ -83,6 +85,10 @@ namespace Okna.formsy
             przed2TXT.Text = MyIni.Read("przed", "faktury");
             zera2.Text = MyIni.Read("zera", "faktury");
             numerFV.Value = Convert.ToDecimal(MyIni.Read("numer", "faktury"));
+            fbServer.Text = MyIni.Read("server", "firebird");
+            fbPath.Text = MyIni.Read("dblocation", "firebird");
+            fbUser.Text = MyIni.Read("user", "firebird");
+            fbPass.Text = MyIni.Read("pass", "firebird");
         }
 
         private void testCONN_Click(object sender, EventArgs e)
@@ -189,6 +195,39 @@ namespace Okna.formsy
             MyIni.Write("numer", numerFV.Value.ToString(), "faktury");
             MessageBox.Show("Ustawienia zostały zapisane", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             settings_Load(e, e);
+        }
+
+        private void saveFB_Click(object sender, EventArgs e)
+        {
+            var MyIni = new INIFile("WektorSettings.ini");
+            MyIni.Write("server", fbServer.Text, "firebird");
+            MyIni.Write("dblocation", fbPath.Text, "firebird");
+            MyIni.Write("user", fbUser.Text, "firebird");
+            MyIni.Write("pass", Encrypt(fbPass.Text), "firebird");
+            MessageBox.Show("Ustawienia zaostały zapisane", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void testFB_Click(object sender, EventArgs e)
+        {
+            server = fbServer.Text;
+            database = fbPath.Text;
+            uid = fbUser.Text;
+            password = fbPass.Text;
+            try
+            {
+                var connectionString = String.Format("Datasource={0};Database={1};" +
+                    "User={2};Password={3};",
+                    server,database,uid,password);
+                FbConnection conn = new FbConnection(connectionString);
+                conn.Open();
+                if (conn.State == System.Data.ConnectionState.Open)
+                    MessageBox.Show("Połączenie przebiegło pomyślnie", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd połącznia z bazą danych", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

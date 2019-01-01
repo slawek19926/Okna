@@ -12,16 +12,24 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Data.SqlClient;
 using System.Data.Sql;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace Okna
 {
-    public partial class add_product : Form
+    public partial class add_product : MaterialForm
     {
+        private readonly MaterialSkinManager materialSkinManager;
         DataSet ds = new DataSet();
         private wycena wycena;
         public add_product(wycena wycena)
         {
             InitializeComponent();
+            materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+            
             this.wycena = wycena;
             Text = "Dodaj produkt";
         }
@@ -84,7 +92,7 @@ namespace Okna
             }
             ds.Tables[0].Columns[0].ColumnName = "Indeks";
             ds.Tables[0].Columns[1].ColumnName = "Nazwa";
-            dataGridView1.Columns[1].Width = 325;
+            dataGridView1.Columns[1].Width = 525;
             dataGridView1.Columns[2].DefaultCellStyle.Format = "c";
             
         }

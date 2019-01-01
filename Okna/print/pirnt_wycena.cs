@@ -58,6 +58,7 @@ namespace Okna.print
             GetDataDetails();
             GetDataCompany();
             GetClient();
+            GetUser();
             Parameters();
             reportViewer1.RefreshReport();
         }
@@ -120,6 +121,23 @@ namespace Okna.print
             da.Fill(wd, wd.Tables[0].TableName);
 
             ReportDataSource rds = new ReportDataSource("klient_det", wd.Tables[0]);
+            reportViewer1.LocalReport.DataSources.Add(rds);
+        }
+
+        void GetUser()
+        {
+            ConnSettings();
+            string user_id = Form1.logged.Text;
+
+            wyc_details wd = new wyc_details();
+            string cs = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";" + "Convert Zero Datetime = True;";
+            MySqlConnection cn = new MySqlConnection(cs);
+            MySqlDataAdapter da = new MySqlDataAdapter("SELECT a.name as name FROM uzytkownicy a " +
+                " LEFT JOIN wyceny b ON (b.user_id = a.id)" +
+                " WHERE a.username  = '" + user_id + "'", cn);
+            da.Fill(wd, wd.Tables[0].TableName);
+
+            ReportDataSource rds = new ReportDataSource("user", wd.Tables[0]);
             reportViewer1.LocalReport.DataSources.Add(rds);
         }
 

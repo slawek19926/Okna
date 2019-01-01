@@ -57,7 +57,7 @@ namespace Okna.formsy
             using (var connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                var query = "SELECT * FROM klienci";
+                var query = "SELECT * FROM klienci WHERE is_deleted = 0";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     using (var reader = command.ExecuteReader())

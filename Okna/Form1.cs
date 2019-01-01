@@ -221,6 +221,8 @@ namespace Okna
         private void Form1_Load(object sender, EventArgs e)
         {
             AutoUpdater.Start("http://stylwektor.nazwa.pl/wektorssl/version.xml");
+            AutoUpdater.ShowSkipButton = false;
+            AutoUpdater.ShowRemindLaterButton = false;
             System.Timers.Timer timer = new System.Timers.Timer
             {
                 Interval = 2 * 60 * 1000,

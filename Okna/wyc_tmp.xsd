@@ -28,6 +28,17 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="klient" msprop:Generator_TableClassName="klientDataTable" msprop:Generator_TableVarName="tableklient" msprop:Generator_RowChangedName="klientRowChanged" msprop:Generator_TablePropName="klient" msprop:Generator_RowDeletingName="klientRowDeleting" msprop:Generator_RowChangingName="klientRowChanging" msprop:Generator_RowEvHandlerName="klientRowChangeEventHandler" msprop:Generator_RowDeletedName="klientRowDeleted" msprop:Generator_RowClassName="klientRow" msprop:Generator_UserTableName="klient" msprop:Generator_RowEvArgName="klientRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nazwa" msprop:Generator_ColumnVarNameInTable="columnnazwa" msprop:Generator_ColumnPropNameInRow="nazwa" msprop:Generator_ColumnPropNameInTable="nazwaColumn" msprop:Generator_UserColumnName="nazwa" type="xs:string" minOccurs="0" />
+              <xs:element name="ulica" msprop:Generator_ColumnVarNameInTable="columnulica" msprop:Generator_ColumnPropNameInRow="ulica" msprop:Generator_ColumnPropNameInTable="ulicaColumn" msprop:Generator_UserColumnName="ulica" type="xs:string" minOccurs="0" />
+              <xs:element name="kod" msprop:Generator_ColumnVarNameInTable="columnkod" msprop:Generator_ColumnPropNameInRow="kod" msprop:Generator_ColumnPropNameInTable="kodColumn" msprop:Generator_UserColumnName="kod" type="xs:string" minOccurs="0" />
+              <xs:element name="miasto" msprop:Generator_ColumnVarNameInTable="columnmiasto" msprop:Generator_ColumnPropNameInRow="miasto" msprop:Generator_ColumnPropNameInTable="miastoColumn" msprop:Generator_UserColumnName="miasto" type="xs:string" minOccurs="0" />
+              <xs:element name="nip" msprop:Generator_ColumnVarNameInTable="columnnip" msprop:Generator_ColumnPropNameInRow="nip" msprop:Generator_ColumnPropNameInTable="nipColumn" msprop:Generator_UserColumnName="nip" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

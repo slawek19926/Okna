@@ -1,25 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.IO;
 using System.Security.Cryptography;
-using System.Data.SqlClient;
-using System.Collections;
 using MaterialSkin;
 using MaterialSkin.Controls;
-using MetroFramework;
-using PrintDataGrid;
-using Okna.TestSortWithSum;
-using System.Web.UI.WebControls;
 using Okna.print;
-using Microsoft.Reporting.WinForms;
 using FirebirdSql.Data.FirebirdClient;
 
 namespace Okna
@@ -660,7 +650,7 @@ namespace Okna
         {
             //zapisDoBazy();
             FBConnect();
-            wycena_prt form = new wycena_prt(this);
+            wycena_prt form = new wycena_prt(this,Form1);
             form.Show();
         }
 

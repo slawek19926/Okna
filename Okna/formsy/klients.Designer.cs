@@ -58,9 +58,9 @@
             // klientBOX
             // 
             this.klientBOX.FormattingEnabled = true;
-            this.klientBOX.Location = new System.Drawing.Point(40, 94);
+            this.klientBOX.Location = new System.Drawing.Point(12, 94);
             this.klientBOX.Name = "klientBOX";
-            this.klientBOX.Size = new System.Drawing.Size(198, 21);
+            this.klientBOX.Size = new System.Drawing.Size(260, 21);
             this.klientBOX.TabIndex = 3;
             // 
             // addKLIENT

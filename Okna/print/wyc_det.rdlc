@@ -139,6 +139,26 @@
         <rd:TableAdapterName />
       </rd:DataSetInfo>
     </DataSet>
+    <DataSet Name="user">
+      <Query>
+        <DataSourceName>wyc_details</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="name">
+          <DataField>name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>wyc_details</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Admin\Documents\GitHub\Okna\Okna\wyc_details.xsd</rd:SchemaPath>
+        <rd:TableName>user</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
@@ -1962,7 +1982,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=Parameters!sporzadzil.Value</Value>
+                          <Value>=First(Fields!name.Value, "user")</Value>
                           <Style>
                             <FontWeight>Bold</FontWeight>
                           </Style>
@@ -1974,15 +1994,15 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>sporzadzil</rd:DefaultName>
-                  <Top>0.64502cm</Top>
                   <Left>0.17628cm</Left>
-                  <Height>0.6cm</Height>
+                  <Height>1.24502cm</Height>
                   <Width>8.47087cm</Width>
                   <ZIndex>1</ZIndex>
                   <Style>
                     <Border>
                       <Style>None</Style>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>

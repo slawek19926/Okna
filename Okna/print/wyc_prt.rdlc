@@ -9,6 +9,13 @@
       </ConnectionProperties>
       <rd:DataSourceID>543e3d0e-3bec-4667-88ec-6d7cd512c9a1</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="wyc_details">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>c8000c1a-d166-4587-a7d0-91db80643375</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="wyc_temp">
@@ -62,6 +69,118 @@
         <rd:DataSetName>wyc_tmp</rd:DataSetName>
         <rd:SchemaPath>C:\Users\Admin\Documents\GitHub\Okna\Okna\wyc_tmp.xsd</rd:SchemaPath>
         <rd:TableName>wyc_temp</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="klient">
+      <Query>
+        <DataSourceName>wyc_tmp</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="nazwa">
+          <DataField>nazwa</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ulica">
+          <DataField>ulica</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="kod">
+          <DataField>kod</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="miasto">
+          <DataField>miasto</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="nip">
+          <DataField>nip</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>wyc_tmp</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Admin\Documents\GitHub\Okna\Okna\wyc_tmp.xsd</rd:SchemaPath>
+        <rd:TableName>klient</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="firma_det">
+      <Query>
+        <DataSourceName>wyc_details</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="nazwa">
+          <DataField>nazwa</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ulica">
+          <DataField>ulica</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="nr">
+          <DataField>nr</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="kod">
+          <DataField>kod</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="miasto">
+          <DataField>miasto</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="nip">
+          <DataField>nip</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="bank_pl">
+          <DataField>bank_pl</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="konto_pl">
+          <DataField>konto_pl</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="bank_eur">
+          <DataField>bank_eur</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="konto_eur">
+          <DataField>konto_eur</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>wyc_details</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Admin\Documents\GitHub\Okna\Okna\wyc_details.xsd</rd:SchemaPath>
+        <rd:TableName>firma_det</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="user">
+      <Query>
+        <DataSourceName>wyc_details</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="name">
+          <DataField>name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>wyc_details</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Admin\Documents\GitHub\Okna\Okna\wyc_details.xsd</rd:SchemaPath>
+        <rd:TableName>user</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />
@@ -1042,40 +1161,269 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>3.19791in</Height>
+        <Height>2.39583in</Height>
         <Style />
       </Body>
-      <Width>18.25645cm</Width>
+      <Width>18.56995cm</Width>
       <Page>
         <PageHeader>
-          <Height>6.98501cm</Height>
+          <Height>7.76703cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
+            <Rectangle Name="Rectangle5">
+              <KeepTogether>true</KeepTogether>
+              <Top>4.1009cm</Top>
+              <Left>0.17628cm</Left>
+              <Height>1.65834cm</Height>
+              <Width>17.92693cm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <BackgroundColor>LightGrey</BackgroundColor>
+              </Style>
+            </Rectangle>
             <Rectangle Name="Rectangle1">
               <ReportItems>
-                <Textbox Name="Textbox7">
+                <Textbox Name="Textbox76">
                   <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Pieczęć i nagłówek firmy</Value>
+                          <Value>Dostawca:</Value>
                           <Style>
                             <FontSize>9pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
                       </TextRuns>
-                      <Style>
-                        <TextAlign>Center</TextAlign>
-                      </Style>
+                      <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <rd:DefaultName>Textbox7</rd:DefaultName>
-                  <Top>1.82063cm</Top>
+                  <rd:DefaultName>Textbox76</rd:DefaultName>
+                  <Top>0.23948cm</Top>
+                  <Left>0.21131cm</Left>
                   <Height>0.6cm</Height>
-                  <Width>8.6cm</Width>
+                  <Width>1.94437cm</Width>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="nazwa2">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!nazwa.Value, "firma_det")</Value>
+                          <Style>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>nazwa</rd:DefaultName>
+                  <Top>0.23948cm</Top>
+                  <Left>2.15568cm</Left>
+                  <Height>1.2cm</Height>
+                  <Width>6.23302cm</Width>
+                  <ZIndex>1</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="Textbox78">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>Adres:</Value>
+                          <Style />
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox78</rd:DefaultName>
+                  <Top>1.43948cm</Top>
+                  <Left>0.21131cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>1.94437cm</Width>
+                  <ZIndex>2</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="ulica">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!ulica.Value, "firma_det")</Value>
+                          <Style />
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>ulica</rd:DefaultName>
+                  <Top>1.43948cm</Top>
+                  <Left>2.15568cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>6.23302cm</Width>
+                  <ZIndex>3</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="kod">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!kod.Value, "firma_det")</Value>
+                          <Style />
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>kod</rd:DefaultName>
+                  <Top>2.03948cm</Top>
+                  <Left>2.15568cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>1.33583cm</Width>
+                  <ZIndex>4</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="miasto">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!miasto.Value, "firma_det")</Value>
+                          <Style />
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>miasto</rd:DefaultName>
+                  <Top>2.03948cm</Top>
+                  <Left>3.49151cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>4.89718cm</Width>
+                  <ZIndex>5</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="Textbox82">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>NIP:</Value>
+                          <Style>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox82</rd:DefaultName>
+                  <Top>2.63948cm</Top>
+                  <Left>0.21131cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>1.94437cm</Width>
+                  <ZIndex>6</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="nip">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!nip.Value, "firma_det")</Value>
+                          <Style>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>nip</rd:DefaultName>
+                  <Top>2.63948cm</Top>
+                  <Left>2.15568cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>6.23302cm</Width>
+                  <ZIndex>7</ZIndex>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -1088,10 +1436,11 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0.55745cm</Top>
-              <Left>0.10893cm</Left>
-              <Height>2.42063cm</Height>
+              <Top>0.11832cm</Top>
+              <Left>0.17628cm</Left>
+              <Height>3.47896cm</Height>
               <Width>8.6cm</Width>
+              <ZIndex>1</ZIndex>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -1100,28 +1449,28 @@
             </Rectangle>
             <Rectangle Name="Rectangle2">
               <ReportItems>
-                <Textbox Name="Textbox8">
+                <Textbox Name="Textbox77">
                   <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Klient</Value>
+                          <Value>Odbiorca:</Value>
                           <Style>
                             <FontSize>9pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
                       </TextRuns>
-                      <Style>
-                        <TextAlign>Center</TextAlign>
-                      </Style>
+                      <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <rd:DefaultName>Textbox8</rd:DefaultName>
-                  <Top>1.82063cm</Top>
+                  <rd:DefaultName>Textbox76</rd:DefaultName>
+                  <Top>0.25908cm</Top>
+                  <Left>0.2422cm</Left>
                   <Height>0.6cm</Height>
-                  <Width>8.6cm</Width>
+                  <Width>1.94437cm</Width>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -1132,35 +1481,216 @@
                     <PaddingBottom>2pt</PaddingBottom>
                   </Style>
                 </Textbox>
-                <Textbox Name="klient_text">
+                <Textbox Name="nazwa3">
                   <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=First(Fields!klient_text.Value, "wyc_temp")</Value>
+                          <Value>=First(Fields!nazwa.Value, "klient")</Value>
                           <Style>
-                            <FontSize>12pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
                       </TextRuns>
-                      <Style>
-                        <TextAlign>Center</TextAlign>
-                      </Style>
+                      <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <rd:DefaultName>klient_text</rd:DefaultName>
-                  <Left>0.01186cm</Left>
-                  <Height>1.75007cm</Height>
-                  <Width>8.54656cm</Width>
+                  <rd:DefaultName>nazwa</rd:DefaultName>
+                  <Top>0.25908cm</Top>
+                  <Left>2.18657cm</Left>
+                  <Height>1.1608cm</Height>
+                  <Width>6.23302cm</Width>
                   <ZIndex>1</ZIndex>
                   <Style>
                     <Border>
                       <Style>None</Style>
                     </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="Textbox79">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>Adres:</Value>
+                          <Style />
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox78</rd:DefaultName>
+                  <Top>1.41988cm</Top>
+                  <Left>0.2422cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>1.94437cm</Width>
+                  <ZIndex>2</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="ulica2">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!ulica.Value, "klient")</Value>
+                          <Style />
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>ulica</rd:DefaultName>
+                  <Top>1.41988cm</Top>
+                  <Left>2.18657cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>6.23302cm</Width>
+                  <ZIndex>3</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="kod2">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!kod.Value, "klient")</Value>
+                          <Style />
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>kod</rd:DefaultName>
+                  <Top>2.01988cm</Top>
+                  <Left>2.18657cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>1.33583cm</Width>
+                  <ZIndex>4</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="miasto2">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!miasto.Value, "klient")</Value>
+                          <Style />
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>miasto</rd:DefaultName>
+                  <Top>2.01988cm</Top>
+                  <Left>3.5224cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>4.89718cm</Width>
+                  <ZIndex>5</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="Textbox83">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>NIP:</Value>
+                          <Style>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox82</rd:DefaultName>
+                  <Top>2.61988cm</Top>
+                  <Left>0.2422cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>1.94437cm</Width>
+                  <ZIndex>6</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="nip2">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!nip.Value, "klient")</Value>
+                          <Style>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>nip</rd:DefaultName>
+                  <Top>2.61988cm</Top>
+                  <Left>2.18657cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>6.23302cm</Width>
+                  <ZIndex>7</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
@@ -1169,11 +1699,11 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0.55745cm</Top>
-              <Left>9.43586cm</Left>
-              <Height>2.42063cm</Height>
-              <Width>8.6cm</Width>
-              <ZIndex>1</ZIndex>
+              <Top>0.11832cm</Top>
+              <Left>9.37408cm</Left>
+              <Height>3.47896cm</Height>
+              <Width>8.66178cm</Width>
+              <ZIndex>2</ZIndex>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -1200,11 +1730,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox9</rd:DefaultName>
-              <Top>3.85369cm</Top>
+              <Top>4.63007cm</Top>
               <Left>5.31647cm</Left>
               <Height>0.6cm</Height>
               <Width>2.47165cm</Width>
-              <ZIndex>2</ZIndex>
+              <ZIndex>3</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1216,11 +1746,11 @@
               </Style>
             </Textbox>
             <Line Name="Line1">
-              <Top>3.32452cm</Top>
-              <Left>0.06735cm</Left>
+              <Top>4.1009cm</Top>
+              <Left>0.17628cm</Left>
               <Height>0cm</Height>
               <Width>17.92693cm</Width>
-              <ZIndex>3</ZIndex>
+              <ZIndex>4</ZIndex>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -1228,11 +1758,11 @@
               </Style>
             </Line>
             <Line Name="Line2">
-              <Top>4.98286cm</Top>
+              <Top>5.75924cm</Top>
               <Left>0.17628cm</Left>
               <Height>0cm</Height>
               <Width>17.92693cm</Width>
-              <ZIndex>4</ZIndex>
+              <ZIndex>5</ZIndex>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -1257,11 +1787,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
-              <Top>5.15925cm</Top>
+              <Top>5.93563cm</Top>
               <Left>0.17628cm</Left>
               <Height>0.6cm</Height>
               <Width>5.77329cm</Width>
-              <ZIndex>5</ZIndex>
+              <ZIndex>6</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1290,11 +1820,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox14</rd:DefaultName>
-              <Top>5.93563cm</Top>
+              <Top>6.71201cm</Top>
               <Left>0.17628cm</Left>
               <Height>0.6cm</Height>
               <Width>5.77329cm</Width>
-              <ZIndex>6</ZIndex>
+              <ZIndex>7</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1306,11 +1836,11 @@
               </Style>
             </Textbox>
             <Line Name="Line3">
-              <Top>6.71202cm</Top>
+              <Top>7.4884cm</Top>
               <Left>0.17628cm</Left>
               <Height>0cm</Height>
               <Width>17.92693cm</Width>
-              <ZIndex>7</ZIndex>
+              <ZIndex>8</ZIndex>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -1335,11 +1865,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
-              <Top>5.15925cm</Top>
+              <Top>5.93563cm</Top>
               <Left>7.78811cm</Left>
               <Height>0.6cm</Height>
               <Width>2.5cm</Width>
-              <ZIndex>8</ZIndex>
+              <ZIndex>9</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1368,11 +1898,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>wyc_nr</rd:DefaultName>
-              <Top>3.85369cm</Top>
+              <Top>4.63007cm</Top>
               <Left>7.78812cm</Left>
               <Height>0.6cm</Height>
               <Width>5.87412cm</Width>
-              <ZIndex>9</ZIndex>
+              <ZIndex>10</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1402,11 +1932,45 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox60</rd:DefaultName>
-              <Top>5.15925cm</Top>
+              <Top>5.93563cm</Top>
               <Left>5.94957cm</Left>
               <Height>0.6cm</Height>
               <Width>1.83855cm</Width>
-              <ZIndex>10</ZIndex>
+              <ZIndex>11</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox61">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=CDate(Globals!ExecutionTime).AddDays(7)</Value>
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                        <Format>dd.MM.yyyy</Format>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox60</rd:DefaultName>
+              <Top>6.71201cm</Top>
+              <Left>5.94957cm</Left>
+              <Height>0.6cm</Height>
+              <Width>1.83855cm</Width>
+              <ZIndex>12</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1450,7 +2014,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox11</rd:DefaultName>
-                  <Top>0.84167cm</Top>
+                  <Top>1.45021cm</Top>
                   <Height>0.6cm</Height>
                   <Width>8.6cm</Width>
                   <Style>
@@ -1467,8 +2031,8 @@
               <KeepTogether>true</KeepTogether>
               <Top>0.71118cm</Top>
               <Left>9.43586cm</Left>
-              <Height>1.44167cm</Height>
-              <Width>8.6cm</Width>
+              <Height>2.05021cm</Height>
+              <Width>8.61289cm</Width>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -1496,7 +2060,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox10</rd:DefaultName>
-                  <Top>0.84166cm</Top>
+                  <Top>1.4502cm</Top>
                   <Height>0.6cm</Height>
                   <Width>8.6cm</Width>
                   <Style>
@@ -1509,12 +2073,46 @@
                     <PaddingBottom>2pt</PaddingBottom>
                   </Style>
                 </Textbox>
+                <Textbox Name="name">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!name.Value, "user")</Value>
+                          <Style>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>name</rd:DefaultName>
+                  <Left>0.06735cm</Left>
+                  <Height>1.37904cm</Height>
+                  <Width>8.53265cm</Width>
+                  <ZIndex>1</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>0.71119cm</Top>
               <Left>0.10893cm</Left>
-              <Height>1.44166cm</Height>
-              <Width>8.6cm</Width>
+              <Height>2.05021cm</Height>
+              <Width>8.61289cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
