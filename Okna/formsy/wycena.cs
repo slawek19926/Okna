@@ -587,7 +587,7 @@ namespace Okna
                         cmd.Parameters.AddWithValue("@cena", row.Cells[4].Value.ToString().Replace("zł", "").Replace(",", "."));
                         cmd.Parameters.AddWithValue("@data", DateTime.Now);
                         cmd.Parameters.AddWithValue("@kwota", sumaTXT.Text.Replace("zł", "").Replace(",", "."));
-                        cmd.CommandText = $"INSERT IGNORE INTO wyceny (nrw,user_id,wycena_user,numer,klient,kwota,data) VALUES (@id,'{id_user}','{nr}','{wycena_nr.Text}',(SELECT id FROM klienci WHERE nazwa = '{klientTXT.Text}'),@kwota,@data); " +
+                        cmd.CommandText = $"INSERT IGNORE INTO wyceny (wyc_id,user_id,wycena_user,numer,klient,kwota,data) VALUES (@id,'{id_user}','{nr}','{wycena_nr.Text}',(SELECT id FROM klienci WHERE nazwa = '{klientTXT.Text}'),@kwota,@data); " +
                             $"INSERT INTO wyceny_detail (id,user_id,wycena_user,id_product,id_klient,rabat,ilosc,cena) VALUES (@id,'{id_user}','{nr}',(SELECT id FROM cenniki WHERE reference = @indeks),(SELECT id FROM klienci WHERE nazwa ='{klientTXT.Text}'),@rabat,@ilosc,@cena);" +
                             $"UPDATE uzytkownicy SET wycena = '{str}' WHERE username = '{klient}';";
                         connection.Open();
