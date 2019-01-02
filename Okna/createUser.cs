@@ -80,7 +80,7 @@ namespace Okna
             try
             {
                 var command = conn.CreateCommand();
-                command.CommandText = "INSERT INTO uzytkownicy (username, password,allowed) VALUES ('" + loginName.Text + "','" + password.Text + "','1')";
+                command.CommandText = "INSERT INTO uzytkownicy (username, password,allowed) VALUES ('" + loginName.Text + "',MD5('" + password.Text + "'),1)";
                 conn.Open();
                 command.ExecuteNonQuery();
 
